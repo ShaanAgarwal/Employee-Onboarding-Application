@@ -5,8 +5,14 @@ const colors = require("colors");
 const cors = require("cors");
 const morgan = require("morgan");
 
+// Importing Mongoose
+const { connectDB } = require("./config/db");
+
 // DOTENV Config
 dotenv.config();
+
+// MongoDB Connection
+connectDB();
 
 // Rest Objects
 const app = express();

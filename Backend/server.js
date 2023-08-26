@@ -8,6 +8,7 @@ const multer = require('multer');
 const path = require('path');
 const bodyParser = require('body-parser');
 const formRoutes = require('./routes/formRoutes');
+const authRoutes = require('./routes/authRoutes');
 
 // Importing Mongoose
 const { connectDB } = require("./config/db");
@@ -29,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.use('/api', formRoutes);
+app.use('/api/auth', authRoutes);
 
 // Port
 const PORT = process.env.PORT || 8080;

@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const Candidate = require('../models/candidateSchema');
 
 // Handle file upload
 const uploadFile = (req, res, next) => {
@@ -31,9 +32,15 @@ const uploadFile = (req, res, next) => {
 const submitForm = async (req, res) => {
   try {
     const { name, email } = req.body;
-    const resumeFilePath = req.filePath; // Access the uploaded file path here
+    const resumeFilePath = req.filePath;
 
-    // Process the form data here and perform database operations if needed
+    // Store candidate data in the database
+    const candidate = new Candidate({
+      name,
+      email,
+      resumePath: resumeFilePath,
+    });
+    await candidate.save();
 
     res.json({ message: 'Form submitted successfully' });
   } catch (error) {

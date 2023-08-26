@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import AdminDashboard from './AdminDashboard';
 
 const Dashboard = () => {
   const userRole = localStorage.getItem('userRole'); // Get the user's role from local storage
@@ -39,8 +40,4 @@ const CandidateDashboard = () => {
 
 const HRDashboard = () => {
   return <div>HR Dashboard Content</div>;
-};
-
-const AdminDashboard = () => {
-  return <div>Admin Dashboard Content</div>;
 };

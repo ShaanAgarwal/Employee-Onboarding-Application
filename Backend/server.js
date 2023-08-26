@@ -9,6 +9,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const formRoutes = require('./routes/formRoutes');
 const authRoutes = require('./routes/authRoutes');
+const adminRoutes = require('./routes/adminRoutes');
 
 // Importing Mongoose
 const { connectDB } = require("./config/db");
@@ -31,6 +32,7 @@ app.use(bodyParser.json());
 
 app.use('/api', formRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api/admin', adminRoutes); // Use the adminRoutes under the /api/admin namespace
 
 // Port
 const PORT = process.env.PORT || 8080;

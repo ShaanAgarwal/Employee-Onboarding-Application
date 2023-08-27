@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import AdminDashboard from './AdminDashboard';
-import CandidateDashboard from './CandidateDashboard';
 import HRDashboard from './HRDashboard';
+import CandidatePage from '../pages/CandidatePage';
 
 const Dashboard = () => {
   const userRole = localStorage.getItem('userRole'); // Get the user's role from local storage
@@ -10,7 +10,7 @@ const Dashboard = () => {
   const renderDashboardContent = () => {
     switch (userRole) {
       case 'candidate':
-        return <CandidateDashboard />;
+        return <CandidatePage />;
       case 'hr':
         return <HRDashboard />;
       case 'admin':

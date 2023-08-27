@@ -3,18 +3,18 @@ import axios from 'axios';
 
 const AdminDashboard = () => {
   const [candidates, setCandidates] = useState([]);
-  const [hrs, setHRs] = useState([]); // State to store HR users
+  const [hrs, setHRs] = useState([]);
   const [selectedHR, setSelectedHR] = useState('');
   const [rounds, setRounds] = useState(1);
 
   useEffect(() => {
     fetchCandidates();
-    fetchHRs(); // Fetch HR users
+    fetchHRs();
   }, []);
 
   const fetchCandidates = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/auth/admin/getCandidates'); // Create an admin route for fetching candidates
+      const response = await axios.get('http://localhost:8080/api/admin/getCandidates');
       setCandidates(response.data);
     } catch (error) {
       console.error(error);
@@ -23,7 +23,7 @@ const AdminDashboard = () => {
 
   const fetchHRs = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/auth/admin/getHRs'); // Create an admin route for fetching HR users
+      const response = await axios.get('http://localhost:8080/api/admin/getHRs');
       setHRs(response.data);
     } catch (error) {
       console.error(error);
@@ -33,7 +33,7 @@ const AdminDashboard = () => {
   const handleAssignHR = async (userId) => {
     try {
       await axios.post(`http://localhost:8080/api/admin/assign-hr/${userId}`, { hrId: selectedHR });
-      fetchCandidates(); // Refresh the candidate list
+      fetchCandidates();
     } catch (error) {
       console.error(error);
     }
@@ -42,7 +42,7 @@ const AdminDashboard = () => {
   const handleUpdateRounds = async (userId) => {
     try {
       await axios.post(`http://localhost:8080/api/admin/update-rounds/${userId}`, { rounds });
-      fetchCandidates(); // Refresh the candidate list
+      fetchCandidates();
     } catch (error) {
       console.error(error);
     }

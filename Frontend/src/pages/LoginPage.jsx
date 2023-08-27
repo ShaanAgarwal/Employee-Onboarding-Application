@@ -15,9 +15,8 @@ const LoginPage = () => {
       });
 
       if (response.data.role) {
-        // Successful login, store the role in local storage or state
         localStorage.setItem('userRole', response.data.role);
-        navigate('/dashboard'); // Redirect to the candidates page
+        navigate('/dashboard');
       } else {
         // Failed login, show an error message or handle as needed
       }

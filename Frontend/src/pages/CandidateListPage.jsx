@@ -10,7 +10,7 @@ const CandidateListPage = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/getCandidates');
+      const response = await axios.get('http://localhost:8080/api/form/getCandidates');
       setCandidates(response.data);
     } catch (error) {
       console.error(error);
@@ -19,7 +19,7 @@ const CandidateListPage = () => {
 
   const handleAccept = async (candidateId) => {
     try {
-      await axios.post(`http://localhost:8080/api/accept/${candidateId}`);
+      await axios.post(`http://localhost:8080/api/form/accept/${candidateId}`);
       fetchData(); // Refresh candidate list
     } catch (error) {
       console.error(error);
@@ -28,7 +28,7 @@ const CandidateListPage = () => {
 
   const handleReject = async (candidateId) => {
     try {
-      await axios.post(`http://localhost:8080/api/reject/${candidateId}`);
+      await axios.post(`http://localhost:8080/api/form/reject/${candidateId}`);
       fetchData(); // Refresh candidate list
     } catch (error) {
       console.error(error);
@@ -36,7 +36,7 @@ const CandidateListPage = () => {
   };
 
   const generateResumeDownloadLink = (candidateId, resumePath) => {
-    const downloadUrl = `http://localhost:8080/api/download/${candidateId}/${encodeURIComponent(resumePath)}`;
+    const downloadUrl = `http://localhost:8080/api/form/download/${candidateId}/${encodeURIComponent(resumePath)}`;
     return downloadUrl;
   };
 

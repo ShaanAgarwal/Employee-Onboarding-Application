@@ -27,7 +27,7 @@ const HomePage = () => {
     formData.append('resume', resume);
 
     try {
-      const response = await axios.post('http://localhost:8080/api/submit', formData, {
+      const response = await axios.post('http://localhost:8080/api/form/submit', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

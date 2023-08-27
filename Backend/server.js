@@ -30,7 +30,7 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/api', formRoutes);
+app.use('/api/form', formRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes); // Use the adminRoutes under the /api/admin namespace
 

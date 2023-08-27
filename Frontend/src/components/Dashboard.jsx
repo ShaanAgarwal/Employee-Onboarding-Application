@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import AdminDashboard from './AdminDashboard';
+import CandidateDashboard from './CandidateDashboard';
+import HRDashboard from './HRDashboard';
 
 const Dashboard = () => {
   const userRole = localStorage.getItem('userRole'); // Get the user's role from local storage
-
-  useEffect(() => {
-    // You can add any role-specific logic or effects here
-  }, [userRole]);
 
   const renderDashboardContent = () => {
     switch (userRole) {
@@ -32,12 +30,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-// Placeholder components for different roles
-const CandidateDashboard = () => {
-  return <div>Candidate Dashboard Content</div>;
-};
-
-const HRDashboard = () => {
-  return <div>HR Dashboard Content</div>;
-};

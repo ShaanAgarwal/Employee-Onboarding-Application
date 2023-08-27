@@ -5,20 +5,9 @@ const User = require('../models/userSchema'); // Assuming you have a User schema
 const register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
-    console.log(req.body);
-
-    // Hash the password using bcrypt
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newUser = new User({
-      name,
-      email,
-      password: hashedPassword, // Store the hashed password
-      role,
-    });
-
+    const newUser = new User({ name, email, password: hashedPassword, role });
     await newUser.save();
-
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
     console.error(error);
@@ -26,7 +15,6 @@ const register = async (req, res) => {
   }
 };
 
-// Controller function to handle user login
 const login = async (req, res) => {
   const { email, password } = req.body;
   try {

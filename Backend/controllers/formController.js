@@ -76,7 +76,8 @@ const acceptCandidate = async (req, res) => {
     const randomPassword = generateRandomPassword();
     const hashedPassword = await bcrypt.hash(randomPassword, 10);
     const newUser = new User({
-      username: candidate.email,
+      name: candidate.name,
+      email: candidate.email,
       password: hashedPassword,
       role: 'candidate'
     });
@@ -92,7 +93,7 @@ const acceptCandidate = async (req, res) => {
       from: 'shaanagarwal1942003@gmail.com',
       to: candidate.email,
       subject: 'Congratulations! Your Application is Accepted',
-      text: `Dear ${candidate.name},\n\nWe are pleased to inform you that your application has been accepted. Congratulations!\n\nYour login credentials are:\nUsername: ${candidate.email}\nPassword: ${randomPassword}\n\nBest regards,\nThe Hiring Team`,
+      text: `Dear ${candidate.name},\n\nWe are pleased to inform you that your application has been accepted. Congratulations!\n\nYour login credentials are:\nEmail: ${candidate.email}\nPassword: ${randomPassword}\n\nBest regards,\nThe Hiring Team`,
     };
     await transporter.sendMail(mailOptions);
     await Candidate.findOneAndDelete(candidateId);

@@ -56,13 +56,13 @@ const AdminDashboard = () => {
         <ul>
           {candidates.map((candidate) => (
             <li key={candidate._id}>
-              <p>Name: {candidate.username}</p>
-              <p>Assigned HR: {candidate.assignedHR ? candidate.assignedHR.username : 'Not Assigned'}</p>
+              <p>Name: {candidate.name}</p>
+              <p>Assigned HR: {candidate.assignedHR ? candidate.assignedHR.name : 'Not Assigned'}</p>
               <p>Interview Rounds: {candidate.rounds}</p>
               <select value={selectedHR} onChange={(e) => setSelectedHR(e.target.value)}>
                 <option value="">Select HR</option>
                 {hrs.map((hr) => (
-                  <option key={hr._id} value={hr._id}>{hr.username}</option>
+                  <option key={hr._id} value={hr._id}>{hr.name}</option>
                 ))}
               </select>
               <button onClick={() => handleAssignHR(candidate._id)}>Assign HR</button>

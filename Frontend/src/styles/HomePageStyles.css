@@ -1,0 +1,26 @@
+/* HomePage.css */
+.home-page {
+    text-align: center;
+    padding: 20px;
+}
+
+.button {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    border: 2px solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.apply-button {
+    background-color: #2196F3;
+    color: white;
+}
+
+.register-button {
+    background-color: #4CAF50;
+    color: white;
+}

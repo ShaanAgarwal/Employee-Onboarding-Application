@@ -3,8 +3,8 @@ const User = require('../models/userSchema');
 const getCandidates = async (req, res) => {
     try {
         const candidates = await User.find({ role: 'candidate' })
-            .populate('assignedHR', 'username')
-            .select('username assignedHR rounds');
+            .populate('assignedHR', 'name')
+            .select('name assignedHR rounds');
         res.json(candidates);
     } catch (error) {
         console.error(error);
@@ -14,7 +14,7 @@ const getCandidates = async (req, res) => {
 
 const getHRs = async (req, res) => {
     try {
-        const hrs = await User.find({ role: 'hr' }).select('username');
+        const hrs = await User.find({ role: 'hr' }).select('name');
         res.json(hrs);
     } catch (error) {
         console.error(error);

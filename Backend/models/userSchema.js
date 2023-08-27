@@ -10,8 +10,10 @@ const interviewRoundSchema = new mongoose.Schema({
 });
 
 const userSchema = new mongoose.Schema({
-  username: { type: String, required: true, unique: true },
+  name: { type: String, required: true},
+  email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  requiresPasswordChange: { type: Boolean, default: true },
   role: {
     type: String,
     enum: ['candidate', 'hr', 'admin'],

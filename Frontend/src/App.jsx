@@ -7,6 +7,7 @@ import Dashboard from "./components/Dashboard";
 import ApplicationPage from './pages/ApplicationPage';
 import ApplicationResponse from './pages/ApplicationResponse';
 import RegisterPage from './pages/RegisterPage';
+import CandidateHRAssignment from './components/CandidateHRAssignment';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/applicationresponse" element={<ApplicationResponse />} />
           <Route path="/candidates" element={<CandidateListPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/assignHRToCandidate" element={<CandidateHRAssignment />} />
         </Routes>
       </BrowserRouter>
     </>

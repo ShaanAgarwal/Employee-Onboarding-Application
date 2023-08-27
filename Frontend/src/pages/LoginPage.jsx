@@ -18,7 +18,8 @@ const LoginPage = () => {
         localStorage.setItem('userRole', response.data.role);
         navigate('/dashboard');
       } else {
-        // Failed login, show an error message or handle as needed
+        console.log("Login Failed. Please Try Again");
+        navigate('/');
       }
     } catch (error) {
       console.error(error);

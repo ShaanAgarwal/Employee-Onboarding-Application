@@ -1,5 +1,18 @@
 const User = require('../models/userSchema');
 
+const getAdminDetails = async (req, res) => {
+    try {
+        const email = req.query.email;
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: "User not found." });
+        };
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ message: "An error occurred while fetching user details." });
+    }
+};
+
 const getCandidates = async (req, res) => {
     try {
         const candidates = await User.find({ role: 'candidate' })
@@ -46,4 +59,4 @@ const updateRounds = async (req, res) => {
     }
 };
 
-module.exports = { getCandidates, getHRs, assignHr, updateRounds }
+module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds }

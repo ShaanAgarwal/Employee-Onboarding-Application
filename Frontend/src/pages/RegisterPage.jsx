@@ -22,9 +22,9 @@ const RegisterPage = () => {
                 role
             });
             navigate("/");
-            console.log(response.data); // Handle success response
+            console.log(response.data);
         } catch (error) {
-            console.error(error); // Handle error
+            console.error(error);
         }
     };
 

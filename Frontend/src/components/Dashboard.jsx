@@ -5,7 +5,7 @@ import HRDashboard from './HRDashboard';
 import CandidatePage from '../pages/CandidatePage';
 
 const Dashboard = () => {
-  const userRole = localStorage.getItem('userRole'); // Get the user's role from local storage
+  const userRole = localStorage.getItem('userRole');
 
   const renderDashboardContent = () => {
     switch (userRole) {

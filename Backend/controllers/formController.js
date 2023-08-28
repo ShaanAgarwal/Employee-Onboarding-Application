@@ -9,19 +9,19 @@ const uploadFile = (req, res, next) => {
   try {
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
-    }
+    };
     const { name } = req.body;
-    const candidateName = name.replace(/\s+/g, '_'); // Replace spaces with underscores
+    const candidateName = name.replace(/\s+/g, '_');
     const candidatePath = path.join(__dirname, '../uploads', 'resume', candidateName);
     fs.mkdirSync(candidatePath, { recursive: true });
     const filePath = path.join(candidatePath, req.file.originalname);
     fs.writeFileSync(filePath, req.file.buffer);
-    req.filePath = filePath; // Save the file path for further processing
+    req.filePath = filePath;
     next();
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred while uploading the file' });
-  }
+  };
 };
 
 const submitForm = async (req, res) => {
@@ -38,7 +38,7 @@ const submitForm = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
-  }
+  };
 };
 
 const getCandidates = async (req, res) => {
@@ -48,7 +48,7 @@ const getCandidates = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
-  }
+  };
 };
 
 const downloadResume = async (req, res) => {
@@ -57,13 +57,13 @@ const downloadResume = async (req, res) => {
     const candidate = await Candidate.findById(candidateId);
     if (!candidate) {
       return res.status(404).json({ error: 'Candidate not found' });
-    }
+    };
     const resumePath = candidate.resumePath;
     res.download(resumePath, candidate.name + '_resume.pdf');
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred while downloading the resume' });
-  }
+  };
 };
 
 const acceptCandidate = async (req, res) => {
@@ -72,7 +72,7 @@ const acceptCandidate = async (req, res) => {
     const candidate = await Candidate.findById(candidateId);
     if (!candidate) {
       return res.status(404).json({ error: 'Candidate not found' });
-    }
+    };
     const randomPassword = generateRandomPassword();
     const hashedPassword = await bcrypt.hash(randomPassword, 10);
     const newUser = new User({
@@ -102,7 +102,7 @@ const acceptCandidate = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
-  }
+  };
 };
 
 function generateRandomPassword() {
@@ -111,9 +111,9 @@ function generateRandomPassword() {
   for (let i = 0; i < 10; i++) {
     const randomIndex = Math.floor(Math.random() * charset.length);
     password += charset[randomIndex];
-  }
+  };
   return password;
-}
+};
 
 const rejectCandidate = async (req, res) => {
   try {
@@ -121,7 +121,7 @@ const rejectCandidate = async (req, res) => {
     const candidate = await Candidate.findById(candidateId);
     if (!candidate) {
       return res.status(404).json({ error: 'Candidate not found' });
-    }
+    };
     candidate.status = 'rejected';
     await candidate.save();
     const transporter = nodemailer.createTransport({
@@ -143,7 +143,7 @@ const rejectCandidate = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
-  }
+  };
 };
 
 module.exports = { uploadFile, submitForm, getCandidates, downloadResume, acceptCandidate, rejectCandidate };

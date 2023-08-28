@@ -20,7 +20,7 @@ const CandidateListPage = () => {
   const handleAccept = async (candidateId) => {
     try {
       await axios.post(`http://localhost:8080/api/form/accept/${candidateId}`);
-      fetchData(); // Refresh candidate list
+      fetchData();
     } catch (error) {
       console.error(error);
     }
@@ -29,7 +29,7 @@ const CandidateListPage = () => {
   const handleReject = async (candidateId) => {
     try {
       await axios.post(`http://localhost:8080/api/form/reject/${candidateId}`);
-      fetchData(); // Refresh candidate list
+      fetchData();
     } catch (error) {
       console.error(error);
     }

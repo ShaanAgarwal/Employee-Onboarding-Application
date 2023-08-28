@@ -1,4 +1,5 @@
 const User = require("../models/userSchema");
+const nodemailer = require("nodemailer");
 
 const getHRDetails = async (req, res) => {
     try {
@@ -59,4 +60,47 @@ const updateRoundDetails = async (req, res) => {
     };
 };
 
-module.exports = { getHRDetails, getCandidates, getCandidateDetails, updateRoundDetails };
+const acceptCandidate = async (req, res) => {
+    try {
+        const roundId = req.params.roundId;
+        await User.updateOne({ "interviewRounds._id": roundId }, { $inc: { currentRound: 1 } });
+        res.json({ message: "Round accepted" });
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error" });
+    };
+};
+
+const rejectCandidate = async (req, res) => {
+    try {
+        const roundId = req.params.roundId;
+        const candidate = await User.findOne({ "interviewRounds._id": roundId });
+        if (!candidate) {
+            return res.status(404).json({ message: "Candidate not found" });
+        }
+        const round = candidate.interviewRounds.find(round => round._id.toString() === roundId);
+        if (!round) {
+            return res.status(404).json({ message: "Round not found" });
+        }
+        const candidateEmail = candidate.email;
+        const transporter = nodemailer.createTransport({
+            service: "Gmail",
+            auth: {
+                user: "shaanagarwal1942003@gmail.com",
+                pass: "ddkwxstrydyfitey",
+            },
+        });
+        const mailOptions = {
+            from: "shaanagarwal1942003@gmail.com",
+            to: candidateEmail,
+            subject: "Interview Round Rejected",
+            text: "Unfortunately, your interview round has been rejected.",
+        };
+        await transporter.sendMail(mailOptions);
+        console.log("rejected");
+        res.json({ message: "Round rejected" });
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error" });
+    }
+};
+
+module.exports = { getHRDetails, getCandidates, getCandidateDetails, updateRoundDetails, acceptCandidate, rejectCandidate };

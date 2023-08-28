@@ -50,7 +50,7 @@ const getCandidateDetails = async (req, res) => {
         res.json(user);
     } catch (error) {
         res.status(500).json({ message: "An error occurred while fetching user details." });
-    }
+    };
 };
 
 module.exports = { checkForFirstLogin, changePasswordOnFirstLogin, getCandidateDetails };

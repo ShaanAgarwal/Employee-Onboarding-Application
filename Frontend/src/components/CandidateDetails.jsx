@@ -16,6 +16,15 @@ const CandidateDetails = () => {
             });
     }, [candidateId]);
 
+    const handleRoundNameUpdate = async (roundId, updatedName) => {
+        try {
+            const response = await axios.put(`http://localhost:8080/api/hr/round/${roundId}`, { name: updatedName });
+            setCandidate(response.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     if (!candidate) {
         return <div>Loading...</div>;
     }
@@ -25,6 +34,20 @@ const CandidateDetails = () => {
             <h2>Candidate Details</h2>
             <p>Name: {candidate.name}</p>
             <p>Email: {candidate.email}</p>
+            <p>Current Round: {candidate.currentRound}</p>
+
+            <h3>Interview Rounds</h3>
+            {candidate.interviewRounds.map(round => (
+                <div key={round._id}>
+                    <p>Round Name: {round.name}</p>
+                    <input
+                        type="text"
+                        value={round.name}
+                        onChange={e => handleRoundNameUpdate(round._id, e.target.value)}
+                    />
+                    <button onClick={() => handleRoundNameUpdate(round._id, round.name)}>Update</button>
+                </div>
+            ))}
         </div>
     );
 };

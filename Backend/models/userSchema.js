@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const interviewRoundSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: true, default: 'Not Defined' },
   status: {
     type: String,
     enum: ['approved', 'pending', 'rejected'],
@@ -10,7 +10,7 @@ const interviewRoundSchema = new mongoose.Schema({
 });
 
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true},
+  name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   requiresPasswordChange: { type: Boolean, default: true },

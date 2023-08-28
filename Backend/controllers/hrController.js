@@ -63,12 +63,19 @@ const updateRoundDetails = async (req, res) => {
 const acceptCandidate = async (req, res) => {
     try {
         const roundId = req.params.roundId;
-        await User.updateOne({ "interviewRounds._id": roundId }, { $inc: { currentRound: 1 } });
+        await User.updateOne(
+            { "interviewRounds._id": roundId },
+            {
+                $set: { "interviewRounds.$.status": "approved" },
+                $inc: { currentRound: 1 }
+            }
+        );
         res.json({ message: "Round accepted" });
     } catch (error) {
         res.status(500).json({ message: "Internal server error" });
     };
 };
+
 
 const rejectCandidate = async (req, res) => {
     try {

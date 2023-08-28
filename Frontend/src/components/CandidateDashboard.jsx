@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const CandidateDashboard = () => {
-
   const [userDetails, setUserDetails] = useState(null);
   const [error, setError] = useState(null);
 
@@ -30,6 +29,19 @@ const CandidateDashboard = () => {
           <h2>Candidate Details</h2>
           <p>Name: {userDetails.name}</p>
           <p>Email: {userDetails.email}</p>
+
+          <h3>Interview Rounds</h3>
+          {userDetails.interviewRounds.map((round, index) => {
+            if (index < userDetails.currentRound) {
+              return (
+                <div key={round._id}>
+                  <p>Round {index + 1} Name: {round.name}</p>
+                  <p>Status: {round.status}</p>
+                </div>
+              );
+            }
+            return null;
+          })}
         </div>
       )}
     </div>

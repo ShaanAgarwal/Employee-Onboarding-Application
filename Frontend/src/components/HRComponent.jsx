@@ -1,0 +1,35 @@
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+const HRComponent = () => {
+    const [candidates, setCandidates] = useState([]);
+
+    useEffect(() => {
+        const hrEmail = localStorage.getItem('email');
+        axios.get(`http://localhost:8080/api/hr/${hrEmail}/candidates`)
+            .then(response => {
+                setCandidates(response.data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }, []);
+
+    return (
+        <div>
+            <h1>Candidates Assigned to You</h1>
+            <ul>
+                {candidates.map(candidate => (
+                    <li key={candidate._id}>
+                        <Link to={`/candidate/${candidate._id}`}>
+                            {candidate.name}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
+export default HRComponent;

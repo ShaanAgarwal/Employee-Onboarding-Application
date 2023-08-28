@@ -8,6 +8,7 @@ import ApplicationPage from './pages/ApplicationPage';
 import ApplicationResponse from './pages/ApplicationResponse';
 import RegisterPage from './pages/RegisterPage';
 import CandidateHRAssignment from './components/CandidateHRAssignment';
+import CandidateDetails from './components/CandidateDetails';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/candidates" element={<CandidateListPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/assignHRToCandidate" element={<CandidateHRAssignment />} />
+          <Route path="/candidate/:candidateId" element={<CandidateDetails />} />
         </Routes>
       </BrowserRouter>
     </>

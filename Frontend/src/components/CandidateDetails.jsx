@@ -5,6 +5,8 @@ import axios from "axios";
 const CandidateDetails = () => {
   const { candidateId } = useParams();
   const [candidate, setCandidate] = useState(null);
+  const [nameInput, setNameInput] = useState("");
+  const [detailsInput, setDetailsInput] = useState("");
 
   useEffect(() => {
     axios.get(`http://localhost:8080/api/hr/candidate/${candidateId}`)
@@ -16,10 +18,14 @@ const CandidateDetails = () => {
       });
   }, [candidateId]);
 
-  const handleRoundNameUpdate = async (roundId, updatedName) => {
+  const handleUpdateRound = async (roundId) => {
     try {
-      const response = await axios.put(`http://localhost:8080/api/hr/round/${roundId}`, { name: updatedName });
+      const updatedData = { name: nameInput, details: detailsInput };
+      await axios.put(`http://localhost:8080/api/hr/round/${roundId}`, updatedData);
+      const response = await axios.get(`http://localhost:8080/api/hr/candidate/${candidateId}`);
       setCandidate(response.data);
+      setNameInput("");
+      setDetailsInput("");
     } catch (error) {
       console.error(error);
     }
@@ -59,17 +65,30 @@ const CandidateDetails = () => {
       <h3>Interview Rounds</h3>
       {candidate.interviewRounds.map((round, index) => (
         <div key={round._id}>
-          <p>Round {index + 1} Name: {round.name}</p>
+          <p>Round {index + 1} </p>
+          <p>Name: {round.name} </p>
+          <p>Details: {round.details}</p>
           {index === candidate.currentRound - 1 && (
             <>
-              <input
-                type="text"
-                value={round.name}
-                onChange={e => handleRoundNameUpdate(round._id, e.target.value)}
-              />
-              <button onClick={() => handleRoundNameUpdate(round._id, round.name)}>Update</button>
-              <button onClick={() => handleAcceptRound(round._id)}>Accept</button>
-              <button onClick={() => handleRejectRound(round._id)}>Reject</button>
+              <form>
+                <input
+                  type="text"
+                  value={nameInput}
+                  onChange={e => setNameInput(e.target.value)}
+                />
+                <input
+                  type="text"
+                  value={detailsInput}
+                  onChange={e => setDetailsInput(e.target.value)}
+                />
+                <button type="button" onClick={() => handleUpdateRound(round._id)}>Update</button>
+              </form>
+              {round.attempted && (
+                <>
+                  <button onClick={() => handleAcceptRound(round._id)}>Accept</button>
+                  <button onClick={() => handleRejectRound(round._id)}>Reject</button>
+                </>
+              )}
             </>
           )}
         </div>

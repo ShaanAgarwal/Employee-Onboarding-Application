@@ -2,11 +2,17 @@ const mongoose = require("mongoose");
 
 const interviewRoundSchema = new mongoose.Schema({
   name: { type: String, required: true, default: 'Not Defined' },
+  details: { type: String, required: true, default: 'Please specify details' },
+  updated: {
+    type: Boolean,
+    default: false
+  },
   status: {
     type: String,
     enum: ['approved', 'pending', 'rejected'],
     default: 'pending'
-  }
+  },
+  attempted: { type: Boolean, default: false }
 });
 
 const userSchema = new mongoose.Schema({
@@ -21,7 +27,7 @@ const userSchema = new mongoose.Schema({
   },
   assignedHR: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   rounds: { type: Number, default: 1 },
-  interviewRounds: [interviewRoundSchema], // Array of interview rounds
+  interviewRounds: [interviewRoundSchema],
   currentRound: { type: Number, default: 1 }
 });
 

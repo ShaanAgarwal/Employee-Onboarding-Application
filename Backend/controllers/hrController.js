@@ -35,7 +35,6 @@ const getCandidateDetails = async (req, res) => {
         if (!candidate) {
             return res.status(404).json({ message: "Candidate not found" });
         };
-        console.log(candidate);
         res.json(candidate);
     } catch (error) {
         res.status(500).json({ message: "Internal server error" });
@@ -46,19 +45,30 @@ const updateRoundDetails = async (req, res) => {
     try {
         const roundId = req.params.roundId;
         const updatedName = req.body.name;
+        const updatedDetails = req.body.details;
+
         const round = await User.findOneAndUpdate(
             { "interviewRounds._id": roundId },
-            { $set: { "interviewRounds.$.name": updatedName } },
+            {
+                $set: {
+                    "interviewRounds.$.name": updatedName,
+                    "interviewRounds.$.details": updatedDetails,
+                    "interviewRounds.$.updated": true,
+                }
+            },
             { new: true }
         );
+
         if (!round) {
             return res.status(404).json({ message: "Round not found" });
-        };
+        }
+
         res.json(round);
     } catch (error) {
         res.status(500).json({ message: "Internal server error" });
-    };
+    }
 };
+
 
 const acceptCandidate = async (req, res) => {
     try {

@@ -69,7 +69,6 @@ const updateRoundDetails = async (req, res) => {
     }
 };
 
-
 const acceptCandidate = async (req, res) => {
     try {
         const roundId = req.params.roundId;

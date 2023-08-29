@@ -1,4 +1,5 @@
 const User = require('../models/userSchema');
+const nodemailer = require('nodemailer');
 
 const getAdminDetails = async (req, res) => {
     try {
@@ -40,6 +41,24 @@ const assignHr = async (req, res) => {
     const { hrId } = req.body;
     try {
         const user = await User.findByIdAndUpdate(userId, { assignedHR: hrId });
+        const assignedHrUser = await User.findById(hrId);
+        if (!assignedHrUser) {
+            return res.status(404).json({ message: 'Assigned HR not found' });
+        }
+        const transporter = nodemailer.createTransport({
+            service: 'Gmail',
+            auth: {
+                user: 'shaanagarwal1942003@gmail.com',
+                pass: 'ddkwxstrydyfitey',
+            },
+        });
+        const mailOptions = {
+            from: 'shaanagarwal1942003@gmail.com',
+            to: user.email,
+            subject: 'HR Assignment',
+            text: `Dear ${user.name}, Your HR has been assigned. Your HR's name is ${assignedHrUser.name}.`,
+        };
+        await transporter.sendMail(mailOptions);
         res.json({ message: 'HR assigned successfully' });
     } catch (error) {
         console.error(error);
@@ -55,11 +74,26 @@ const updateRounds = async (req, res) => {
         user.rounds = rounds;
         user.interviewRounds = Array.from({ length: rounds }, () => ({ name: 'Not Defined' }));
         await user.save();
+        const transporter = nodemailer.createTransport({
+            service: 'Gmail',
+            auth: {
+                user: 'shaanagarwal1942003@gmail.com',
+                pass: 'ddkwxstrydyfitey',
+            },
+        });
+        const mailOptions = {
+            from: 'shaanagarwal1942003@gmail.com',
+            to: user.email,
+            subject: 'Interview Rounds Update',
+            text: `Dear ${user.name}, The number of interview rounds in the selection process has been decided. It is ${rounds}.`,
+        };
+        await transporter.sendMail(mailOptions);
         res.json({ message: 'Interview rounds updated successfully' });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'An error occurred' });
     };
 };
+
 
 module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds }

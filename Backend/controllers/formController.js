@@ -34,11 +34,25 @@ const submitForm = async (req, res) => {
       resumePath: resumeFilePath,
     });
     await candidate.save();
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: 'shaanagarwal1942003@gmail.com',
+        pass: 'ddkwxstrydyfitey',
+      },
+    });
+    const mailOptions = {
+      from: 'shaanagarwal1942003@gmail.com',
+      to: email,
+      subject: 'Application Submission',
+      text: `Dear ${name}, Your application has been submitted successfully. We will get back to you shortly.`,
+    };
+    await transporter.sendMail(mailOptions);
     res.json({ message: 'Form submitted successfully' });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
-  };
+  }
 };
 
 const getCandidates = async (req, res) => {

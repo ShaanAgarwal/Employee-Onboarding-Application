@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
 const CandidateDetails = () => {
@@ -7,6 +7,7 @@ const CandidateDetails = () => {
   const [candidate, setCandidate] = useState(null);
   const [nameInput, setNameInput] = useState("");
   const [detailsInput, setDetailsInput] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get(`http://localhost:8080/api/hr/candidate/${candidateId}`)
@@ -46,6 +47,7 @@ const CandidateDetails = () => {
   const handleRejectRound = async (roundId) => {
     try {
       await axios.put(`http://localhost:8080/api/hr/round/${roundId}/reject`);
+      navigate('/dashboard');
     } catch (error) {
       console.error(error);
     }

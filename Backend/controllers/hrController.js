@@ -73,23 +73,6 @@ const updateRoundDetails = async (req, res) => {
 const acceptCandidate = async (req, res) => {
     try {
         const roundId = req.params.roundId;
-        await User.updateOne(
-            { "interviewRounds._id": roundId },
-            {
-                $set: { "interviewRounds.$.status": "approved" },
-                $inc: { currentRound: 1 }
-            }
-        );
-        res.json({ message: "Round accepted" });
-    } catch (error) {
-        res.status(500).json({ message: "Internal server error" });
-    };
-};
-
-
-const rejectCandidate = async (req, res) => {
-    try {
-        const roundId = req.params.roundId;
         const candidate = await User.findOne({ "interviewRounds._id": roundId });
         if (!candidate) {
             return res.status(404).json({ message: "Candidate not found" });
@@ -97,7 +80,14 @@ const rejectCandidate = async (req, res) => {
         const round = candidate.interviewRounds.find(round => round._id.toString() === roundId);
         if (!round) {
             return res.status(404).json({ message: "Round not found" });
-        }
+        };
+        await User.updateOne(
+            { "interviewRounds._id": roundId },
+            {
+                $set: { "interviewRounds.$.status": "approved" },
+                $inc: { currentRound: 1 }
+            }
+        );
         const candidateEmail = candidate.email;
         const transporter = nodemailer.createTransport({
             service: "Gmail",
@@ -109,12 +99,54 @@ const rejectCandidate = async (req, res) => {
         const mailOptions = {
             from: "shaanagarwal1942003@gmail.com",
             to: candidateEmail,
+            subject: "Interview Round Passed",
+            text: "Congratualations, you have passed this round.",
+        };
+        await transporter.sendMail(mailOptions);
+        res.json({ message: "Round accepted" });
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error" });
+    };
+};
+
+
+const rejectCandidate = async (req, res) => {
+    try {
+        const roundId = req.params.roundId;
+        const candidate = await User.findOne({ "interviewRounds._id": roundId });
+        
+        if (!candidate) {
+            return res.status(404).json({ message: "Candidate not found" });
+        }
+        
+        const round = candidate.interviewRounds.find(round => round._id.toString() === roundId);
+        
+        if (!round) {
+            return res.status(404).json({ message: "Round not found" });
+        }
+        
+        const candidateEmail = candidate.email;
+        const transporter = nodemailer.createTransport({
+            service: "Gmail",
+            auth: {
+                user: "shaanagarwal1942003@gmail.com",
+                pass: "ddkwxstrydyfitey",
+            },
+        });
+        
+        const mailOptions = {
+            from: "shaanagarwal1942003@gmail.com",
+            to: candidateEmail,
             subject: "Interview Round Rejected",
             text: "Unfortunately, your interview round has been rejected.",
         };
+        
         await transporter.sendMail(mailOptions);
-        console.log("rejected");
-        res.json({ message: "Round rejected" });
+
+        // Delete the candidate's data from the database
+        await User.findOneAndRemove({ "interviewRounds._id": roundId });
+
+        res.json({ message: "Round rejected and candidate data deleted" });
     } catch (error) {
         res.status(500).json({ message: "Internal server error" });
     }

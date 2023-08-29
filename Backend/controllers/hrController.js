@@ -103,6 +103,12 @@ const acceptCandidate = async (req, res) => {
             text: "Congratualations, you have passed this round.",
         };
         await transporter.sendMail(mailOptions);
+        console.log(candidate);
+        if (candidate.currentRound == candidate.rounds) {
+            candidate.interviewClear = true;
+            await candidate.save();
+        };
+        console.log(candidate);
         res.json({ message: "Round accepted" });
     } catch (error) {
         res.status(500).json({ message: "Internal server error" });
@@ -114,17 +120,17 @@ const rejectCandidate = async (req, res) => {
     try {
         const roundId = req.params.roundId;
         const candidate = await User.findOne({ "interviewRounds._id": roundId });
-        
+
         if (!candidate) {
             return res.status(404).json({ message: "Candidate not found" });
         }
-        
+
         const round = candidate.interviewRounds.find(round => round._id.toString() === roundId);
-        
+
         if (!round) {
             return res.status(404).json({ message: "Round not found" });
         }
-        
+
         const candidateEmail = candidate.email;
         const transporter = nodemailer.createTransport({
             service: "Gmail",
@@ -133,14 +139,14 @@ const rejectCandidate = async (req, res) => {
                 pass: "ddkwxstrydyfitey",
             },
         });
-        
+
         const mailOptions = {
             from: "shaanagarwal1942003@gmail.com",
             to: candidateEmail,
             subject: "Interview Round Rejected",
             text: "Unfortunately, your interview round has been rejected.",
         };
-        
+
         await transporter.sendMail(mailOptions);
 
         // Delete the candidate's data from the database

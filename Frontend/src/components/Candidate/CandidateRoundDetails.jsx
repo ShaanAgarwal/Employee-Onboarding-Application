@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const CandidateDashboard = () => {
+const CandidateRoundDetails = () => {
   const [userDetails, setUserDetails] = useState(null);
   const [error, setError] = useState(null);
 
@@ -69,4 +69,4 @@ const CandidateDashboard = () => {
   );
 };
 
-export default CandidateDashboard;
+export default CandidateRoundDetails;

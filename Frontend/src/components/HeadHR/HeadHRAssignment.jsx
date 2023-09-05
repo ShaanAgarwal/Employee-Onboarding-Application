@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const CandidateHRAssignment = () => {
+const HeadHRAssignment = () => {
 
     const [candidates, setCandidates] = useState([]);
     const [hrs, setHRs] = useState([]);
@@ -74,4 +74,4 @@ const CandidateHRAssignment = () => {
     );
 };
 
-export default CandidateHRAssignment;
+export default HeadHRAssignment;

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const HRComponent = () => {
+const HRViewCandidates = () => {
     const [candidates, setCandidates] = useState([]);
 
     useEffect(() => {
@@ -22,7 +22,7 @@ const HRComponent = () => {
             <ul>
                 {candidates.map(candidate => (
                     <li key={candidate._id}>
-                        <Link to={`/candidate/${candidate._id}`}>
+                        <Link to={`/dashboard/HRViewCandidate/${candidate._id}`}>
                             {candidate.name}
                         </Link>
                     </li>
@@ -32,4 +32,4 @@ const HRComponent = () => {
     );
 };
 
-export default HRComponent;
+export default HRViewCandidates;

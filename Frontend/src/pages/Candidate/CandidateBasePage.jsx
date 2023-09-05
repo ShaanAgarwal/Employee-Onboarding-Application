@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CandidateDashboard from '../components/CandidateDashboard';
+import CandidateViewRoundDetailsPage from './CandidateViewRoundDetailsPage';
 
-function CandidatePage() {
+function CandidateBasePage() {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const [requiresPasswordChange, setRequiresPasswordChange] = useState(false);
@@ -56,11 +56,11 @@ function CandidatePage() {
                 </div>
             ) : (
                 <div>
-                    <CandidateDashboard />
+                    <CandidateViewRoundDetailsPage />
                 </div>
             )}
         </div>
     );
 }
 
-export default CandidatePage;
+export default CandidateBasePage;

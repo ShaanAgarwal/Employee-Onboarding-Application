@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import HRComponent from "./HRComponent";
 
-function UserDetail() {
+function HRProfile() {
     const [userDetails, setUserDetails] = useState(null);
     const [error, setError] = useState(null);
 
@@ -32,9 +31,8 @@ function UserDetail() {
                     <p>Email: {userDetails.email}</p>
                 </div>
             )}
-            <HRComponent />
         </div>
     );
 }
 
-export default UserDetail;
+export default HRProfile;

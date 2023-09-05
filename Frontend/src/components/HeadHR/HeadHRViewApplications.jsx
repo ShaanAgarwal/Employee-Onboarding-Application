@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const CandidateListPage = () => {
+const HeadHRViewApplications = () => {
   const [candidates, setCandidates] = useState([]);
 
   useEffect(() => {
@@ -58,4 +58,4 @@ const CandidateListPage = () => {
   );
 };
 
-export default CandidateListPage;
+export default HeadHRViewApplications;

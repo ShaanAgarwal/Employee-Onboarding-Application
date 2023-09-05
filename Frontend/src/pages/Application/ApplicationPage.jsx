@@ -36,7 +36,7 @@ const ApplicationPage = () => {
         },
       });
       console.log(response.data);
-      navigate('/applicationresponse');
+      navigate('/applicationResponse');
     } catch (error) {
       console.error(error);
     }

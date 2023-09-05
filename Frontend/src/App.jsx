@@ -1,14 +1,37 @@
+{/* Imports */ }
 import './App.css'
-import HomePage from './pages/HomePage'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import LoginPage from './pages/LoginPage';
-import CandidateListPage from './pages/CandidateListPage';
-import Dashboard from "./components/Dashboard";
-import ApplicationPage from './pages/ApplicationPage';
-import ApplicationResponse from './pages/ApplicationResponse';
+
+{/* Application */ }
+import ApplicationPage from './pages/Application/ApplicationPage';
+import ApplicationResponse from './pages/Application/ApplicationResponse';
+
+{/* Home Page */ }
+import HomePage from './pages/HomePage/HomePage';
+
+{/* Login Page */ }
+import LoginPage from './pages/Login/LoginPage';
+
+{/* Dashboard Page */ }
+import DashboardPage from './pages/DashboardPage';
+
+{/* Register Page */ }
 import RegisterPage from './pages/RegisterPage';
-import CandidateHRAssignment from './components/CandidateHRAssignment';
-import CandidateDetails from './components/CandidateDetails';
+
+{/* Head HR*/ }
+import HeadHRViewAllHRsPage from './pages/HeadHR/HeadHRViewAllHRsPage';
+import HeadHRAssignmentPage from './pages/HeadHR/HeadHRAssignmentPage';
+import HeadHRViewOngoingPage from './pages/HeadHR/HeadHRViewOngoingPage';
+import HeadHRViewRejectedPage from './pages/HeadHR/HeadHRViewRejectedPage';
+import HeadHRRegisterHRPage from './pages/HeadHR/HeadHRRegisterHRPage';
+import HeadHRViewApplicationsPage from './pages/HeadHR/HeadHRViewApplicationsPage';
+
+{/* HR */ }
+import HRViewCandidatesPage from './pages/HR/HRViewCandidatesPage';
+import HRViewCandidatePage from './pages/HR/HRViewCandidatePage';
+
+{/* Candidate */ }
+import CandidateBasePage from './pages/Candidate/CandidateBasePage';
 
 function App() {
 
@@ -16,15 +39,35 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
+          {/* HomePage */}
           <Route path="/" element={<HomePage />} />
           <Route path="/register" element={<RegisterPage />} />
+
+          {/* Login */}
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/application" element={<ApplicationPage />} />
-          <Route path="/applicationresponse" element={<ApplicationResponse />} />
-          <Route path="/candidates" element={<CandidateListPage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/dashboard/assignHRToCandidate" element={<CandidateHRAssignment />} />
-          <Route path="/candidate/:candidateId" element={<CandidateDetails />} />
+
+          {/* Application */}
+          <Route path="/applyForJob" element={<ApplicationPage />} />
+          <Route path="/applicationResponse" element={<ApplicationResponse />} />
+
+          {/* Dashboard */}
+          <Route path="/dashboard" element={<DashboardPage />} />
+
+          {/* Head HR */}
+          <Route path='/dashboard/headHRViewAllHRs' element={<HeadHRViewAllHRsPage />} />
+          <Route path='/dashboard/headHRAssignment' element={<HeadHRAssignmentPage />} />
+          <Route path='/dashboard/headHRViewOngoing' element={<HeadHRViewOngoingPage />} />
+          <Route path='/dashboard/headHRViewRejected' element={<HeadHRViewRejectedPage />} />
+          <Route path='/dashboard/headHRRegisterHR' element={<HeadHRRegisterHRPage />} />
+          <Route path='/dashboard/headHRViewApplications' element={<HeadHRViewApplicationsPage />} />
+
+          {/* HR */}
+          <Route path='/dashboard/HRViewCandidates' element={<HRViewCandidatesPage />} />
+          <Route path="/dashboard/HRViewCandidate/:candidateId" element={<HRViewCandidatePage />} />
+
+          {/* Candidates */}
+          <Route path='/dashboard/Candidate/ViewRoundDetails' element={<CandidateBasePage />} />
+
         </Routes>
       </BrowserRouter>
     </>

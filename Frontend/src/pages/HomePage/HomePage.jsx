@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import "../styles/HomePageStyles.css";
+import "./HomePageStyles.css";
 
 const HomePage = () => {
   return (
     <div className="home-page">
       <h1>Welcome to the Home Page</h1>
-      <Link className="button apply-button" to="/application">
+      <Link className="button apply-button" to="/applyForJob">
         Apply
       </Link>
       <Link className="button register-button" to="/login">

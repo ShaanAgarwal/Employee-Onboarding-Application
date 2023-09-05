@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-const CandidateDetails = () => {
+const HRViewCandidate = () => {
   const { candidateId } = useParams();
   const [candidate, setCandidate] = useState(null);
   const [nameInput, setNameInput] = useState("");
@@ -99,4 +99,4 @@ const CandidateDetails = () => {
   );
 };
 
-export default CandidateDetails;
+export default HRViewCandidate;

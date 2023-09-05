@@ -1,5 +1,5 @@
 const User = require('../models/userSchema');
-const nodemailer = require('nodemailer');
+const { sendEmail } = require('../utils/emailUtils');
 
 const getAdminDetails = async (req, res) => {
     try {
@@ -45,20 +45,11 @@ const assignHr = async (req, res) => {
         if (!assignedHrUser) {
             return res.status(404).json({ message: 'Assigned HR not found' });
         }
-        const transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-                user: 'shaanagarwal1942003@gmail.com',
-                pass: 'ddkwxstrydyfitey',
-            },
-        });
-        const mailOptions = {
-            from: 'shaanagarwal1942003@gmail.com',
-            to: user.email,
-            subject: 'HR Assignment',
-            text: `Dear ${user.name}, Your HR has been assigned. Your HR's name is ${assignedHrUser.name}.`,
-        };
-        await transporter.sendMail(mailOptions);
+        await sendEmail(
+            user.email,
+            'HR Assignment',
+            `Dear ${user.name}, Your HR has been assigned. Your HR's name is ${assignedHrUser.name}.`
+        );
         res.json({ message: 'HR assigned successfully' });
     } catch (error) {
         console.error(error);
@@ -74,20 +65,11 @@ const updateRounds = async (req, res) => {
         user.rounds = rounds;
         user.interviewRounds = Array.from({ length: rounds }, () => ({ name: 'Not Defined' }));
         await user.save();
-        const transporter = nodemailer.createTransport({
-            service: 'Gmail',
-            auth: {
-                user: 'shaanagarwal1942003@gmail.com',
-                pass: 'ddkwxstrydyfitey',
-            },
-        });
-        const mailOptions = {
-            from: 'shaanagarwal1942003@gmail.com',
-            to: user.email,
-            subject: 'Interview Rounds Update',
-            text: `Dear ${user.name}, The number of interview rounds in the selection process has been decided. It is ${rounds}.`,
-        };
-        await transporter.sendMail(mailOptions);
+        await sendEmail(
+            user.email,
+            'Interview Rounds Update',
+            `Dear ${user.name}, The number of interview rounds in the selection process has been decided. It is ${rounds}.`
+        );
         res.json({ message: 'Interview rounds updated successfully' });
     } catch (error) {
         console.error(error);

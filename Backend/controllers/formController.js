@@ -1,9 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 const Candidate = require('../models/candidateSchema');
-const nodemailer = require('nodemailer');
 const User = require('../models/userSchema');
 const bcrypt = require('bcrypt');
+const { sendEmail } = require("../utils/emailUtils");
 
 const uploadFile = (req, res, next) => {
   try {
@@ -34,20 +34,11 @@ const submitForm = async (req, res) => {
       resumePath: resumeFilePath,
     });
     await candidate.save();
-    const transporter = nodemailer.createTransport({
-      service: 'Gmail',
-      auth: {
-        user: 'shaanagarwal1942003@gmail.com',
-        pass: 'ddkwxstrydyfitey',
-      },
-    });
-    const mailOptions = {
-      from: 'shaanagarwal1942003@gmail.com',
-      to: email,
-      subject: 'Application Submission',
-      text: `Dear ${name}, Your application has been submitted successfully. We will get back to you shortly.`,
-    };
-    await transporter.sendMail(mailOptions);
+    await sendEmail(
+      email,
+      'Application Submission',
+      `Dear ${name}, Your application has been submitted successfully. We will get back to you shortly.`
+    );
     res.json({ message: 'Form submitted successfully' });
   } catch (error) {
     console.error(error);
@@ -96,20 +87,11 @@ const acceptCandidate = async (req, res) => {
       role: 'candidate'
     });
     await newUser.save();
-    const transporter = nodemailer.createTransport({
-      service: 'Gmail',
-      auth: {
-        user: 'shaanagarwal1942003@gmail.com',
-        pass: 'ddkwxstrydyfitey',
-      },
-    });
-    const mailOptions = {
-      from: 'shaanagarwal1942003@gmail.com',
-      to: candidate.email,
-      subject: 'Congratulations! Your Application is Accepted',
-      text: `Dear ${candidate.name},\n\nWe are pleased to inform you that your application has been accepted. Congratulations!\n\nYour login credentials are:\nEmail: ${candidate.email}\nPassword: ${randomPassword}\n\nBest regards,\nThe Hiring Team`,
-    };
-    await transporter.sendMail(mailOptions);
+    await sendEmail(
+      candidate.email,
+      'Congratulations! Your Application is Accepted',
+      `Dear ${candidate.name},\n\nWe are pleased to inform you that your application has been accepted. Congratulations!\n\nYour login credentials are:\nEmail: ${candidate.email}\nPassword: ${randomPassword}\n\nBest regards,\nThe Hiring Team`
+    );
     await Candidate.findOneAndDelete(candidateId);
     res.json({ message: 'Candidate accepted' });
     console.log("Accepted");
@@ -138,20 +120,11 @@ const rejectCandidate = async (req, res) => {
     };
     candidate.status = 'rejected';
     await candidate.save();
-    const transporter = nodemailer.createTransport({
-      service: 'Gmail',
-      auth: {
-        user: 'shaanagarwal1942003@gmail.com',
-        pass: 'ddkwxstrydyfitey',
-      },
-    });
-    const mailOptions = {
-      from: 'shaanagarwal1942003@gmail.com',
-      to: candidate.email,
-      subject: 'Application Status Update',
-      text: `Dear ${candidate.name},\n\nWe regret to inform you that your application has been rejected.\n\nBest regards,\nThe Hiring Team`,
-    };
-    await transporter.sendMail(mailOptions);
+    await sendEmail(
+      candidate.email,
+      'Application Status Update',
+      `Dear ${candidate.name},\n\nWe regret to inform you that your application has been rejected.\n\nBest regards,\nThe Hiring Team`
+    );
     await Candidate.findOneAndDelete(candidateId);
     res.json({ message: 'Candidate rejected' });
   } catch (error) {

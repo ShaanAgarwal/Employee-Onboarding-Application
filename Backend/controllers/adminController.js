@@ -77,5 +77,14 @@ const updateRounds = async (req, res) => {
     };
 };
 
+const getAllHRs = async (req, res) => {
+    try {
+        const hrs = await User.find({ role: 'hr' })
+        res.json(hrs);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'An error occurred' });
+    };
+};
 
-module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds }
+module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds, getAllHRs }

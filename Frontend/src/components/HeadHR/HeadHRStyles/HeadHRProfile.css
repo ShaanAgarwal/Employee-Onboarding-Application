@@ -1,0 +1,8 @@
+.head-hr-profile {
+    height: 100vh;
+    width: 25%;
+    background-color: red;
+    position: absolute;
+    right: 0;
+    top: 0;
+}

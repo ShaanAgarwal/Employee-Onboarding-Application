@@ -19,19 +19,33 @@ const HeadHRViewAllHRs = () => {
     fetchHrs();
   }, []);
 
+  const image_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZyys1x3ixo5J1L8Wr6HWX-uG2-MXgnRfBHBFQxbdBOjd-7wScsKkCllRnQm1r2oPxEQM&usqp=CAU";
+
   if (error) {
     return <div>Error: {error}</div>;
   };
   return (
     <>
-      <div className='head-hr-view-all-hr'>
+      <div className='view-all-hr-page'>
         <div className='hr-content'>
-          <h1>View All HRs</h1>
-          <ul>
-            {hrs.map((hr) => (
-              <li key={hr._id}>{hr.name} - {hr.email}</li>
-            ))}
-          </ul>
+          <div className='header-view-all-hr'>
+            <h1>View All HRs</h1>
+          </div>
+          <div className='hr-div'>
+            <ul className='hr-list'>
+              {hrs.map((hr) => (
+                <div className='hr-box' key={hr._id}>
+                  <div className='hr-photo'>
+                    <img src={image_url} alt='hr-photo' />
+                  </div>
+                  <div className='hr-details'>
+                    <div className='hr-name'>{hr.name}</div>
+                    <div className='hr-email'>{hr.email}</div>
+                  </div>
+                </div>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </>

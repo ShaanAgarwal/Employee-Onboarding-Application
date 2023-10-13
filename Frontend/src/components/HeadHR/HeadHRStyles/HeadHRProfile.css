@@ -1,8 +1,100 @@
 .head-hr-profile {
     height: 100vh;
     width: 25%;
-    background-color: red;
+    background-color: #c4c4c4;
     position: absolute;
     right: 0;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.head-hr-background img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+}
+
+.head-hr-profile-picture {
+    position: relative;
+    text-align: center;
+    margin-bottom: -75px;
+    z-index: 1;
+}
+
+.head-hr-profile-picture h1 {
+    margin-bottom: 10px;
+    color: #a303a0;
+}
+
+.circular-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
+
+.head-hr-logout-button {
+    background-color: #c4c4c4;
+    color: #a303a0;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 1.5rem;
+    border: 4px solid #9292dc;
+    margin-top: 10px;
+}
+
+.head-hr-about {
+    margin-top: 15px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+}
+
+.head-hr-about h2 {
+    color: #a303a0;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.head-hr-about p {
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+}
+
+.head-hr-about .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.head-hr-about .contact-info span {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.head-hr-about .contact-info a {
+    color: #a303a0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.head-hr-about .contact-info a:hover {
+    color: #333;
 }

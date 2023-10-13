@@ -6,8 +6,8 @@ import HeadHRProfile from '../../components/HeadHR/HeadHRProfile';
 const HeadHRViewApplicationsPage = () => {
     return (
         <>
-            {/* <HeadHRComponents />
-            <HeadHRProfile /> */}
+            <HeadHRComponents />
+            <HeadHRProfile />
             <HeadHRViewApplications />
         </>
     );

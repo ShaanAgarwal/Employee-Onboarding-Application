@@ -95,6 +95,7 @@ const HRViewCandidate = () => {
           )}
         </div>
       ))}
+      {candidate.interviewClear == true && (<button>Onboarding</button>)}
     </div>
   );
 };

@@ -1,0 +1,101 @@
+.head-HR-menu {
+    align-items: center;
+    background-color: #b861a1;
+    display: flex;
+    flex-direction: column;
+    padding: 198px 0px;
+    position: relative;
+    height: 100vh;
+    width: 15%;
+}
+
+.head-HR-menu .menu-name {
+    height: 386px;
+    position: relative;
+    width: 150px;
+}
+
+.link-decoration {
+    text-decoration: none;
+    color: white;
+}
+
+.head-HR-menu .text-wrapper {
+    color: #ffffff;
+    font-family: "Nunito", Helvetica;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    opacity: 0.7;
+    position: absolute;
+    top: 137px;
+}
+
+.head-HR-menu .div {
+    color: #ffffff;
+    font-family: "Nunito", Helvetica;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    opacity: 0.7;
+    position: absolute;
+    top: 279px;
+}
+
+.head-HR-menu .text-wrapper-2 {
+    color: #ffffff;
+    font-family: "Nunito", Helvetica;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    opacity: 0.7;
+    position: absolute;
+    top: 73px;
+}
+
+.head-HR-menu .text-wrapper-3 {
+    color: #ffffff;
+    font-family: "Nunito", Helvetica;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    opacity: 0.7;
+    position: absolute;
+    top: 205px;
+}
+
+.head-HR-menu .text-wrapper-4 {
+    color: #ffffff;
+    font-family: "Nunito", Helvetica;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    opacity: 0.7;
+    position: absolute;
+    top: -1px;
+}
+
+.head-HR-menu .text-wrapper-5 {
+    color: #ffffff;
+    font-family: "Nunito", Helvetica;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    opacity: 0.7;
+    position: absolute;
+    top: 351px;
+}
+
+.head-HR-menu .botanix {
+    height: 187px;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 218px;
+}

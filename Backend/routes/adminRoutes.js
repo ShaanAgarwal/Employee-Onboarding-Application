@@ -7,5 +7,6 @@ router.get('/getCandidates', adminController.getCandidates);
 router.get('/getHRs', adminController.getHRs);
 router.post('/assign-hr/:userId', adminController.assignHr);
 router.post('/update-rounds/:userId', adminController.updateRounds);
+router.get('/getAllHRs', adminController.getAllHRs);
 
 module.exports = router;

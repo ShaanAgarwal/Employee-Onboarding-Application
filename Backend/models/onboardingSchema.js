@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 
 const onboardingSchema = new mongoose.Schema({
+    candidate: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    hr: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     personalDetailsForm: {
         firstName: { type: String, required: true },
         lastName: { type: String, required: true },

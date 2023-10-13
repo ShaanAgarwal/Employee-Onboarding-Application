@@ -35,11 +35,6 @@ const HeadHRViewApplications = () => {
     }
   };
 
-  const generateResumeDownloadLink = (candidateId, resumePath) => {
-    const downloadUrl = `http://localhost:8080/api/form/download/${candidateId}/${encodeURIComponent(resumePath)}`;
-    return downloadUrl;
-  };
-
   return (
     <div>
       <h2>Candidate List</h2>
@@ -48,7 +43,7 @@ const HeadHRViewApplications = () => {
           <li key={candidate._id}>
             <p>Name: {candidate.name}</p>
             <p>Email: {candidate.email}</p>
-            <p>Resume Path: <a href={generateResumeDownloadLink(candidate._id, candidate.resumePath)} download>Download Resume</a></p>
+            <p>Resume Path: <a href={candidate.resumePath} download>Download Resume</a></p>
             <button onClick={() => handleAccept(candidate._id)}>Accept</button>
             <button onClick={() => handleReject(candidate._id)}>Reject</button>
           </li>

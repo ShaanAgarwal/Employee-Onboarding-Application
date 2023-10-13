@@ -19,57 +19,58 @@ const auth = new google.auth.GoogleAuth({
 
 const submitForm = async (req, res) => {
   try {
-    console.log("One");
-    const { name, email } = req.body;
-    console.log("Two");
-    const { body, files } = req;
-    console.log("Three");
-    for (let f = 0; f < files.length; f += 1) {
-      await uploadFile(files[f], name, email);
-    };
-    console.log(data.webContentLink);
-    console.log("Four");
-    const candidate = new Candidate({
-      name,
-      email,
-      resumePath: data.webContentLink
-    });
-    console.log("Five");
-    await candidate.save();
-    console.log("Six");
-    await sendEmail(
-      email,
-      'Application Submission',
-      `Dear ${name}, Your application has been submitted successfully. We will get back to you shortly.`
-    );
-    console.log("Seven");
+    const { name, email, address, city, pincode, start_date, job_role } = req.body;
+    const { files } = req;
+
+    await uploadFile(files[0], files[1], name, email, address, city, pincode, start_date, job_role);
+
     res.status(200).send("Form Submitted");
-  } catch (f) {
-    res.send(f.message);
-  };
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
 };
 
-const uploadFile = async (fileObject, name, email) => {
-  const bufferStream = new stream.PassThrough();
-  bufferStream.end(fileObject.buffer);
+const uploadFile = async (resumeFile, imageFile, name, email, address, city, pincode, start_date, job_role) => {
+  const resumeBufferStream = new stream.PassThrough();
+  resumeBufferStream.end(resumeFile.buffer);
+  const imageBufferStream = new stream.PassThrough();
+  imageBufferStream.end(imageFile.buffer);
+
   try {
-    const { data } = await google.drive({ version: "v3", auth }).files.create({
+    const { data: resumeData } = await google.drive({ version: "v3", auth }).files.create({
       media: {
-        mimeType: fileObject.mimetype,
-        body: bufferStream,
+        mimeType: resumeFile.mimetype,
+        body: resumeBufferStream,
       },
       requestBody: {
-        name: fileObject.originalname,
+        name: resumeFile.originalname,
         parents: ["1kNSlFMpNDah1DflH4R-cxDTGbty5cLQr"],
       },
       fields: "id,name,webContentLink",
     });
-    console.log(`Uploaded file ${data.name} ${data.id}`);
-    console.log(`File URL: ${data.webContentLink}`);
+
+    const { data: imageData } = await google.drive({ version: "v3", auth }).files.create({
+      media: {
+        mimeType: imageFile.mimetype,
+        body: imageBufferStream,
+      },
+      requestBody: {
+        name: imageFile.originalname,
+        parents: ["1kNSlFMpNDah1DflH4R-cxDTGbty5cLQr"],
+      },
+      fields: "id,name,webContentLink",
+    });
+
     const candidate = new Candidate({
       name,
       email,
-      resumePath: data.webContentLink
+      address,
+      city,
+      pincode,
+      start_date,
+      job_role,
+      resumePath: resumeData.webContentLink,
+      photoPath: `https://drive.google.com/uc?id=${imageData.id}`,
     });
     await candidate.save();
     await sendEmail(
@@ -77,10 +78,14 @@ const uploadFile = async (fileObject, name, email) => {
       'Application Submission',
       `Dear ${name}, Your application has been submitted successfully. We will get back to you shortly.`
     );
+    console.log(`Uploaded resume: ${resumeData.name} - ${resumeData.id}`);
+    console.log(`Resume URL: ${resumeData.webContentLink}`);
+    console.log(`Uploaded image: ${imageData.name} - ${imageData.id}`);
+    console.log(`Image URL: ${imageData.webContentLink}`);
   } catch (error) {
-    console.error(`Error uploading file: ${error.message}`);
+    console.error(`Error uploading files: ${error.message}`);
     throw error;
-  };
+  }
 };
 
 const getCandidates = async (req, res) => {

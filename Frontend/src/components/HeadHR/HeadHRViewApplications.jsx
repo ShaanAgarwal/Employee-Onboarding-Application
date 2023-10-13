@@ -43,7 +43,13 @@ const HeadHRViewApplications = () => {
           <li key={candidate._id}>
             <p>Name: {candidate.name}</p>
             <p>Email: {candidate.email}</p>
+            <p>Address: {candidate.address}</p>
+            <p>City: {candidate.city}</p>
+            <p>Pincode: {candidate.pincode}</p>
+            <p>Start Date: {new Date(candidate.start_date).toLocaleDateString()}</p>
+            <p>Job Role: {candidate.job_role}</p>
             <p>Resume Path: <a href={candidate.resumePath} download>Download Resume</a></p>
+            <p>Photo: <img src={candidate.photoPath} alt="Candidate Photo" style={{ maxWidth: '200px' }} /></p>
             <button onClick={() => handleAccept(candidate._id)}>Accept</button>
             <button onClick={() => handleReject(candidate._id)}>Reject</button>
           </li>

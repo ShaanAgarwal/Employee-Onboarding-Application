@@ -65,6 +65,9 @@ const CandidateRoundDetails = () => {
           })}
         </div>
       )}
+      {userDetails.interviewClear && (
+        <button>Onboarding Process</button>
+      )}
     </div>
   );
 };

@@ -110,6 +110,6 @@ interview-round-main-box::-webkit-scrollbar {
     background-color: #35b47f;
 }
 
-.round-specific-box .status.Pending {
+.round-specific-box .status.Ongoing {
     background-color: #2dd4bf;
 }

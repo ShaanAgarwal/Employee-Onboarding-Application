@@ -63,7 +63,7 @@ const CandidateRoundDetails = () => {
                     {round.updated && !round.attempted && (
                       <button onClick={() => handleMarkAttempted(round._id)}>Mark Attempted</button>
                     )}
-                    <div className={`status ${round.status === 'Approved' ? 'Approved' : 'Pending'}`}>
+                    <div className={`status ${round.status === 'Approved' ? 'Approved' : 'Ongoing'}`}>
                       {round.status}
                     </div>
                   </div>

@@ -84,7 +84,7 @@ const acceptCandidate = async (req, res) => {
         await User.updateOne(
             { "interviewRounds._id": roundId },
             {
-                $set: { "interviewRounds.$.status": "approved" },
+                $set: { "interviewRounds.$.status": "Approved" },
                 $inc: { currentRound: 1 }
             }
         );

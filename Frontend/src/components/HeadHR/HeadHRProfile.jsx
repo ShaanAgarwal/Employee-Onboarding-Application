@@ -24,19 +24,17 @@ const HeadHRProfile = () => {
                 <div className='head-hr-background'>
                     <img src={squareImage} alt="Background" />
                 </div>
-                <button className='head-hr-logout-button' onClick={handleLogout}>
-                    LOGOUT
-                </button>
+                <button className='head-hr-logout-button' onClick={handleLogout}>LOGOUT</button>
                 <div className='head-hr-about'>
-                    <h2>About Me</h2>
-                    <p>
-                        Hello! I am Veer Rai, your dedicated HR professional. I am passionate about creating a positive work environment and supporting employees in their career growth. With years of experience in HR, I am here to assist you with any HR-related inquiries or concerns you may have.
-                    </p>
+                    <h2>About</h2>
                     <div className="contact-info">
-                        <span>Email:</span>
-                        <a href="mailto:veer.rai@example.com">veer.rai@example.com</a>
-                        <span>Phone:</span>
-                        <a href="tel:+1234567890">+1 (234) 567-890</a>
+                        <ul>
+                            <li>Male</li>
+                            <li>Born June 26, 1980</li>
+                            <li>2239 Hog Camp Road Schaumburg</li>
+                            <li>charles5182@ummoh.com</li>
+                            <li>33757005467</li>
+                        </ul>
                     </div>
                 </div>
             </div>

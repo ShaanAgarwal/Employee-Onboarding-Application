@@ -1,6 +1,6 @@
 .head-hr-profile {
     height: 100vh;
-    width: 25%;
+    width: 26%;
     background-color: #c4c4c4;
     position: absolute;
     right: 0;
@@ -57,7 +57,6 @@
     width: 90%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-around;
     padding: 20px;
     background-color: #f1f1f1;
@@ -70,31 +69,14 @@
     margin-bottom: 10px;
 }
 
-.head-hr-about p {
+.head-hr-about .contact-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.head-hr-about .contact-info ul li {
     color: #333;
-    font-size: 16px;
-    text-align: center;
-}
-
-.head-hr-about .contact-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-}
-
-.head-hr-about .contact-info span {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.head-hr-about .contact-info a {
-    color: #a303a0;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s ease;
-}
-
-.head-hr-about .contact-info a:hover {
-    color: #333;
+    font-size: 18px;
+    margin-bottom: 10px;
 }

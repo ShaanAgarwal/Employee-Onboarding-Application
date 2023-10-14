@@ -84,60 +84,62 @@ const ApplicationPage = () => {
 
   return (
     <>
-      <div className='page-application'>
-        <div className='header'><h1>Please Fill Out The Form Below To Submit Your Application</h1></div>
-        <form className="form-grid" onSubmit={handleSubmit}>
-          <div className='name-email-grid'>
-            <div>
-              <label htmlFor="name">Name:</label>
-              <input type="text" id="name" name="name" placeholder="Please Enter Your Name" value={name} required="true" onChange={handleNameChange} />
+      <div className='outside-page-application'>
+        <div className='page-application'>
+          <div className='header'><h1>Please Fill Out The Form Below To Submit Your Application</h1></div>
+          <form className="form-grid" onSubmit={handleSubmit}>
+            <div className='name-email-grid'>
+              <div>
+                <label htmlFor="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Please Enter Your Name" value={name} required="true" onChange={handleNameChange} />
+              </div>
+              <div>
+                <label htmlFor="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Please Enter Your Email" value={email} required="true" onChange={handleEmailChange} />
+              </div>
             </div>
-            <div>
-              <label htmlFor="email">Email:</label>
-              <input type="email" id="email" name="email" placeholder="Please Enter Your Email" value={email} required="true" onChange={handleEmailChange} />
+            <div className="address-grid">
+              <label htmlFor="address">Address:</label>
+              <input type="text" id="address" name="address" placeholder="Please Enter Your Address" value={address} required="true" onChange={handleAddressChange} />
             </div>
-          </div>
-          <div className="address-grid">
-            <label htmlFor="address">Address:</label>
-            <input type="text" id="address" name="address" placeholder="Please Enter Your Address" value={address} required="true" onChange={handleAddressChange} />
-          </div>
-          <div className="city-pincode-grid">
-            <div>
-              <label htmlFor="city">City:</label>
-              <input type="text" id="city" name="city" placeholder="Please Enter Your City" value={city} required="true" onChange={handleCityChange} />
+            <div className="city-pincode-grid">
+              <div>
+                <label htmlFor="city">City:</label>
+                <input type="text" id="city" name="city" placeholder="Please Enter Your City" value={city} required="true" onChange={handleCityChange} />
+              </div>
+              <div>
+                <label htmlFor="pincode">Pincode:</label>
+                <input type="text" id="pincode" name="pincode" placeholder="Please Enter Your Pincode" value={pincode} required="true" onChange={handlePincodeChange} />
+              </div>
             </div>
-            <div>
-              <label htmlFor="pincode">Pincode:</label>
-              <input type="text" id="pincode" name="pincode" placeholder="Please Enter Your Pincode" value={pincode} required="true" onChange={handlePincodeChange} />
+            <div className="date-role-grid">
+              <div>
+                <label htmlFor="start_date">Start Date:</label>
+                <input type="date" id="start_date" name="start_date" value={startDate} required="true" onChange={handleStartDateChange} />
+              </div>
+              <div>
+                <label htmlFor="job_role">Job Role:</label>
+                <select id="job_role" name="job_role" value={jobRole} required="true" onChange={handleJobRoleChange}>
+                  <option value="">Select Job Role</option>
+                  <option value="developer">Developer</option>
+                  <option value="designer">Designer</option>
+                  <option value="manager">Manager</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div className="date-role-grid">
-            <div>
-              <label htmlFor="start_date">Start Date:</label>
-              <input type="date" id="start_date" name="start_date" value={startDate} required="true" onChange={handleStartDateChange} />
+            <div className="file-grid">
+              <div>
+                <label htmlFor="resume">Resume:</label>
+                <input type="file" id="resume" name="resume" required="true" onChange={handleFileChange} />
+              </div>
+              <div>
+                <label htmlFor="photo">Photo:</label>
+                <input type="file" id="photo" name="photo" required="true" onChange={handleFileChange} />
+              </div>
             </div>
-            <div>
-              <label htmlFor="job_role">Job Role:</label>
-              <select id="job_role" name="job_role" value={jobRole} required="true" onChange={handleJobRoleChange}>
-                <option value="">Select Job Role</option>
-                <option value="developer">Developer</option>
-                <option value="designer">Designer</option>
-                <option value="manager">Manager</option>
-              </select>
-            </div>
-          </div>
-          <div className="file-grid">
-            <div>
-              <label htmlFor="resume">Resume:</label>
-              <input type="file" id="resume" name="resume" required="true" onChange={handleFileChange} />
-            </div>
-            <div>
-              <label htmlFor="photo">Photo:</label>
-              <input type="file" id="photo" name="photo" required="true" onChange={handleFileChange} />
-            </div>
-          </div>
-          <button type="submit" className='submit-button'>Apply Now</button>
-        </form>
+            <button type="submit" className='submit-button'>Apply Now</button>
+          </form>
+        </div>
       </div>
     </>
   );

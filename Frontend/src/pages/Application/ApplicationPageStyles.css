@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
+
+.outside-page-application {
+    background-color: #f2f0f7;
+    padding: 60px;
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
 .page-application {
     background-color: #AB9AC1;
-    min-height: 100vh;
+    height: 100%;
 }
 
 .header {
@@ -67,7 +76,7 @@ label {
 .form-grid button {
     width: 80%;
     padding: 10px;
-    background-color: #4caf50;
+    background-color: #1b52df;
     color: white;
     border: none;
     border-radius: 5px;

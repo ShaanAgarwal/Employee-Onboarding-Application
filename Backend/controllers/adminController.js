@@ -89,15 +89,25 @@ const getAllHRs = async (req, res) => {
 
 const getOngoingCandidates = async (req, res) => {
     try {
-        const candidates = await User.find({
-            role: 'candidate',
-            interviewClear: false
-        });
+        const candidates = await User.find(
+            {
+                role: 'candidate',
+                interviewClear: false
+            },
+            // Projection to fetch only specific fields
+            {
+                name: 1,
+                email: 1,
+                photo: 1,
+                _id: 0 // Exclude the _id field from the result
+            }
+        );
         res.status(200).json({ candidates, message: "Successful in retrieving ongoing candidates.", success: true });
     } catch (error) {
         console.log(error);
         res.status(500).json({ error, message: "Internal Server Error", success: false });
-    };
-}
+    }
+};
+
 
 module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds, getAllHRs, getOngoingCandidates }

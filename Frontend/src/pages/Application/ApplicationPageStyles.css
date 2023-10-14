@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 
 .outside-page-application {
-    background-color: #f2f0f7;
+    background-color: #d2d2d2;
     padding: 60px;
     height: 100vh;
     font-family: 'Inter', sans-serif;
@@ -82,4 +82,17 @@ label {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10%;
+}
+
+.form-grid input[type="file"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.form-grid input[type="file"]:focus {
+    outline: none;
 }

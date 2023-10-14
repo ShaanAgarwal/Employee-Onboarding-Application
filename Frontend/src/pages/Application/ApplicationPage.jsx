@@ -121,9 +121,18 @@ const ApplicationPage = () => {
                 <label htmlFor="job_role">Job Role:</label>
                 <select id="job_role" name="job_role" value={jobRole} required="true" onChange={handleJobRoleChange}>
                   <option value="">Select Job Role</option>
-                  <option value="developer">Developer</option>
-                  <option value="designer">Designer</option>
+                  <option value="frontend-developer">Frontend Developer</option>
+                  <option value="backend-developer">Backend Developer</option>
+                  <option value="full-stack-developer">Full Stack Developer</option>
+                  <option value="java-developer">Java Developer</option>
+                  <option value="python-developer">Python Developer</option>
                   <option value="manager">Manager</option>
+                  <option value="product-manager">Product Manager</option>
+                  <option value="project-manager">Project Manager</option>
+                  <option value="human-resources">Human Resources</option>
+                  <option value="quality-assurance">Quality Assurance</option>
+                  <option value="salesperson">Salesperson</option>
+                  <option value="help-desk">Help Desk</option>
                 </select>
               </div>
             </div>

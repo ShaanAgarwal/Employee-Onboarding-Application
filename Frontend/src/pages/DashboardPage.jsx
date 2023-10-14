@@ -6,7 +6,6 @@ const DashboardPage = () => {
   const userRole = localStorage.getItem('userRole');
   const navigate = useNavigate();
 
-  // Use useEffect to conditionally navigate for the 'admin' role
   useEffect(() => {
     if (userRole === 'admin') {
       navigate('/dashboard/headHRViewAllHRs');

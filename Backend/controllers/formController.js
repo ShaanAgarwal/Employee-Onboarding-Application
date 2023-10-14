@@ -21,9 +21,7 @@ const submitForm = async (req, res) => {
   try {
     const { name, email, address, city, pincode, start_date, job_role } = req.body;
     const { files } = req;
-
     await uploadFile(files[0], files[1], name, email, address, city, pincode, start_date, job_role);
-
     res.status(200).send("Form Submitted");
   } catch (error) {
     res.status(500).send(error.message);
@@ -35,7 +33,6 @@ const uploadFile = async (resumeFile, imageFile, name, email, address, city, pin
   resumeBufferStream.end(resumeFile.buffer);
   const imageBufferStream = new stream.PassThrough();
   imageBufferStream.end(imageFile.buffer);
-
   try {
     const { data: resumeData } = await google.drive({ version: "v3", auth }).files.create({
       media: {
@@ -48,7 +45,6 @@ const uploadFile = async (resumeFile, imageFile, name, email, address, city, pin
       },
       fields: "id,name,webContentLink",
     });
-
     const { data: imageData } = await google.drive({ version: "v3", auth }).files.create({
       media: {
         mimeType: imageFile.mimetype,

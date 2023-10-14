@@ -18,7 +18,7 @@ const CandidateOnboarding = () => {
             console.log(error);
         }
     };
-    
+
 
     useEffect(() => {
         fetchOnboardingDetails();
@@ -37,7 +37,6 @@ const CandidateOnboarding = () => {
             }
         }
 
-        // Handle loading state or other scenarios where candidateDetails is not available yet
         return <div>Loading...</div>;
     };
 

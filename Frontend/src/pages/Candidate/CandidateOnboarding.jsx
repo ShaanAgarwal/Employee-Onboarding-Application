@@ -42,7 +42,6 @@ const CandidateOnboarding = () => {
 
     return (
         <div>
-            <h1>Candidate Onboarding</h1>
             {renderOnboardingComponent()}
         </div>
     );

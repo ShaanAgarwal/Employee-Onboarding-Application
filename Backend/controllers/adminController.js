@@ -18,7 +18,7 @@ const getCandidates = async (req, res) => {
     try {
         const candidates = await User.find({ role: 'candidate' })
             .populate('assignedHR', 'name')
-            .select('name assignedHR rounds');
+            .select('name assignedHR rounds photo');
         res.json(candidates);
     } catch (error) {
         console.error(error);

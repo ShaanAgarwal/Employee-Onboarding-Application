@@ -17,6 +17,7 @@ const HeadHRAssignment = () => {
         try {
             const response = await axios.get('http://localhost:8080/api/admin/getCandidates');
             setCandidates(response.data);
+            console.log(candidates);
         } catch (error) {
             console.error(error);
         }
@@ -55,6 +56,7 @@ const HeadHRAssignment = () => {
             <ul>
                 {candidates.map((candidate) => (
                     <li key={candidate._id}>
+                        <img src={candidate.photo} alt="" />
                         <p>Name: {candidate.name}</p>
                         <p>Assigned HR: {candidate.assignedHR ? candidate.assignedHR.name : 'Not Assigned'}</p>
                         <p>Interview Rounds: {candidate.rounds}</p>

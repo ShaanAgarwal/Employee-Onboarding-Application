@@ -24,7 +24,6 @@ const PersonalDetails = () => {
 
     return (
         <div>
-            <p>{photo}</p>
             <h2>Candidate Details</h2>
             <p>Name: {firstName} {lastName}</p>
             <p>Email: {email}</p>

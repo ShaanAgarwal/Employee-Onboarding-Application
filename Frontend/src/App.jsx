@@ -29,6 +29,9 @@ import HeadHRViewApplicationsPage from './pages/HeadHR/HeadHRViewApplicationsPag
 {/* HR */ }
 import HRViewCandidatesPage from './pages/HR/HRViewCandidatesPage';
 import HRViewCandidatePage from './pages/HR/HRViewCandidatePage';
+import PersonalDetails from './pages/Candidate/Candidate-Onboarding/PersonalDetails';
+import OfferLetter from './pages/Candidate/Candidate-Onboarding/OfferLetter';
+import VerificationDocuments from './pages/HR/Onboarding/VerificationDocuments';
 
 {/* Candidate */ }
 import CandidateBasePage from './pages/Candidate/CandidateBasePage';
@@ -65,6 +68,9 @@ function App() {
           {/* HR */}
           <Route path='/dashboard/HRViewCandidates' element={<HRViewCandidatesPage />} />
           <Route path="/dashboard/HRViewCandidate/:candidateId" element={<HRViewCandidatePage />} />
+          <Route path='/dashboard/HRViewCandidates/:candidateId/PersonalDetails' element={<PersonalDetails />} />
+          <Route path='/dashboard/HRViewCandidates/:candidateId/VerificationDocuments' element={<VerificationDocuments />} />
+          <Route path='/dashboard/HRViewCandidates/:candidateId/OfferLetter' element={<OfferLetter />} />
 
           {/* Candidates */}
           <Route path='/dashboard/Candidate/ViewRoundDetails' element={<CandidateBasePage />} />

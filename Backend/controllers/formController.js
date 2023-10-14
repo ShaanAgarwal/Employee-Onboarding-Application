@@ -107,6 +107,7 @@ const acceptCandidate = async (req, res) => {
       name: candidate.name,
       email: candidate.email,
       password: hashedPassword,
+      photo: candidate.photoPath,
       role: 'candidate'
     });
     await newUser.save();

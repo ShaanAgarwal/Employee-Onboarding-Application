@@ -1,5 +1,6 @@
 const User = require("../models/userSchema");
 const { sendEmail } = require("../utils/emailUtils");
+const Onboarding = require("../models/onboardingSchema");
 
 const getHRDetails = async (req, res) => {
     try {
@@ -96,6 +97,11 @@ const acceptCandidate = async (req, res) => {
         if (candidate.currentRound == candidate.rounds) {
             candidate.interviewClear = true;
             await candidate.save();
+            const onboarding = new Onboarding({
+                candidate: candidate._id,
+                hr: candidate.assignedHR
+            });
+            await onboarding.save();
         };
         res.json({ message: "Round accepted" });
     } catch (error) {

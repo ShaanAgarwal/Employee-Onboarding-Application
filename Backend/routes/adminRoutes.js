@@ -8,5 +8,6 @@ router.get('/getHRs', adminController.getHRs);
 router.post('/assign-hr/:userId', adminController.assignHr);
 router.post('/update-rounds/:userId', adminController.updateRounds);
 router.get('/getAllHRs', adminController.getAllHRs);
+router.get('/get-ongoing-candidates', adminController.getOngoingCandidates);
 
 module.exports = router;

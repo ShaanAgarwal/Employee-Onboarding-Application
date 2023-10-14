@@ -87,4 +87,17 @@ const getAllHRs = async (req, res) => {
     };
 };
 
-module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds, getAllHRs }
+const getOngoingCandidates = async (req, res) => {
+    try {
+        const candidates = await User.find({
+            role: 'candidate',
+            interviewClear: false
+        });
+        res.status(200).json({ candidates, message: "Successful in retrieving ongoing candidates.", success: true });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error, message: "Internal Server Error", success: false });
+    };
+}
+
+module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds, getAllHRs, getOngoingCandidates }

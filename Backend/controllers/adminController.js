@@ -94,12 +94,11 @@ const getOngoingCandidates = async (req, res) => {
                 role: 'candidate',
                 interviewClear: false
             },
-            // Projection to fetch only specific fields
             {
                 name: 1,
                 email: 1,
                 photo: 1,
-                _id: 0 // Exclude the _id field from the result
+                _id: 0
             }
         );
         res.status(200).json({ candidates, message: "Successful in retrieving ongoing candidates.", success: true });

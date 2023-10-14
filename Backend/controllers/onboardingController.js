@@ -124,4 +124,15 @@ const uploadDocuments = async (req, res) => {
     }
 };
 
-module.exports = { getOnboardingDetails, updatePersonalDetails, uploadDocuments };
+const getPersonalDetails = async (req, res) => {
+    try {
+        const { candidateId } = req.params;
+        const personalDetails = await Onboarding.find({ candidate: candidateId });
+        res.status(200).json({ personalDetails, message: "Fetched the personal details of the candidate", success: true });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Internal Server Error", success: false });
+    };
+};
+
+module.exports = { getOnboardingDetails, updatePersonalDetails, uploadDocuments, getPersonalDetails };

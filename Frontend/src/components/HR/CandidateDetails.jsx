@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 const HRViewCandidate = () => {
@@ -95,7 +95,7 @@ const HRViewCandidate = () => {
           )}
         </div>
       ))}
-      {candidate.interviewClear == true && (<button>Onboarding</button>)}
+      {candidate.interviewClear == true && (<Link to={`/dashboard/HRViewCandidates/${candidate._id}/PersonalDetails`}>Onboarding</Link>)}
     </div>
   );
 };

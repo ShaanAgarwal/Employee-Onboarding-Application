@@ -29,8 +29,8 @@ import HeadHRViewApplicationsPage from './pages/HeadHR/HeadHRViewApplicationsPag
 {/* HR */ }
 import HRViewCandidatesPage from './pages/HR/HRViewCandidatesPage';
 import HRViewCandidatePage from './pages/HR/HRViewCandidatePage';
-import PersonalDetails from './pages/Candidate/Candidate-Onboarding/PersonalDetails';
-import OfferLetter from './pages/Candidate/Candidate-Onboarding/OfferLetter';
+import PersonalDetails from './pages/HR/Onboarding/PersonalDetails';
+import OfferLetter from './pages/HR/Onboarding/OfferLetter';
 import VerificationDocuments from './pages/HR/Onboarding/VerificationDocuments';
 
 {/* Candidate */ }

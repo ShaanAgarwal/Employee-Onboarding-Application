@@ -9,8 +9,8 @@ const interviewRoundSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    enum: ['approved', 'pending', 'rejected'],
-    default: 'pending'
+    enum: ['Approved', 'Ongoing'],
+    default: 'Pending'
   },
   attempted: { type: Boolean, default: false }
 });

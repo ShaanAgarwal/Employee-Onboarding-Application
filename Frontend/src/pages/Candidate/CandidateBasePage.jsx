@@ -39,7 +39,6 @@ function CandidateBasePage() {
 
     return (
         <div>
-            <h2>Candidate Dashboard</h2>
             {requiresPasswordChange ? (
                 <div>
                     <h3>Change Password on First Login</h3>

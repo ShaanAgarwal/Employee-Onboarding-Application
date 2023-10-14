@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Poppins:wght@300&display=swap');
+
+interview-round-main-box::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.interview-round-main-box::-webkit-scrollbar-thumb {
+    background-color: #888;
+}
+
+.interview-round-main-box::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.user-profile-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 30px;
+    padding-right: 100px;
+}
+
+.user-profile-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 150px;
+    right: 50px;
+    text-align: center;
+}
+
+.interview-round-main-box {
+    min-height: 67vh;
+    max-height: 67vh;
+    width: 600px;
+    position: relative;
+    left: 30%;
+    overflow-y: auto;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.round-specific-box {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    border-radius: 1rem;
+    position: relative;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.round-specific-box .random-box {
+    height: 70px;
+    width: 70px;
+    background-color: #d9d9d9;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.round-specific-box .round-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.round-info .interview-round-number {
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.round-info .round-detail {
+    font-size: 16px;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 550;
+}
+
+.round-info .evaluation {
+    text-decoration: none;
+    color: #636cff;
+}
+
+.round-specific-box .status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 30px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 1rem;
+    background-color: #3bc9db;
+    color: black;
+}
+
+.round-specific-box .status.Approved {
+    background-color: #35b47f;
+}
+
+.round-specific-box .status.Pending {
+    background-color: #2dd4bf;
+}

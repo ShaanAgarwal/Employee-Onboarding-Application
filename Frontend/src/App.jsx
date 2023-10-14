@@ -32,6 +32,7 @@ import HRViewCandidatePage from './pages/HR/HRViewCandidatePage';
 
 {/* Candidate */ }
 import CandidateBasePage from './pages/Candidate/CandidateBasePage';
+import CandidateOnboarding from './pages/Candidate/CandidateOnboarding';
 
 function App() {
 
@@ -67,6 +68,7 @@ function App() {
 
           {/* Candidates */}
           <Route path='/dashboard/Candidate/ViewRoundDetails' element={<CandidateBasePage />} />
+          <Route path='/dashboard/Candidate/Onboarding' element={<CandidateOnboarding />} />
 
         </Routes>
       </BrowserRouter>

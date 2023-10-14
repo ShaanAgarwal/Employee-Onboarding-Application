@@ -9,6 +9,7 @@ const authRoutes = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const hrRoutes = require('./routes/hrRoutes');
 const candidateRoutes = require('./routes/candidateRoutes');
+const onboardingRoutes = require('./routes/onboardingRoutes');
 
 // Importing Mongoose
 const { connectDB } = require("./config/db");
@@ -33,7 +34,8 @@ app.use('/api/form', formRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/hr', hrRoutes);
-app.use('/api/candidate', candidateRoutes)
+app.use('/api/candidate', candidateRoutes);
+app.use('/api/onboarding', onboardingRoutes);
 
 // Port
 const PORT = process.env.PORT || 8080;

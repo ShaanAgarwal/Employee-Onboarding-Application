@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const CandidateRoundDetails = () => {
   const [userDetails, setUserDetails] = useState(null);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchUserDetails();
@@ -28,6 +30,10 @@ const CandidateRoundDetails = () => {
     } catch (error) {
       console.error(error);
     }
+  };
+
+  const onboardingHandler = () => {
+    navigate('/dashboard/Candidate/Onboarding');
   };
 
   return (
@@ -63,7 +69,7 @@ const CandidateRoundDetails = () => {
             }
             return null;
           })}
-          {userDetails.interviewClear == true && (<button>Onboarding</button>)}
+          {userDetails.interviewClear == true && (<button onClick={onboardingHandler}>Onboarding</button>)}
         </div>
       )}
     </div>

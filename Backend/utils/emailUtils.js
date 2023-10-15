@@ -6,7 +6,7 @@ async function sendEmail(toEmail, subject, text) {
             service: 'Gmail',
             auth: {
                 user: 'shaanagarwal1942003@gmail.com',
-                pass: 'ddkwxstrydyfitey',
+                pass: 'xnsb rlns ohky vkap',
             },
         });
 

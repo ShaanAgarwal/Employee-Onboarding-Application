@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Martel+Sans:wght@600&display=swap');
+
+.left-side-content {
+    height: 100vh;
+    width: 30%;
+    background-color: #000024;
+    padding: 15px;
+}
+
+.left-side-content h1 {
+    color: white;
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: bold;
+}
+
+.left-side-content img {
+    height: 500px;
+    width: 300px;
+    margin-left: 50px;
+}
+
+.personal-details-form {
+    height: 90vh;
+    width: 50%;
+    background-color: white;
+    position: absolute;
+    top: 34px;
+    left: 25%;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    overflow-y: auto;
+}
+
+.name-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+.personal-details-form label {
+    text-align: right;
+    margin-right: 10px;
+    line-height: 30px;
+}
+
+.personal-details-form input,
+.personal-details-form select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #959595;
+    opacity: 0.2;
+}
+
+.personal-details-form button {
+    width: calc(100% - 22px);
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.personal-details-form button:hover {
+    background-color: #0056b3;
+}

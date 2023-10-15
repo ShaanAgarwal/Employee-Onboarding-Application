@@ -1,0 +1,20 @@
+.register-hr-main-component {
+    position: absolute;
+    left: 228px;
+    top: 0;
+    height: 100vh;
+    background-color: #c4c4c4;
+    width: 60%;
+    padding: 40px;
+}
+
+.register-hr-component {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+}
+
+.register-hr-main-component .register-hr-component h1 {
+    color: #a303a0;
+}

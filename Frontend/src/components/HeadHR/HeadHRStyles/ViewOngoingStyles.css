@@ -1,0 +1,28 @@
+.hr-view-ongoing-candidates {
+    position: absolute;
+    height: 100vh;
+    width: 59%;
+    left: 230px;
+    top: 0;
+    padding: 20px;
+    background-color: #f1f1f1;
+    overflow-y: auto;
+}
+
+.candidate-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.candidate-photo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.candidate-info p {
+    margin: 0;
+}

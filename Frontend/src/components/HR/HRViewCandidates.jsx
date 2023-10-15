@@ -7,7 +7,12 @@ const HRViewCandidates = () => {
 
     useEffect(() => {
         const hrEmail = localStorage.getItem('email');
-        axios.get(`http://localhost:8080/api/hr/${hrEmail}/candidates`)
+        const token = localStorage.getItem('token');
+        axios.get(`http://localhost:8080/api/hr/${hrEmail}/candidates`, {
+            headers: {
+                Authorization: token,
+            }
+        })
             .then(response => {
                 setCandidates(response.data);
             })

@@ -4,34 +4,69 @@ const Candidate = require('../models/candidateSchema');
 const User = require('../models/userSchema');
 const bcrypt = require('bcrypt');
 const { sendEmail } = require("../utils/emailUtils");
+const stream = require("stream");
+const multer = require("multer");
+const upload = multer();
+const { google } = require("googleapis");
 
-const uploadFile = (req, res, next) => {
-  try {
-    if (!req.file) {
-      return res.status(400).json({ error: 'No file uploaded' });
-    };
-    const { name } = req.body;
-    const candidateName = name.replace(/\s+/g, '_');
-    const candidatePath = path.join(__dirname, '../uploads', 'resume', candidateName);
-    fs.mkdirSync(candidatePath, { recursive: true });
-    const filePath = path.join(candidatePath, req.file.originalname);
-    fs.writeFileSync(filePath, req.file.buffer);
-    req.filePath = filePath;
-    next();
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred while uploading the file' });
-  };
-};
+const KEYFILEPATH = path.join(__dirname, "cred.json");
+const SCOPES = ["https://www.googleapis.com/auth/drive"];
+
+const auth = new google.auth.GoogleAuth({
+  keyFile: KEYFILEPATH,
+  scopes: SCOPES,
+});
 
 const submitForm = async (req, res) => {
   try {
-    const { name, email } = req.body;
-    const resumeFilePath = req.filePath;
+    const { name, email, address, city, pincode, start_date, job_role } = req.body;
+    const { files } = req;
+    await uploadFile(files[0], files[1], name, email, address, city, pincode, start_date, job_role);
+    res.status(200).send("Form Submitted");
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+};
+
+const uploadFile = async (resumeFile, imageFile, name, email, address, city, pincode, start_date, job_role) => {
+  const resumeBufferStream = new stream.PassThrough();
+  resumeBufferStream.end(resumeFile.buffer);
+  const imageBufferStream = new stream.PassThrough();
+  imageBufferStream.end(imageFile.buffer);
+  try {
+    const { data: resumeData } = await google.drive({ version: "v3", auth }).files.create({
+      media: {
+        mimeType: resumeFile.mimetype,
+        body: resumeBufferStream,
+      },
+      requestBody: {
+        name: resumeFile.originalname,
+        parents: ["1kNSlFMpNDah1DflH4R-cxDTGbty5cLQr"],
+      },
+      fields: "id,name,webContentLink",
+    });
+    const { data: imageData } = await google.drive({ version: "v3", auth }).files.create({
+      media: {
+        mimeType: imageFile.mimetype,
+        body: imageBufferStream,
+      },
+      requestBody: {
+        name: imageFile.originalname,
+        parents: ["1kNSlFMpNDah1DflH4R-cxDTGbty5cLQr"],
+      },
+      fields: "id,name,webContentLink",
+    });
+
     const candidate = new Candidate({
       name,
       email,
-      resumePath: resumeFilePath,
+      address,
+      city,
+      pincode,
+      start_date,
+      job_role,
+      resumePath: resumeData.webContentLink,
+      photoPath: `https://drive.google.com/uc?id=${imageData.id}`,
     });
     await candidate.save();
     await sendEmail(
@@ -39,10 +74,13 @@ const submitForm = async (req, res) => {
       'Application Submission',
       `Dear ${name}, Your application has been submitted successfully. We will get back to you shortly.`
     );
-    res.json({ message: 'Form submitted successfully' });
+    console.log(`Uploaded resume: ${resumeData.name} - ${resumeData.id}`);
+    console.log(`Resume URL: ${resumeData.webContentLink}`);
+    console.log(`Uploaded image: ${imageData.name} - ${imageData.id}`);
+    console.log(`Image URL: ${imageData.webContentLink}`);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred' });
+    console.error(`Error uploading files: ${error.message}`);
+    throw error;
   }
 };
 
@@ -53,21 +91,6 @@ const getCandidates = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'An error occurred' });
-  };
-};
-
-const downloadResume = async (req, res) => {
-  try {
-    const candidateId = req.params.candidateId;
-    const candidate = await Candidate.findById(candidateId);
-    if (!candidate) {
-      return res.status(404).json({ error: 'Candidate not found' });
-    };
-    const resumePath = candidate.resumePath;
-    res.download(resumePath, candidate.name + '_resume.pdf');
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'An error occurred while downloading the resume' });
   };
 };
 
@@ -84,6 +107,7 @@ const acceptCandidate = async (req, res) => {
       name: candidate.name,
       email: candidate.email,
       password: hashedPassword,
+      photo: candidate.photoPath,
       role: 'candidate'
     });
     await newUser.save();
@@ -133,4 +157,4 @@ const rejectCandidate = async (req, res) => {
   };
 };
 
-module.exports = { uploadFile, submitForm, getCandidates, downloadResume, acceptCandidate, rejectCandidate };
+module.exports = { uploadFile, submitForm, getCandidates, acceptCandidate, rejectCandidate };

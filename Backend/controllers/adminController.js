@@ -18,7 +18,7 @@ const getCandidates = async (req, res) => {
     try {
         const candidates = await User.find({ role: 'candidate' })
             .populate('assignedHR', 'name')
-            .select('name assignedHR rounds');
+            .select('name assignedHR rounds photo');
         res.json(candidates);
     } catch (error) {
         console.error(error);
@@ -77,5 +77,36 @@ const updateRounds = async (req, res) => {
     };
 };
 
+const getAllHRs = async (req, res) => {
+    try {
+        const hrs = await User.find({ role: 'hr' })
+        res.json(hrs);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'An error occurred' });
+    };
+};
 
-module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds }
+const getOngoingCandidates = async (req, res) => {
+    try {
+        const candidates = await User.find(
+            {
+                role: 'candidate',
+                interviewClear: false
+            },
+            {
+                name: 1,
+                email: 1,
+                photo: 1,
+                _id: 0
+            }
+        );
+        res.status(200).json({ candidates, message: "Successful in retrieving ongoing candidates.", success: true });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error, message: "Internal Server Error", success: false });
+    }
+};
+
+
+module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds, getAllHRs, getOngoingCandidates }

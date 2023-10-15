@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import "./LoginPageStyles.css";
+import companyLogo from "./Empowerin-Logo.png";
+import Abstraction from "./Abstraction.png";
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -28,21 +31,19 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
+    <div className='login-page-main'>
+      <div className="company-logo">
+        <img src={companyLogo} alt="Empower Logo" />
+      </div>
+      <div className='main-form-layout'>
+        <h2 className='login-name-header'>LOG IN</h2> <br/>
+        <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} /> <br />
+        <button onClick={handleLogin}>Login</button>
+      </div>
+      <div className="abstraction-logo">
+        <img src={Abstraction} alt="Abstraction Logo" />
+      </div>
     </div>
   );
 };

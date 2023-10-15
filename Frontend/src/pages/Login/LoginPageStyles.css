@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@900&display=swap');
+
+.login-page-main {
+    background-color: rgb(217, 195, 245, 100%);
+    width: 100%;
+    height: 100vh;
+}
+
+.company-logo {
+    margin-left: 50px;
+}
+
+.abstraction-logo {
+    position: absolute;
+    top: 18px;
+    left: 300px;
+}
+
+.abstraction-logo img {
+    height: 90%;
+    width: 90%;
+    transform: rotate(-3deg);
+    opacity: 0.9;
+}
+
+.main-form-layout {
+    position: absolute;
+    height: 80%;
+    width: 40%;
+    background-color: white;
+    top: 10%;
+    left: 45%;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    padding-top: 6%;
+}
+
+.login-name-header {
+    font-family: 'Martel Sans', sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.main-form-layout input[type="email"],
+.main-form-layout input[type="password"] {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.main-form-layout button {
+    font-size: 1.5rem;
+    padding: 12px 20px;
+    background-color: #BE87B4;
+    color: white;
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.main-form-layout button:hover {
+    background-color: #BE87B4;
+}
+
+.main-form-layout input[type="email"]::placeholder,
+.main-form-layout input[type="password"]::placeholder {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}

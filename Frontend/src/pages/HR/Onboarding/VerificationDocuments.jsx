@@ -8,8 +8,12 @@ const VerificationDocuments = () => {
     const [candidateDetails, setCandidateDetails] = useState(null);
 
     useEffect(() => {
-        console.log(candidateId);
-        axios.get(`http://localhost:8080/api/onboarding/get-personal-details/${candidateId}`)
+        const token = localStorage.getItem('token');
+        axios.get(`http://localhost:8080/api/onboarding/get-personal-details/${candidateId}`, {
+            headers: {
+                Authorization: token,
+            }
+        })
             .then(response => {
                 setCandidateDetails(response.data.personalDetails[0]);
             })

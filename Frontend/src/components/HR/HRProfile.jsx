@@ -9,7 +9,12 @@ function HRProfile() {
         const fetchUserDetails = async () => {
             try {
                 const email = localStorage.getItem('email');
-                const response = await axios.get(`http://localhost:8080/api/hr/hr-details?email=${email}`);
+                const token = localStorage.getItem('token');
+                const response = await axios.get(`http://localhost:8080/api/hr/hr-details?email=${email}`, {
+                    headers: {
+                        Authorization: token,
+                    }
+                });
                 setUserDetails(response.data);
                 setError(null);
             } catch (error) {

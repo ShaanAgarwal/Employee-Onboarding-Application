@@ -14,7 +14,12 @@ function CandidateBasePage() {
     const checkPasswordChangeRequired = async () => {
         try {
             const email = localStorage.getItem('email');
-            const response = await axios.get(`http://localhost:8080/api/candidate/check-password-change/${email}`);
+            const token = localStorage.getItem('token');
+            const response = await axios.get(`http://localhost:8080/api/candidate/check-password-change/${email}`, {
+                headers: {
+                    Authorization: token,
+                }
+            });
             setRequiresPasswordChange(response.data.requiresPasswordChange);
         } catch (error) {
             console.error(error);
@@ -24,10 +29,15 @@ function CandidateBasePage() {
     const handlePasswordChange = async (e) => {
         e.preventDefault();
         const email = localStorage.getItem('email');
+        const token = localStorage.getItem('token');
         try {
             const response = await axios.post('http://localhost:8080/api/candidate/first-login-change-password', {
                 email,
                 password
+            }, {
+                headers: {
+                    Authorization: token,
+                }
             });
             setMessage(response.data.message);
             setRequiresPasswordChange(false);

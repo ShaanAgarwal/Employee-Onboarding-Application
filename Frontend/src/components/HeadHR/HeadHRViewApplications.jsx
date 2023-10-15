@@ -11,7 +11,12 @@ const HeadHRViewApplications = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/api/form/getCandidates');
+      const token = localStorage.getItem('token');
+      const response = await axios.get('http://localhost:8080/api/form/getCandidates', {
+        headers: {
+          Authorization: token,
+        }
+      });
       setCandidates(response.data);
     } catch (error) {
       console.error(error);
@@ -20,7 +25,12 @@ const HeadHRViewApplications = () => {
 
   const handleAccept = async (candidateId) => {
     try {
-      await axios.post(`http://localhost:8080/api/form/accept/${candidateId}`);
+      const token = localStorage.getItem('token');
+      await axios.post(`http://localhost:8080/api/form/accept/${candidateId}`, {
+        headers: {
+          Authorization: token,
+        }
+      });
       fetchData();
     } catch (error) {
       console.error(error);
@@ -29,7 +39,12 @@ const HeadHRViewApplications = () => {
 
   const handleReject = async (candidateId) => {
     try {
-      await axios.post(`http://localhost:8080/api/form/reject/${candidateId}`);
+      const token = localStorage.getItem('token');
+      await axios.post(`http://localhost:8080/api/form/reject/${candidateId}`, {
+        headers: {
+          Authorization: token,
+        }
+      });
       fetchData();
     } catch (error) {
       console.error(error);

@@ -9,7 +9,12 @@ const HeadHRViewAllHRs = () => {
   useEffect(() => {
     async function fetchHrs() {
       try {
-        const response = await axios.get('http://localhost:8080/api/admin/getAllHRs');
+        const token = localStorage.getItem('token');
+        const response = await axios.get('http://localhost:8080/api/admin/getAllHRs', {
+          headers: {
+            Authorization: token,
+          }
+        });
         setHrs(response.data);
       } catch (error) {
         setError('An error occurred while fetching HRs');

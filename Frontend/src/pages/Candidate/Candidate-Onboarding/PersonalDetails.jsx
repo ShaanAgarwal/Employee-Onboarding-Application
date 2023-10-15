@@ -33,7 +33,12 @@ const PersonalDetails = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.put(`http://localhost:8080/api/onboarding/personal-details-fill?email=${formData.email}`, formData);
+    const token = localStorage.getItem('token');
+    const response = await axios.put(`http://localhost:8080/api/onboarding/personal-details-fill?email=${formData.email}`, formData, {
+      headers: {
+        Authorization: token,
+      }
+    });
     console.log(response);
     console.log('Form Data Submitted:', formData);
     if (response.status === 200) {

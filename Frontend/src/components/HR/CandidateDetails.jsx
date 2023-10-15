@@ -10,7 +10,12 @@ const HRViewCandidate = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/hr/candidate/${candidateId}`)
+    const token = localStorage.getItem('token');
+    axios.get(`http://localhost:8080/api/hr/candidate/${candidateId}`, {
+      headers: {
+        Authorization: token,
+      }
+    })
       .then(response => {
         setCandidate(response.data);
       })
@@ -21,9 +26,18 @@ const HRViewCandidate = () => {
 
   const handleUpdateRound = async (roundId) => {
     try {
+      const token = localStorage.getItem('token');
       const updatedData = { name: nameInput, details: detailsInput };
-      await axios.put(`http://localhost:8080/api/hr/round/${roundId}`, updatedData);
-      const response = await axios.get(`http://localhost:8080/api/hr/candidate/${candidateId}`);
+      await axios.put(`http://localhost:8080/api/hr/round/${roundId}`, updatedData, {
+        headers: {
+          Authorization: token,
+        }
+      });
+      const response = await axios.get(`http://localhost:8080/api/hr/candidate/${candidateId}`, {
+        headers: {
+          Authorization: token,
+        }
+      });
       setCandidate(response.data);
       setNameInput("");
       setDetailsInput("");
@@ -34,7 +48,12 @@ const HRViewCandidate = () => {
 
   const handleAcceptRound = async (roundId) => {
     try {
-      await axios.put(`http://localhost:8080/api/hr/round/${roundId}/accept`);
+      const token = localStorage.getItem('token');
+      await axios.put(`http://localhost:8080/api/hr/round/${roundId}/accept`, {
+        headers: {
+          Authorization: token,
+        }
+      });
       setCandidate(prevCandidate => ({
         ...prevCandidate,
         currentRound: prevCandidate.currentRound + 1,
@@ -46,7 +65,12 @@ const HRViewCandidate = () => {
 
   const handleRejectRound = async (roundId) => {
     try {
-      await axios.put(`http://localhost:8080/api/hr/round/${roundId}/reject`);
+      const token = localStorage.getItem('token');
+      await axios.put(`http://localhost:8080/api/hr/round/${roundId}/reject`,{
+        headers: {
+          Authorization: token,
+        }
+      });
       navigate('/dashboard');
     } catch (error) {
       console.error(error);

@@ -11,7 +11,12 @@ const HeadHRViewOngoing = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/admin/get-ongoing-candidates');
+            const token = localStorage.getItem('token');
+            const response = await axios.get('http://localhost:8080/api/admin/get-ongoing-candidates', {
+                headers: {
+                    Authorization: token,
+                }
+            });
             setCandidates(response.data.candidates);
         } catch (error) {
             console.error(error);

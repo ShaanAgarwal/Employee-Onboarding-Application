@@ -16,7 +16,12 @@ const HeadHRAssignment = () => {
 
     const fetchCandidates = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/admin/getCandidates');
+            const token = localStorage.getItem('token');
+            const response = await axios.get('http://localhost:8080/api/admin/getCandidates', {
+                headers: {
+                    Authorization: token,
+                }
+            });
             setCandidates(response.data);
         } catch (error) {
             console.error(error);
@@ -25,7 +30,12 @@ const HeadHRAssignment = () => {
 
     const fetchHRs = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/admin/getHRs');
+            const token = localStorage.getItem('token');
+            const response = await axios.get('http://localhost:8080/api/admin/getHRs', {
+                headers: {
+                    Authorization: token,
+                }
+            });
             setHRs(response.data);
         } catch (error) {
             console.error(error);
@@ -34,7 +44,12 @@ const HeadHRAssignment = () => {
 
     const handleAssignHR = async (userId) => {
         try {
-            await axios.post(`http://localhost:8080/api/admin/assign-hr/${userId}`, { hrId: selectedHR });
+            const token = localStorage.getItem('token');
+            await axios.post(`http://localhost:8080/api/admin/assign-hr/${userId}`, { hrId: selectedHR }, {
+                headers: {
+                    Authorization: token,
+                }
+            });
             fetchCandidates();
         } catch (error) {
             console.error(error);
@@ -43,7 +58,12 @@ const HeadHRAssignment = () => {
 
     const handleUpdateRounds = async (userId) => {
         try {
-            await axios.post(`http://localhost:8080/api/admin/update-rounds/${userId}`, { rounds });
+            const token = localStorage.getItem('token');
+            await axios.post(`http://localhost:8080/api/admin/update-rounds/${userId}`, { rounds }, {
+                headers: {
+                    Authorization: token,
+                }
+            });
             fetchCandidates();
         } catch (error) {
             console.error(error);

@@ -16,9 +16,11 @@ const CandidateRoundDetails = () => {
     try {
       const email = localStorage.getItem('email');
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:8080/api/candidate/candidate-details?email=${email}`,{headers: {
-        Authorization: token,
-      }});
+      const response = await axios.get(`http://localhost:8080/api/candidate/candidate-details?email=${email}`, {
+        headers: {
+          Authorization: token,
+        }
+      });
       setUserDetails(response.data);
       setError(null);
     } catch (error) {
@@ -29,7 +31,12 @@ const CandidateRoundDetails = () => {
 
   const handleMarkAttempted = async (roundId) => {
     try {
-      await axios.put(`http://localhost:8080/api/candidate/mark-round-attempted/${roundId}`);
+      const token = localStorage.getItem('token');
+      await axios.put(`http://localhost:8080/api/candidate/mark-round-attempted/${roundId}`, {
+        headers: {
+          Authorization: token,
+        }
+      });
       fetchUserDetails();
     } catch (error) {
       console.error(error);

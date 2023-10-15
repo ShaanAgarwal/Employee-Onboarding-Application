@@ -49,9 +49,11 @@ const Documents = () => {
 
     try {
       const email = localStorage.getItem('email');
+      const token = localStorage.getItem('token');
       const response = await axios.put(`http://localhost:8080/api/onboarding/upload-documents?email=${email}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
+          Authorization: token,
         },
       });
       console.log('Documents Uploaded:', formData);

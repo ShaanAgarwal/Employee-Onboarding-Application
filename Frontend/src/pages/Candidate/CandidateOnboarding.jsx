@@ -11,7 +11,12 @@ const CandidateOnboarding = () => {
     const fetchOnboardingDetails = async () => {
         try {
             const email = localStorage.getItem('email');
-            const response = await axios.get(`http://localhost:8080/api/onboarding/check-details?email=${email}`);
+            const token = localStorage.getItem('token');
+            const response = await axios.get(`http://localhost:8080/api/onboarding/check-details?email=${email}`, {
+                headers: {
+                    Authorization: token,
+                }
+            });
             setCandidateDetails(response.data);
         } catch (error) {
             setCandidateDetails(null);

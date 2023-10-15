@@ -16,6 +16,7 @@ const LoginPage = () => {
       if (response.data.role) {
         localStorage.setItem('userRole', response.data.role);
         localStorage.setItem('email', response.data.email);
+        localStorage.setItem('token', response.data.token);
         navigate('/dashboard');
       } else {
         console.log("Login Failed. Please Try Again");

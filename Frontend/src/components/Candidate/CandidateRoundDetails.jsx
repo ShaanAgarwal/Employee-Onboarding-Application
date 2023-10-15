@@ -15,7 +15,10 @@ const CandidateRoundDetails = () => {
   const fetchUserDetails = async () => {
     try {
       const email = localStorage.getItem('email');
-      const response = await axios.get(`http://localhost:8080/api/candidate/candidate-details?email=${email}`);
+      const token = localStorage.getItem('token');
+      const response = await axios.get(`http://localhost:8080/api/candidate/candidate-details?email=${email}`,{headers: {
+        Authorization: token,
+      }});
       setUserDetails(response.data);
       setError(null);
     } catch (error) {

@@ -6,26 +6,30 @@ const CandidateProfile = () => {
   const [userPersonalDetails, setUserPersonalDetails] = useState(null);
 
   useEffect(() => {
-    fetchUserPersonalDetails();
+    // fetchUserPersonalDetails();
   }, []);
 
   const fetchUserPersonalDetails = async () => {
     try {
       const email = localStorage.getItem('email');
+      const token = localStorage.getItem('token');
+      const passedToken = token.toString(); // Convert token to string if necessary
+      console.log("Email:", email);
+      console.log("Token:", passedToken);
+
       const response = await axios.get(
-        `http://localhost:8080/api/candidate/candidate-details?email=${email}`,
-        { token: localStorage.getItem('token') },
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem('token'),
-          },
-        });
+        `http://localhost:8080/api/candidate/candidate-details?email=${email}&token=${passedToken}`
+      );
       setUserPersonalDetails(response.data);
       console.log(response.data);
     } catch (error) {
       setUserPersonalDetails(null);
+      console.error(error); // Log the error for debugging
     }
   };
+
+
+
 
   return (
     <>

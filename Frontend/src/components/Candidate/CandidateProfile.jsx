@@ -12,7 +12,14 @@ const CandidateProfile = () => {
   const fetchUserPersonalDetails = async () => {
     try {
       const email = localStorage.getItem('email');
-      const response = await axios.get(`http://localhost:8080/api/candidate/candidate-details?email=${email}`);
+      const response = await axios.get(
+        `http://localhost:8080/api/candidate/candidate-details?email=${email}`,
+        { token: localStorage.getItem('token') },
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem('token'),
+          },
+        });
       setUserPersonalDetails(response.data);
       console.log(response.data);
     } catch (error) {

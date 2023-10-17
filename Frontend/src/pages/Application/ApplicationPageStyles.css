@@ -82,7 +82,17 @@ label {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 10%;
+    transition: background-color 0.3s ease;
 }
+
+.form-grid button:hover {
+    background-color: #1541b0;
+}
+
+.form-grid button:active {
+    background-color: #0d317a;
+}
+
 
 .form-grid input[type="file"] {
     width: calc(100% - 22px);

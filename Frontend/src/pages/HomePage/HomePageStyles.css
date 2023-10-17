@@ -1,13 +1,10 @@
-.container {
+.container-homepage {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f2f0f7;
-  padding-top: 8rem;
-  padding-left: 15rem;
-  padding-right: 10rem;
-  padding-bottom: 8rem;
+  padding: 8rem 10rem;
 }
 
 .main-div {

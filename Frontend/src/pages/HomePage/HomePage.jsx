@@ -5,7 +5,7 @@ import "./HomePageStyles.css";
 const HomePage = () => {
   return (
     <>
-      <div className='container'>
+      <div className='container-homepage'>
         <div className='effect'>
           <div className="blur-circle" />
         </div>

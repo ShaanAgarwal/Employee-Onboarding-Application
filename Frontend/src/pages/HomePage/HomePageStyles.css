@@ -44,9 +44,28 @@
 
 .login-button {
   font-family: 'Outfit', sans-serif;
-  padding-left: 50rem;
-  padding-right: 1rem;
+  padding: 13px 30px;
   font-size: 1.5rem;
+  text-decoration: none;
+  color: blue;
+  background-color: #f7f7f7;
+  border: 2px solid blue;
+  border-radius: 70px;
+  transition: all 0.3s ease;
+  text-align: center;
+  margin-left: 700px;
+  margin-right: 5px;
+}
+
+.login-button:hover {
+  background-color: blue;
+  color: white;
+}
+
+.login-button:active {
+  background-color: darkblue;
+  border-color: darkblue;
+
 }
 
 .main-slider img {

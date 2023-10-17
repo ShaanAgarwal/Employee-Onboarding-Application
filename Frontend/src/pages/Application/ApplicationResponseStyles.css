@@ -40,7 +40,9 @@
     left: 20px;
 }
 
-.bottom-portion .facebook-logo,.gmail-logo,.instagram-logo {
+.bottom-portion .facebook-logo,
+.gmail-logo,
+.instagram-logo {
     position: absolute;
     bottom: 15px;
     height: 40px;
@@ -100,6 +102,12 @@
     position: absolute;
     top: 50px;
     right: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(95, 57, 132, 0.2);
 }
 
 .contains-homepage-button a {
@@ -109,6 +117,13 @@
 .contains-homepage-button p {
     font-family: 'Roboto', sans-serif;
     color: white;
-    margin-top: 10px;
-    margin-left: 50px;
+    margin-left: 10px;
+}
+
+.contains-homepage-button:hover {
+    background-color: #4a2c63;
+}
+
+.contains-homepage-button:active {
+    background-color: #392347;
 }

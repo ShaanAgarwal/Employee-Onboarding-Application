@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./HomePageStyles.css";
 
-
 const HomePage = () => {
   return (
     <>
@@ -10,7 +9,6 @@ const HomePage = () => {
         <div className='effect'>
           <div className="blur-circle" />
         </div>
-
         <div className="ellipse-1" />
         <div className="ellipse-2" />
         <div className='main-div'>
@@ -35,29 +33,12 @@ const HomePage = () => {
                   Apply
                 </Link>
               </div>
-              <div className="ellipse-3" />
-
               <h4>Happy Hiring</h4>
             </div>
             <div className='main-slider'>
               <img src='./src/pages/Homepage/images/homepage1.png' />
             </div>
           </div>
-          <div className='box-1'>
-            <img src='./src/pages/Homepage/images/design-1.png' />
-          </div>
-          <div className='box-2'>
-            <img src='./src/pages/Homepage/images/design-2.png' />
-          </div>
-
-
-
-        </div>
-        <div className='effect-2'>
-          <div className="blur-circle-2" />
-        </div>
-        <div className='effect-3'>
-          <div className="blur-circle-3" />
         </div>
       </div>
     </>

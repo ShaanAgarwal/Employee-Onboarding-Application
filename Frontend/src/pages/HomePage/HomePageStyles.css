@@ -1,192 +1,114 @@
-*{
-    margin: 0;
-    box-sizing: border-box;
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f0f7;
+  padding-top: 8rem;
+  padding-left: 15rem;
+  padding-right: 10rem;
+  padding-bottom: 8rem;
 }
-.container{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f2f0f7;
-    padding-top: 8rem;
-    padding-left: 15rem;
-    padding-right: 10rem;
-    padding-bottom: 8rem;
 
+.main-div {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding-left: 5rem;
+  padding-right: 3rem;
 }
-.main-div{
-    
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    padding-left: 5rem;
-    padding-right: 3rem;
-    
 
-   
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
+.header-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
-.content-wrapper{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.header-div{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
 
+.header-div img {
+  height: 150px;
+  width: 150px;
 }
-.header-div img{
-    height: 150px;
-    width: 150px;
-}
+
 /*header section*/
-.logo-img{
-    height: 40vh;
-}
-.login-button{
-    font-family: 'Outfit', sans-serif;
-    padding-left: 50rem;
-    padding-right: 1rem;
-    font-size: 1.5rem;
+.logo-img {
+  height: 40vh;
 }
 
-.main-slider img{
-    height: 500px;
-    width: 720px;
-    
+.login-button {
+  font-family: 'Outfit', sans-serif;
+  padding-left: 50rem;
+  padding-right: 1rem;
+  font-size: 1.5rem;
 }
-.main-content h1{
-    font-family: 'Goldman', sans-serif;
-    font-size: 3.2rem;
-}
-.main-content h3{
-    color: orangered;
-    font-size: 3rem;
-    margin-bottom: 1.2rem;
-}
-.main-content h4{
-    text-align: left;
-    color: rgb(152, 45, 6);
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    margin-left: 1.2rem;
 
+.main-slider img {
+  height: 500px;
+  width: 720px;
+}
+
+.main-content h1 {
+  font-family: 'Goldman', sans-serif;
+  font-size: 3.2rem;
+}
+
+.main-content h3 {
+  color: orangered;
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
+}
+
+.main-content h4 {
+  text-align: left;
+  color: rgb(152, 45, 6);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  margin-left: 1.2rem;
 }
 
 .apply {
-    display: flex;
-    align-items: flex-end;
-    background-color: #f7f7f7;
-    border-radius: 70px;
-    justify-content: space-around;
-    padding: 13px 3px;
-    width: 176px;
-    margin-bottom: 2rem;
-  }
-  
-  .apply .apply-button {
-    color: black;
-    font-family: "Outfit";
-    font-size: 25px;
-    font-weight: 400;
-    text-align: center;
-    width: fit-content;
-  }
-  .ellipse-1 {
-    background-color: #40f8ff;
-    border-radius: 11px;
-    height: 22px;
-    left: 700px;
-    position: absolute;
-    top: 224px;
-    width: 22px;
-  }
-  .ellipse-2 {
-    background-color: #40f8ff;
-    border-radius: 11px;
-    height: 22px;
-    left: 600px;
-    position: absolute;
-    top: 175px;
-    width: 22px;
-  }
-  .ellipse-3{
-    background-color: #40f8ff;
-    border-radius: 11px;
-    height: 22px;
-    left: 600px;
-    position: absolute;
-    top: 700px;
-    width: 22px;
-  }
+  display: flex;
+  align-items: flex-end;
+  background-color: #f7f7f7;
+  border-radius: 70px;
+  justify-content: space-around;
+  padding: 13px 3px;
+  width: 176px;
+  margin-bottom: 2rem;
+}
 
+.apply .apply-button {
+  color: black;
+  font-family: "Outfit";
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+  width: fit-content;
+}
 
-  .effect{
-    height: 250px;
-    width: 270px;
-  }
- .effect .blur-circle {
-        background-color: #7575d2b2;
-        border-radius: 150px/125px;
-        filter: blur(70px);
-        height: 200px;
-        left: 0 ;
-        right: 10;
-        position: fixed;
-        top: 0;
-        width: 200px;
- }
- .effect-2{
-    height: 250px;
-    width: 270px;
-  }
- .effect-2 .blur-circle-2 {
-        background-color: #96d4d5cc;
-        border-radius: 135px/125px;
-        filter: blur(70px);
-        height: 200px;
-        left: 1300px;
-        position: fixed;
-        top: 300px;
-        width: 200px;
- }
- .effect-3{
-    height: 250px;
-    width: 270px;
-  }
- .effect-3 .blur-circle-3 {
-        background-color: orange;
-        border-radius: 135px/125px;
-        filter: blur(150px);
-        height: 250px;
-        left: 300px;
-        position: fixed;
-        top: 300px;
-        width: 270px;
- }
- .box-1{
-    height: 451px;
-    width: 610px;
-  }
-  .box-1 img {
-    height: 150px;
-    left: 450px;
-    position: fixed;
-    top: 600px;
-    width: 250px;
-  }
-  .box-2{
-    height: 451px;
-    width: 610px;
-  }
-  .box-2 img {
-    height: 200px;
-    left: 350px;
-    position: fixed;
-    top: 560px;
-    width: 300px;
-  }
+.ellipse-1 {
+  background-color: #40f8ff;
+  border-radius: 11px;
+  height: 22px;
+  left: 700px;
+  position: absolute;
+  top: 224px;
+  width: 22px;
+}
+
+.ellipse-2 {
+  background-color: #40f8ff;
+  border-radius: 11px;
+  height: 22px;
+  left: 600px;
+  position: absolute;
+  top: 175px;
+  width: 22px;
+}

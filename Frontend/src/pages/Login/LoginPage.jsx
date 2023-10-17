@@ -4,6 +4,9 @@ import axios from 'axios';
 import "./LoginPageStyles.css";
 import companyLogo from "./Empowerin-Logo.png";
 import Abstraction from "./Abstraction.png";
+import Key from "./key1.png";
+import Mail from "./mail1.png";
+
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -36,10 +39,12 @@ const LoginPage = () => {
         <img src={companyLogo} alt="Empower Logo" />
       </div>
       <div className='main-form-layout'>
-        <h2 className='login-name-header'>LOG IN</h2> <br/>
+        <h2 className='login-name-header'>LOG IN</h2> <br />
+        <img className="mail" src={Mail} />
         <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <img className="key" src={Key} />
         <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} /> <br />
-        <button onClick={handleLogin}>Login</button>
+        <button className="button-login" onClick={handleLogin}>Login</button>
       </div>
       <div className="abstraction-logo">
         <img src={Abstraction} alt="Abstraction Logo" />

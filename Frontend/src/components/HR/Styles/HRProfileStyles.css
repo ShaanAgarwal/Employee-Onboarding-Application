@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital@1&family=Cabin&family=Martel+Sans:wght@200&family=Roboto&display=swap');
+
+.hr-profile-container {
+    background-color: #6674bb;
+    height: 100vh;
+    width: 20%;
+    position: absolute;
+    right: 0;
+}
+
+.hr-profile-image {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.hr-details {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.hr-details .hr-headline {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.hr-details p {
+    font-family: 'Cabin', sans-serif;
+}
+
+.hr-details .personal-details {
+    font-size: 20px;
+}

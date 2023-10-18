@@ -1,0 +1,17 @@
+.hr-component {
+    background-color: #6674bb;
+    position: absolute;
+    height: 100vh;
+    width: 20%;
+}
+
+.hr-component .company-logo {
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.hr-component .profile-side-image {
+    position: absolute;
+    bottom: 30px;
+    left: 60px;
+}

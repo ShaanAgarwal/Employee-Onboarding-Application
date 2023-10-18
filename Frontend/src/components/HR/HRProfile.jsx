@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./Styles/HRProfileStyles.css";
+import hrProfileImage from "./hr-profile-image.png";
 
 function HRProfile() {
     const [userDetails, setUserDetails] = useState(null);
@@ -27,13 +29,16 @@ function HRProfile() {
     }, []);
 
     return (
-        <div>
+        <div className="hr-profile-container">
             {error && <p>{error}</p>}
+            <div className="hr-profile-image">
+                <img src={hrProfileImage} alt="" />
+            </div>
             {userDetails && (
-                <div>
-                    <h2>User Details</h2>
-                    <p>Name: {userDetails.name}</p>
-                    <p>Email: {userDetails.email}</p>
+                <div className="hr-details">
+                    <p className="hr-headline">HR</p>
+                    <p className="personal-details">{userDetails.name}</p>
+                    <p className="personal-details">{userDetails.email}</p>
                 </div>
             )}
         </div>

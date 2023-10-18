@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital@1&display=swap');
+
+a {
+    text-decoration: none;
+}
+
+.view-all-candidates-main-component {
+    background-color: #e5eaff;
+    height: 100vh;
+    position: absolute;
+    width: 60%;
+    right: 20%;
+}
+
+.view-all-candidates-main-component .inside-container-view-all-candidates {
+    height: 600px;
+    width: 800px;
+    background-color: white;
+    position: absolute;
+    left: 6%;
+    top: 10%;
+    border-radius: 1rem;
+    padding: 20px;
+    overflow-y: scroll;
+}
+
+.view-all-candidates-main-component .inside-container-view-all-candidates h1 {
+    font-family: 'Cabin', sans-serif;
+    margin-bottom: 20px;
+}
+
+.candidate-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(202, 202, 202, 0.15);
+}
+
+.candidate-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.candidate-details {
+    font-family: 'Cabin', sans-serif;
+}
+
+.candidate-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.candidate-email {
+    color: #555;
+}
+
+.view-all-candidates-main-component .inside-container-view-all-candidates ul {
+    list-style-type: none;
+    padding: 0;
+}

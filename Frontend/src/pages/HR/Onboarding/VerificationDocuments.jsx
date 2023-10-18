@@ -40,6 +40,7 @@ const VerificationDocuments = () => {
                 <li><a href={residentialProof}>Residential Proof</a></li>
                 <li><a href={sscMarksheet}>SSC Markhseet</a></li>
             </ul>
+            <Link to={`/dashboard/HRViewCandidates/${candidateId}/OfferLetter`}>Offer Letter</Link>
         </>
     );
 };

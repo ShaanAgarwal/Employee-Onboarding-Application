@@ -56,7 +56,7 @@
   transition: all 0.3s ease;
   text-align: center;
   margin-left: 700px;
-  margin-right: 5px;
+  margin-right: 1.2rem;
 }
 
 .login-button:hover {
@@ -132,20 +132,29 @@
 
 .ellipse-1 {
   background-color: #40f8ff;
-  border-radius: 11px;
-  height: 22px;
-  left: 700px;
+  border-radius: 15px;
+  height: 30px;
+  left: 720px;
   position: absolute;
-  top: 224px;
-  width: 22px;
+  top: 244px;
+  width: 30px;
 }
 
 .ellipse-2 {
-  background-color: #40f8ff;
+  background-color: #279DFF;
   border-radius: 11px;
   height: 22px;
-  left: 600px;
+  left: 650px;
   position: absolute;
-  top: 175px;
+  top: 185px;
   width: 22px;
+}
+.ellipse-3 {
+  background-color: #0C3569;
+  border-radius: 25px;
+  height: 45px;
+  left: 1225px;
+  position: absolute;
+  top: 625px;
+  width: 45px;
 }

@@ -11,6 +11,7 @@ const HomePage = () => {
         </div>
         <div className="ellipse-1" />
         <div className="ellipse-2" />
+        <div className="ellipse-3" />
         <div className='main-div'>
           <div className='header-div'>
             <img className='logo-img' src='./src/pages/Homepage/images/Logo.png' alt='img-logo' />

@@ -7,22 +7,59 @@ const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('hr');
+    const [photo, setPhoto] = useState(null);
 
     const navigate = useNavigate();
 
+    const handleNameChange = (e) => {
+        setName(e.target.value);
+    };
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
+
+    const handleRoleChange = (e) => {
+        setRole(e.target.value);
+    }
+
+    const handleFileChange = (e) => {
+        const fieldName = e.target.name;
+        const file = e.target.files[0];
+
+        if (fieldName === 'photo') {
+            setPhoto(file);
+        }
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(name, email, password, role);
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('role', role);
+        formData.append('photo', photo);
+
+        console.log(formData.get('name'));
+        console.log(formData.get('email'));
+        console.log(formData.get('password'));
+        console.log(formData.get('role'));
+        console.log(formData.get('photo'));
 
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/register', {
-                name,
-                email,
-                password,
-                role
+            const response = await axios.post('http://localhost:8080/api/auth/register', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
             });
-            navigate("/");
             console.log(response.data);
+            // navigate("/");
         } catch (error) {
             console.error(error);
         }
@@ -32,25 +69,11 @@ const RegisterPage = () => {
         <div>
             <h1>Register Page</h1>
             <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <select value={role} onChange={(e) => { console.log(e.target.value); setRole(e.target.value); }}>
+                <input type="text" placeholder="Name" value={name} onChange={handleNameChange} />
+                <input type="email" placeholder="Email" value={email} onChange={handleEmailChange} />
+                <input type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+                <input type="file" name='photo' onChange={handleFileChange} />
+                <select value={role} onChange={handleRoleChange}>
                     <option value="hr">HR</option>
                     <option value="candidate">Candidate</option>
                     <option value="admin">Admin</option>

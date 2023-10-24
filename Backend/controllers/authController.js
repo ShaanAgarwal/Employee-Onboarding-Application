@@ -1,12 +1,29 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/userSchema');
+const path = require('path');
+const fs = require('fs');
+const stream = require("stream");
+const multer = require("multer");
+const upload = multer();
+const { google } = require("googleapis");
+
+
+const KEYFILEPATH = path.join(__dirname, "cred.json");
+const SCOPES = ["https://www.googleapis.com/auth/drive"];
+
+const auth = new google.auth.GoogleAuth({
+    keyFile: KEYFILEPATH,
+    scopes: SCOPES,
+});
 
 const register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
+    const {files} = req;
+    const photo = await uploadFile(files[0]);
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ name, email, password: hashedPassword, role });
+    const newUser = new User({ name, email, password: hashedPassword, role, photo: photo });
     await newUser.save();
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
@@ -14,6 +31,36 @@ const register = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   };
 };
+
+const uploadFile = async (file) => {
+  try {
+    console.log(`Uploading file: ${file.originalname}`);
+
+    const bufferStream = new stream.PassThrough();
+    bufferStream.end(file.buffer);
+
+    const { data } = await google.drive({ version: "v3", auth }).files.create({
+      media: {
+        mimeType: file.mimetype,
+        body: bufferStream,
+      },
+      requestBody: {
+        name: file.originalname,
+        parents: ["1kNSlFMpNDah1DflH4R-cxDTGbty5cLQr"],
+        // Set viewersCanCopyContent to false to prevent downloading or copying
+        viewersCanCopyContent: false,
+      },
+      fields: "id,name,webContentLink",
+    });
+
+    console.log(`Uploaded file: ${file.originalname} - Link: ${data.webContentLink}`);
+    return data.webContentLink;
+  } catch (error) {
+    console.error(`Error uploading file ${file.originalname}: ${error.message}`);
+    throw error;
+  }
+};
+
 
 const login = async (req, res) => {
   const { email, password } = req.body;

@@ -13,9 +13,7 @@ const HomePage = () => {
         <div className='effect-2'>
           <div className="blur-circle-2" />
         </div>
-        <div className="ellipse-1" />
-        <div className="ellipse-2" />
-        <div className="ellipse-3" />
+
 
         <div className='main-div'>
 
@@ -46,6 +44,19 @@ const HomePage = () => {
               <AutoImageSlider />
             </div>
           </div>
+
+          <div className='design-1'>
+            <img src='./src/pages/Homepage/images/design1.png' />
+
+          </div>
+          <div className='design-2'>
+
+            <img src='./src/pages/Homepage/images/design2.png' />
+          </div>
+          <div className="ellipse-1" />
+          <div className="ellipse-2" />
+          <div className="ellipse-3" />
+
         </div>
       </div >
     </>

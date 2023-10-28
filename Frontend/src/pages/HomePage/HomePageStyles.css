@@ -3,6 +3,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Sen:wght@500&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Goldman&family=Sen:wght@500&display=swap');
+
+
 .container-homepage {
   height: 100vh;
   display: flex;
@@ -78,7 +81,7 @@
 
 .main-content h1 {
   font-family: 'Goldman', sans-serif;
-  font-size: 3.2rem;
+  font-size: 3rem;
 }
 
 .main-content h3 {
@@ -135,9 +138,9 @@
   background-color: #40f8ff;
   border-radius: 15px;
   height: 30px;
-  left: 720px;
+  left: 600px;
   position: absolute;
-  top: 244px;
+  top: 220px;
   width: 30px;
 }
 
@@ -145,16 +148,16 @@
   background-color: #279DFF;
   border-radius: 11px;
   height: 22px;
-  left: 650px;
+  left: 550px;
   position: absolute;
-  top: 185px;
+  top:185px;
   width: 22px;
 }
 .ellipse-3 {
   background-color: #0C3569;
   border-radius: 25px;
   height: 45px;
-  left: 1225px;
+  left: 1100px;
   position: absolute;
   top: 625px;
   width: 45px;
@@ -212,7 +215,26 @@
   filter: blur(190px);
   height: 250px;
   left: 12px;
-  position: fixed;
+  position: absolute;
   top: 170px;
   width: 270px;
+}
+.design-1{
+  position: absolute;
+  top: 530px;
+  left: 175px;
+
+}
+.design-2{
+  position: absolute;
+  top: 530px;
+
+}
+.design-1 img{
+  height: 240px;
+  width: 240px;
+}
+.design-2 img{
+  height: 250px;
+  width: 250px;
 }

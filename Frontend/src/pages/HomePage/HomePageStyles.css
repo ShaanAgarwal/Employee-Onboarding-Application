@@ -18,6 +18,7 @@
   background-color: white;
   padding-left: 5rem;
   padding-right: 3rem;
+  position: relative;
 }
 
 .content-wrapper {
@@ -157,4 +158,61 @@
   position: absolute;
   top: 625px;
   width: 45px;
+}
+/*  
+.effect-1 {
+  background-color: #7676D3;
+  /* border-radius: 25px;
+  border-left: 200px;
+  height: 185px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 185px;
+  filter: blur(25px);
+}
+*/
+.effect- {
+  height: 300px;
+  width: 300px;
+}
+.effect-1 .blur-circle-1 {
+  background-color: #7575d2b2;
+  border-radius: 227px/282px;
+  filter: blur(60px);
+  height: 200px;
+  left: -55px;
+  position: fixed;
+  top: -20px;
+  width: 200px;
+}
+.effect-2 {
+  height: 250px;
+  width: 270px;
+}
+
+.effect-2 .blur-circle-2 {
+  background-color: #96d4d5cc;
+  border-radius: 135px/125px;
+  filter: blur(90px);
+  height: 250px;
+  left: 1350px;
+  position: fixed;
+  top: 150px;
+  width: 270px;
+}
+.effect-3 {
+  height: 250px;
+  width: 270px;
+}
+
+.effect-3 .blur-circle-3 {
+  background-color: #FD7F3C;
+  border-radius: 135px/125px;
+  filter: blur(190px);
+  height: 250px;
+  left: 12px;
+  position: fixed;
+  top: 170px;
+  width: 270px;
 }

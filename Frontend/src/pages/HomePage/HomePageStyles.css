@@ -1,3 +1,8 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@500&display=swap');
+
 .container-homepage {
   height: 100vh;
   display: flex;
@@ -13,6 +18,7 @@
   background-color: white;
   padding-left: 5rem;
   padding-right: 3rem;
+  position: relative;
 }
 
 .content-wrapper {
@@ -30,8 +36,8 @@
 }
 
 .header-div img {
-  height: 150px;
-  width: 150px;
+  height: 200px;
+  width: 200px;
 }
 
 /*header section*/
@@ -51,7 +57,7 @@
   transition: all 0.3s ease;
   text-align: center;
   margin-left: 700px;
-  margin-right: 5px;
+  margin-right: 1.2rem;
 }
 
 .login-button:hover {
@@ -79,6 +85,7 @@
   color: orangered;
   font-size: 3rem;
   margin-bottom: 1.2rem;
+  font-family: 'Sen',sans-serif;
 }
 
 .main-content h4 {
@@ -126,20 +133,86 @@
 
 .ellipse-1 {
   background-color: #40f8ff;
-  border-radius: 11px;
-  height: 22px;
-  left: 700px;
+  border-radius: 15px;
+  height: 30px;
+  left: 720px;
   position: absolute;
-  top: 224px;
-  width: 22px;
+  top: 244px;
+  width: 30px;
 }
 
 .ellipse-2 {
-  background-color: #40f8ff;
+  background-color: #279DFF;
   border-radius: 11px;
   height: 22px;
-  left: 600px;
+  left: 650px;
   position: absolute;
-  top: 175px;
+  top: 185px;
   width: 22px;
+}
+.ellipse-3 {
+  background-color: #0C3569;
+  border-radius: 25px;
+  height: 45px;
+  left: 1225px;
+  position: absolute;
+  top: 625px;
+  width: 45px;
+}
+/*  
+.effect-1 {
+  background-color: #7676D3;
+  /* border-radius: 25px;
+  border-left: 200px;
+  height: 185px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  width: 185px;
+  filter: blur(25px);
+}
+*/
+.effect- {
+  height: 300px;
+  width: 300px;
+}
+.effect-1 .blur-circle-1 {
+  background-color: #7575d2b2;
+  border-radius: 227px/282px;
+  filter: blur(60px);
+  height: 200px;
+  left: -55px;
+  position: fixed;
+  top: -20px;
+  width: 200px;
+}
+.effect-2 {
+  height: 250px;
+  width: 270px;
+}
+
+.effect-2 .blur-circle-2 {
+  background-color: #96d4d5cc;
+  border-radius: 135px/125px;
+  filter: blur(90px);
+  height: 250px;
+  left: 1350px;
+  position: fixed;
+  top: 150px;
+  width: 270px;
+}
+.effect-3 {
+  height: 250px;
+  width: 270px;
+}
+
+.effect-3 .blur-circle-3 {
+  background-color: #FD7F3C;
+  border-radius: 135px/125px;
+  filter: blur(190px);
+  height: 250px;
+  left: 12px;
+  position: fixed;
+  top: 170px;
+  width: 270px;
 }

@@ -1,17 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import "./HomePageStyles.css";
+import AutoImageSlider from '../../components/slider/slider';
 
 const HomePage = () => {
   return (
     <>
       <div className='container-homepage'>
-        <div className='effect'>
-          <div className="blur-circle" />
+        <div className='effect-1'>
+          <div className="blur-circle-1" />
+        </div>
+        <div className='effect-2'>
+          <div className="blur-circle-2" />
         </div>
         <div className="ellipse-1" />
         <div className="ellipse-2" />
+        <div className="ellipse-3" />
+
         <div className='main-div'>
+
           <div className='header-div'>
             <img className='logo-img' src='./src/pages/Homepage/images/Logo.png' alt='img-logo' />
             <Link className="login-button" to="/login">
@@ -33,13 +40,14 @@ const HomePage = () => {
                 </Link>
               </div>
               <h4>Happy Hiring</h4>
+
             </div>
             <div className='main-slider'>
-              <img src='./src/pages/Homepage/images/homepage1.png' />
+              <AutoImageSlider />
             </div>
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 };

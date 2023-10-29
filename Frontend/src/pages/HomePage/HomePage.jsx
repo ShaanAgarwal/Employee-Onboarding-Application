@@ -35,8 +35,10 @@ const HomePage = () => {
               <h1>process </h1>
               <h3>WITH US</h3>
               <div className='apply'>
-                <Link className="button apply-button" to="/applyForJob">
-                  Apply
+                <Link to="/applyForJob">
+                  <div className="button apply-button-wrapper">
+                    <span className="apply-text">Apply</span>
+                  </div>
                 </Link>
               </div>
               <h4>Happy Hiring</h4>

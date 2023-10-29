@@ -113,6 +113,19 @@
   text-align: center;
 }
 
+.apply-button-wrapper {
+  padding: 6px 3px;
+  width: 176px;
+}
+
+.apply-text {
+  color: black;
+  font-family: "Outfit";
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+}
+
 .apply:hover {
   box-shadow: 8px 8px 20px 0 rgba(0, 0, 0, 0.3);
 }

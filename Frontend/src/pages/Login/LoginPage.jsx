@@ -7,7 +7,6 @@ import Abstraction from "./Abstraction.png";
 import Key from "./key1.png";
 import Mail from "./mail1.png";
 
-
 const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

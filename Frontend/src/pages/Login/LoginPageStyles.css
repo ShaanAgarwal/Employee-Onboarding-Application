@@ -6,24 +6,24 @@
     height: 100vh;
 }
 
-.company-logo {
+.login-page-main .company-logo {
     margin-left: 50px;
 }
 
-.abstraction-logo {
+.login-page-main .abstraction-logo {
     position: absolute;
     top: 18px;
     left: 300px;
 }
 
-.abstraction-logo img {
+.login-page-main .abstraction-logo img {
     height: 90%;
     width: 90%;
     transform: rotate(-3deg);
     opacity: 0.9;
 }
 
-.main-form-layout {
+.login-page-main .main-form-layout {
     position: absolute;
     height: 80%;
     width: 40%;
@@ -37,7 +37,7 @@
     padding-top: 6%;
 }
 
-.login-name-header {
+.login-page-main .main-form-layout .login-name-header {
     font-family: 'Martel Sans', sans-serif;
     font-weight: bold;
     font-size: 3rem;
@@ -46,7 +46,7 @@
     justify-content: center;
 }
 
-.main-form-layout input[type="email"],
+.login-page-main .main-form-layout input[type="email"],
 .main-form-layout input[type="password"] {
     font-size: 1.5rem;
     padding: 10px;
@@ -58,7 +58,7 @@
     margin-left: 10%;
 }
 
-.main-form-layout button {
+.login-page-main .main-form-layout button {
     font-size: 1.5rem;
     padding: 12px 20px;
     background-color: #BE87B4;
@@ -70,11 +70,11 @@
     margin-left: 10%;
 }
 
-.main-form-layout button:hover {
+.login-page-main .main-form-layout button:hover {
     background-color: #BE87B4;
 }
 
-.main-form-layout input[type="email"]::placeholder,
+.login-page-main .main-form-layout input[type="email"]::placeholder,
 .main-form-layout input[type="password"]::placeholder {
     position: absolute;
     top: 50%;
@@ -84,14 +84,16 @@
     text-align: center;
     border-bottom: 1px solid #ccc;
 }
-.main-form-layout .mail{
+
+.login-page-main .main-form-layout .mail{
     height: 30px;
     width: 30px;
     top:40px;   
     position: relative;
 
 }
-.main-form-layout .key{
+
+.login-page-main .main-form-layout .key{
     height: 35px;
     width: 35px;
     top:40px;   
@@ -99,10 +101,7 @@
 
 }
 
-
-
-/* CSS */
-.button-login {
+.login-page-main .main-form-layout .button-login {
   align-items: center;
   background-color: initial;
   background-image: linear-gradient(rgba(179, 132, 201, .84), rgba(57, 31, 91, .84) 50%);
@@ -127,14 +126,15 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
+  margin-left: 50px;
 }
 
-.button-login:hover {
+.login-page-main .main-form-layout .button-login:hover {
   background-image: linear-gradient(#B384C9, #391F5B 50%);
 }
 
 @media (min-width: 768px) {
-  .button-login {
+  .login-page-main .main-form-layout .button-login {
     font-size: 21px;
     padding: 18px 34px;
   }

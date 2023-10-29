@@ -175,6 +175,7 @@ const rejectCandidate = async (req, res) => {
     const rejectedCandidate = new RejectedCandidate({
       name: candidate.name,
       email: candidate.email,
+      photo: candidate.photoPath,
       rejectionReason: "Candidate rejected in Resume screening",
       rejectionRound: 0,
     });

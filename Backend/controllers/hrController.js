@@ -134,6 +134,7 @@ const rejectCandidate = async (req, res) => {
     const rejectedCandidate = new RejectedCandidate({
       name: candidate.name,
       email: candidate.email,
+      photo: candidate.photo,
       rejectionReason: `Candidate rejected at round ${candidate.currentRound}`,
       rejectionRound: candidate.currentRound,
     });

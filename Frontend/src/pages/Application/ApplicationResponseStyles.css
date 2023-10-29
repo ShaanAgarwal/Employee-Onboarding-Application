@@ -17,24 +17,24 @@
     margin-left: 40px;
 }
 
-.central-logo {
+.main-application-response-page .central-logo {
     position: absolute;
     right: 35%;
     top: 2%;
 }
 
-.central-logo h1 {
+.main-application-response-page .central-logo h1 {
     font-family: 'Arimo', sans-serif;
     color: white;
 }
 
-.bottom-portion {
+.main-application-response-page .bottom-portion {
     background-color: #eef4f3;
     height: 20%;
     width: 100%;
 }
 
-.bottom-portion .globe {
+.main-application-response-page .bottom-portion .globe {
     position: absolute;
     bottom: 20px;
     left: 20px;
@@ -49,19 +49,19 @@
     width: 40px;
 }
 
-.bottom-portion .instagram-logo {
+.main-application-response-page .bottom-portion .instagram-logo {
     right: 40px;
 }
 
-.bottom-portion .facebook-logo {
+.main-application-response-page .bottom-portion .facebook-logo {
     right: 150px;
 }
 
-.bottom-portion .gmail-logo {
+.main-application-response-page .bottom-portion .gmail-logo {
     right: 260px;
 }
 
-.bottom-portion p {
+.main-application-response-page .bottom-portion p {
     font-family: 'Arimo', sans-serif;
     position: absolute;
     bottom: 27px;
@@ -69,7 +69,7 @@
     color: #bbbbbb;
 }
 
-.middle-portion {
+.main-application-response-page .middle-portion {
     position: absolute;
     height: 20%;
     width: 80%;
@@ -83,17 +83,17 @@
     padding-top: 60px;
 }
 
-.middle-portion .good-luck {
+.main-application-response-page .middle-portion .good-luck {
     font-family: 'Arimo', sans-serif;
     position: absolute;
     left: 300px;
 }
 
-.middle-portion .good-luck p {
+.main-application-response-page .middle-portion .good-luck p {
     font-size: 20px;
 }
 
-.contains-homepage-button {
+.main-application-response-page .middle-portion .contains-homepage-button {
     background-color: #5F3984;
     height: 40px;
     width: 250px;
@@ -110,20 +110,20 @@
     box-shadow: 0px 4px 6px rgba(95, 57, 132, 0.2);
 }
 
-.contains-homepage-button a {
+.main-application-response-page .middle-portion .contains-homepage-button a {
     text-decoration: none;
 }
 
-.contains-homepage-button p {
+.main-application-response-page .middle-portion .contains-homepage-button p {
     font-family: 'Roboto', sans-serif;
     color: white;
     margin-left: 10px;
 }
 
-.contains-homepage-button:hover {
+.main-application-response-page .middle-portion .contains-homepage-button:hover {
     background-color: #4a2c63;
 }
 
-.contains-homepage-button:active {
+.main-application-response-page .middle-portion .contains-homepage-button:active {
     background-color: #392347;
 }

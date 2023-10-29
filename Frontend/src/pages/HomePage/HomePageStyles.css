@@ -12,7 +12,7 @@
   padding: 8rem 10rem;
 }
 
-.main-div {
+.container-homepage .main-div {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -21,31 +21,30 @@
   position: relative;
 }
 
-.content-wrapper {
+.container-homepage .main-div .content-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.header-div {
+.container-homepage .main-div .header-div {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.header-div img {
+.container-homepage .main-div .header-div img {
   height: 200px;
   width: 200px;
 }
 
-/*header section*/
-.logo-img {
-  height: 40vh;
+.container-homepage .main-div .header-div .logo-img {
+  height: 29vh;
 }
 
-.login-button {
+.container-homepage .main-div .header-div .login-button {
   font-family: 'Outfit', sans-serif;
   padding: 13px 30px;
   font-size: 1.5rem;
@@ -60,35 +59,35 @@
   margin-right: 1.2rem;
 }
 
-.login-button:hover {
+.container-homepage .main-div .header-div .login-button:hover {
   background-color: blue;
   color: white;
 }
 
-.login-button:active {
+.container-homepage .main-div .header-div .login-button:active {
   background-color: darkblue;
   border-color: darkblue;
 
 }
 
-.main-slider img {
+.container-homepage .main-div .content-wrapper .main-slider img {
   height: 500px;
   width: 720px;
 }
 
-.main-content h1 {
+.container-homepage .main-div .content-wrapper .main-content h1 {
   font-family: 'Goldman', sans-serif;
   font-size: 3.2rem;
 }
 
-.main-content h3 {
+.container-homepage .main-div .content-wrapper .main-content h3 {
   color: orangered;
   font-size: 3rem;
   margin-bottom: 1.2rem;
   font-family: 'Sen',sans-serif;
 }
 
-.main-content h4 {
+.container-homepage .main-div .content-wrapper .main-content h4 {
   text-align: left;
   color: rgb(152, 45, 6);
   font-size: 1.2rem;
@@ -96,7 +95,7 @@
   margin-left: 1.2rem;
 }
 
-.apply {
+.main-content .apply {
   display: flex;
   align-items: flex-end;
   background-color: #f7f7f7;
@@ -113,12 +112,12 @@
   text-align: center;
 }
 
-.apply-button-wrapper {
+.main-content .apply .apply-button-wrapper {
   padding: 6px 3px;
   width: 176px;
 }
 
-.apply-text {
+.main-content .apply-button-wrapper .apply-text {
   color: black;
   font-family: "Outfit";
   font-size: 25px;
@@ -126,15 +125,15 @@
   text-align: center;
 }
 
-.apply:hover {
+.main-content .apply:hover {
   box-shadow: 8px 8px 20px 0 rgba(0, 0, 0, 0.3);
 }
 
-.apply:active {
+.main-content .apply:active {
   box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.3);
 }
 
-.apply .apply-button {
+.main-content .apply .apply-button {
   color: black;
   font-family: "Outfit";
   font-size: 25px;
@@ -172,19 +171,7 @@
   top: 625px;
   width: 45px;
 }
-/*  
-.effect-1 {
-  background-color: #7676D3;
-  /* border-radius: 25px;
-  border-left: 200px;
-  height: 185px;
-  left: 0px;
-  position: absolute;
-  top: 0px;
-  width: 185px;
-  filter: blur(25px);
-}
-*/
+
 .effect- {
   height: 300px;
   width: 300px;

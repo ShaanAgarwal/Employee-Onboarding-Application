@@ -7,7 +7,7 @@
     font-family: 'Inter', sans-serif;
 }
 
-.page-application {
+.outside-page-application .page-application {
     background-color: #AB9AC1;
     height: 100%;
     opacity: 0;
@@ -25,52 +25,52 @@
 }
 
 
-.header {
+.outside-page-application .page-application .header {
     text-align: center;
     margin-bottom: 10px;
 }
 
-.form-grid {
+.outside-page-application .page-application .form-grid {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 20px;
     margin-left: 20px;
 }
 
-label {
+.outside-page-application .page-application .form-grid label {
     font-size: 1.5rem;
 }
 
-.name-email-grid {
+.outside-page-application .page-application .form-grid .name-email-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
 }
 
-.city-pincode-grid {
+.outside-page-application .page-application .form-grid .city-pincode-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
 }
 
-.address-grid {
+.outside-page-application .page-application .form-grid .address-grid {
     display: grid;
     grid-template-columns: 1fr;
 }
 
-.date-role-grid {
+.outside-page-application .page-application .form-grid .date-role-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
 }
 
-.file-grid {
+.outside-page-application .page-application .form-grid .file-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
 }
 
-.form-grid input[type="text"],
+.outside-page-application .page-application .form-grid input[type="text"],
 .form-grid input[type="email"],
 .form-grid input[type="date"],
 .form-grid select,
@@ -82,11 +82,11 @@ label {
     border-radius: 5px;
 }
 
-.form-grid label {
+.outside-page-application .page-application .form-grid label {
     font-weight: bold;
 }
 
-.form-grid button {
+.outside-page-application .page-application .form-grid button {
     width: 80%;
     padding: 10px;
     background-color: #1b52df;
@@ -98,16 +98,15 @@ label {
     transition: background-color 0.3s ease;
 }
 
-.form-grid button:hover {
+.outside-page-application .page-application .form-grid button:hover {
     background-color: #1541b0;
 }
 
-.form-grid button:active {
+.outside-page-application .page-application .form-grid button:active {
     background-color: #0d317a;
 }
 
-
-.form-grid input[type="file"] {
+.outside-page-application .page-application .form-grid input[type="file"] {
     width: calc(100% - 22px);
     padding: 10px;
     margin: 5px 0;
@@ -116,6 +115,6 @@ label {
     background-color: white;
 }
 
-.form-grid input[type="file"]:focus {
+.outside-page-application .page-application .form-grid input[type="file"]:focus {
     outline: none;
 }

@@ -30,11 +30,11 @@
     background-color: transparent;
 }
 
-.applications-header {
+.head-hr-view-applications-main-page .applications-header {
     color: #a303a0;
 }
 
-.outer-padding ul li {
+.head-hr-view-applications-main-page .outer-padding ul li {
     list-style-type: none;
     background-color: white;
     padding: 15px;
@@ -45,7 +45,7 @@
     margin-bottom: 20px;
 }
 
-.candidate-photo img {
+.head-hr-view-applications-main-page .outer-padding .candidate-photo img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -53,36 +53,36 @@
     margin-right: 20px;
 }
 
-.candidate-info {
+.head-hr-view-applications-main-page .outer-padding .candidate-info {
     flex: 1;
     margin-right: 20px;
 }
 
-.candidate-info p {
+.head-hr-view-applications-main-page .outer-padding .candidate-info p {
     margin-bottom: 8px;
 }
 
-.candidate-info .candidate-name {
+.head-hr-view-applications-main-page .outer-padding .candidate-info .candidate-name {
     color: #490057;
     font-size: 1.5rem;
     font-weight: bold;
 }
 
-.candidate-info .candidate-email {
+.head-hr-view-applications-main-page .outer-padding .candidate-info .candidate-email {
     color: #A303A0;
 }
 
-.candidate-info .candidate-position {
+.head-hr-view-applications-main-page .outer-padding .candidate-info .candidate-position {
     color: black;
     font-weight: bold;
 }
 
-.candidate-info a {
+.head-hr-view-applications-main-page .outer-padding .candidate-info a {
     text-decoration: none;
     color: blue;
 }
 
-.buttons-container button {
+.head-hr-view-applications-main-page .outer-padding .buttons-container button {
     margin-left: 10px;
     cursor: pointer;
     padding: 10px 30px;
@@ -92,12 +92,12 @@
     transition: background-color 0.3s ease;
 }
 
-.buttons-container button.approve {
+.head-hr-view-applications-main-page .outer-padding .buttons-container button.approve {
     background-color: green;
     color: white;
 }
 
-.buttons-container button.reject {
+.head-hr-view-applications-main-page .outer-padding .buttons-container button.reject {
     background-color: red;
     color: white;
 }

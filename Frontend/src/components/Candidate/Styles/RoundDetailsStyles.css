@@ -12,7 +12,7 @@ interview-round-main-box::-webkit-scrollbar {
     background-color: #f1f1f1;
 }
 
-.user-profile-image {
+.user-profile .user-profile-image {
     position: absolute;
     top: 0;
     right: 0;

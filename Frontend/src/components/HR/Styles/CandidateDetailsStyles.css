@@ -29,6 +29,24 @@
     border-radius: 50%;
 }
 
+.hr-candidate-main .main-box-inside .interview-rounds {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.hr-candidate-main .main-box-inside .interview-rounds::-webkit-scrollbar {
+    width: 8px;
+}
+
+.hr-candidate-main .main-box-inside .interview-rounds::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.hr-candidate-main .main-box-inside .interview-rounds::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
 .hr-candidate-main .main-box-inside .interview-rounds .interview-round .round-detail-header {
     display: flex;
     gap: 10px;

@@ -6,7 +6,7 @@ import HRViewCandidate from '../../components/HR/CandidateDetails';
 const HRViewCandidatePage = () => {
   return (
     <>
-      {/*<HRComponents />*/}
+      <HRComponents />
       <HRProfile />
       <HRViewCandidate />
     </>

@@ -9,5 +9,6 @@ router.get('/candidate/:candidateId', authMiddleware, hrController.getCandidateD
 router.put('/round/:roundId', authMiddleware, hrController.updateRoundDetails);
 router.put('/round/:roundId/accept', hrController.acceptCandidate);
 router.put('/round/:roundId/reject', hrController.rejectCandidate);
+router.post('/send-offer-letter', hrController.sendOfferLetter);
 
 module.exports = router;

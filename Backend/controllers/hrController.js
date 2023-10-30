@@ -2,6 +2,8 @@ const User = require("../models/userSchema");
 const { sendEmail } = require("../utils/emailUtils");
 const Onboarding = require("../models/onboardingSchema");
 const RejectedCandidate = require("../models/rejectedCandidateSchema");
+const PDFDocument = require('pdfkit');
+const nodemailer = require('nodemailer');
 
 const getHRDetails = async (req, res) => {
   try {
@@ -154,6 +156,77 @@ const rejectCandidate = async (req, res) => {
   }
 };
 
+const sendOfferLetter = async (req, res) => {
+  const { name, email, position, location, salary } = req.body;
+
+  // Create PDF
+  const pdfDoc = new PDFDocument();
+  // Add content to the PDF
+  pdfDoc.font('Helvetica-Bold')
+    .fontSize(24)
+    .text('Offer Letter', { align: 'center' })
+    .font('Helvetica')
+    .fontSize(14)
+    .moveDown()
+    .text(`Date: ${new Date().toDateString()}`)
+    .moveDown()
+    .text(`Dear ${name},`)
+    .moveDown()
+    .text(`We are pleased to offer you a position at our company.`)
+    .moveDown()
+    .text(`Position: ${position}`)
+    .text(`Location: ${location}`)
+    .moveDown()
+    .text(`Salary: ${salary}`)
+    .moveDown(2)
+    .text(`Best regards,`)
+    .text(`Empowerin, India`)
+    .text(`Azad Nagar, Andheri West`)
+    .text(`Mumbai, Maharashtra, India - 400054`)
+    .moveDown()
+    .text(`9137389019`);
+
+  // Get the PDF buffer
+  const pdfBuffer = await new Promise((resolve) => {
+    const chunks = [];
+    pdfDoc.on('data', (chunk) => chunks.push(chunk));
+    pdfDoc.on('end', () => resolve(Buffer.concat(chunks)));
+    pdfDoc.end();
+  });
+
+  // Send email with PDF attachment
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: 'shaanagarwal1942003@gmail.com',
+      pass: 'xnsb rlns ohky vkap'
+    }
+  });
+
+  const mailOptions = {
+    from: 'shaanagarwal1942003@gmail.com',
+    to: email,
+    subject: 'Offer Letter',
+    html: `<p>Dear ${name},</p><p>We are pleased to offer you a position at our company...</p>`, // Add the HTML content of the email here
+    attachments: [
+      {
+        filename: 'offer_letter.pdf',
+        content: pdfBuffer
+      }
+    ]
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.error('Error sending email:', error);
+      res.status(500).send('Error sending email');
+    } else {
+      console.log('Email sent:', info.response);
+      res.status(200).send('Email sent successfully');
+    }
+  });
+};
+
 module.exports = {
   getHRDetails,
   getCandidates,
@@ -161,4 +234,5 @@ module.exports = {
   updateRoundDetails,
   acceptCandidate,
   rejectCandidate,
+  sendOfferLetter
 };

@@ -18,7 +18,7 @@ const ApplicationPage = () => {
   const [photo, setPhoto] = useState(null);
 
   const navigate = useNavigate();
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -74,17 +74,17 @@ const ApplicationPage = () => {
     formData.append('photo', photo);
 
     try {
-      dispath(showLoading());
+      dispatch(showLoading());
       const response = await axios.post('http://localhost:8080/api/form/submit', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-      dispath(hideLoading());
+      dispatch(hideLoading());
       console.log(response.data);
       navigate('/applicationResponse');
     } catch (error) {
-      dispath(hideLoading());
+      dispatch(hideLoading());
       console.error(error);
     }
   };

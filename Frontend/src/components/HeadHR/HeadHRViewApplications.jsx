@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./HeadHRStyles/HeadHRViewApplicationsStyles.css";
 
+import { useDispatch } from 'react-redux';
+import { showLoading, hideLoading } from '../../redux/features/alertSlice';
+
 const HeadHRViewApplications = () => {
   const [candidates, setCandidates] = useState([]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchData();
@@ -26,11 +31,13 @@ const HeadHRViewApplications = () => {
   const handleAccept = async (candidateId) => {
     try {
       const token = localStorage.getItem('token');
+      dispatch(showLoading());
       await axios.post(`http://localhost:8080/api/form/accept/${candidateId}`, {
         headers: {
           Authorization: token,
         }
       });
+      dispatch(hideLoading());
       fetchData();
     } catch (error) {
       console.error(error);
@@ -40,11 +47,13 @@ const HeadHRViewApplications = () => {
   const handleReject = async (candidateId) => {
     try {
       const token = localStorage.getItem('token');
+      dispatch(showLoading());
       await axios.post(`http://localhost:8080/api/form/reject/${candidateId}`, {
         headers: {
           Authorization: token,
         }
       });
+      dispatch(hideLoading());
       fetchData();
     } catch (error) {
       console.error(error);

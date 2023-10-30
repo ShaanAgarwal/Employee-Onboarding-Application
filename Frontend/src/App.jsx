@@ -37,11 +37,19 @@ import VerificationDocuments from './pages/HR/Onboarding/VerificationDocuments';
 import CandidateBasePage from './pages/Candidate/CandidateBasePage';
 import CandidateOnboarding from './pages/Candidate/CandidateOnboarding';
 
+import { useSelector } from "react-redux";
+import Spinner from "./components/Spinner";
+
 function App() {
+
+  const { loading } = useSelector((state) => state.alerts);
 
   return (
     <>
       <BrowserRouter>
+      {loading ? (
+        <Spinner />
+      ) : (
         <Routes>
           {/* HomePage */}
           <Route path="/" element={<HomePage />} />
@@ -77,6 +85,7 @@ function App() {
           <Route path='/dashboard/Candidate/Onboarding' element={<CandidateOnboarding />} />
 
         </Routes>
+      )}
       </BrowserRouter>
     </>
   )

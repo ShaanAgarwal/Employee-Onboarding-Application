@@ -3,6 +3,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './ApplicationPageStyles.css';
 
+import { useDispatch } from 'react-redux';
+import {showLoading, hideLoading} from '../../redux/features/alertSlice';
+
 const ApplicationPage = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,6 +18,7 @@ const ApplicationPage = () => {
   const [photo, setPhoto] = useState(null);
 
   const navigate = useNavigate();
+  const dispath = useDispatch();
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -70,14 +74,17 @@ const ApplicationPage = () => {
     formData.append('photo', photo);
 
     try {
+      dispath(showLoading());
       const response = await axios.post('http://localhost:8080/api/form/submit', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
+      dispath(hideLoading());
       console.log(response.data);
       navigate('/applicationResponse');
     } catch (error) {
+      dispath(hideLoading());
       console.error(error);
     }
   };

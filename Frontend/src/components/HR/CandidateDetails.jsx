@@ -90,37 +90,41 @@ const HRViewCandidate = () => {
         <p>Email: {candidate.email}</p>
         <p>Number Of Rounds: {candidate.rounds}</p>
 
-        <h3>Interview Rounds</h3>
-        {candidate.interviewRounds.map((round, index) => (
-          <div key={round._id}>
-            <p>Round {index + 1} </p>
-            <p>Name: {round.name} </p>
-            <p>Details: {round.details}</p>
-            {index === candidate.currentRound - 1 && (
-              <>
-                <form>
-                  <input
-                    type="text"
-                    value={nameInput}
-                    onChange={e => setNameInput(e.target.value)}
-                  />
-                  <input
-                    type="text"
-                    value={detailsInput}
-                    onChange={e => setDetailsInput(e.target.value)}
-                  />
-                  <button type="button" onClick={() => handleUpdateRound(round._id)}>Update</button>
-                </form>
-                {round.attempted && (
-                  <>
-                    <button onClick={() => handleAcceptRound(round._id)}>Accept</button>
-                    <button onClick={() => handleRejectRound(round._id)}>Reject</button>
-                  </>
-                )}
-              </>
-            )}
-          </div>
-        ))}
+        <h3>Interview Rounds</h3> <br />
+        <div className="interview-rounds">
+          {candidate.interviewRounds.map((round, index) => (
+            <div className="interview-round" key={round._id}>
+              <div className="round-detail-header">
+                <p>Round {index + 1}: </p>
+                <p>{round.name} </p>
+              </div>
+              <p>{round.details}</p>
+              {index === candidate.currentRound - 1 && (
+                <>
+                  <form>
+                    <input
+                      type="text"
+                      value={nameInput}
+                      onChange={e => setNameInput(e.target.value)}
+                    />
+                    <input
+                      type="text"
+                      value={detailsInput}
+                      onChange={e => setDetailsInput(e.target.value)}
+                    />
+                    <button className="update-button" type="button" onClick={() => handleUpdateRound(round._id)}>Update</button>
+                  </form>
+                  {round.attempted && (
+                    <>
+                      <button className="accept-button" onClick={() => handleAcceptRound(round._id)}>Accept</button>
+                      <button className="reject-button" onClick={() => handleRejectRound(round._id)}>Reject</button>
+                    </>
+                  )}
+                </>
+              )}
+            </div>
+          ))}
+        </div>
         {candidate.interviewClear == true && (<Link to={`/dashboard/HRViewCandidates/${candidate._id}/PersonalDetails`}>Onboarding</Link>)}
       </div>
     </div>

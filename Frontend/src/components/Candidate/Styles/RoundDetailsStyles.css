@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Poppins:wght@300&display=swap');
 
-interview-round-main-box::-webkit-scrollbar {
+.interview-round-main-box::-webkit-scrollbar {
     width: 0.5em;
 }
 

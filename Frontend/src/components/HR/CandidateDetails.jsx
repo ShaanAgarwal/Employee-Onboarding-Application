@@ -85,9 +85,15 @@ const HRViewCandidate = () => {
   return (
     <div className="hr-candidate-main">
       <div className="main-box-inside">
-        <h2>Candidate Details</h2>
-        <p>Name: {candidate.name}</p>
-        <p>Email: {candidate.email}</p>
+        <h2>Candidate Details</h2> <br />
+        <div className="photo">
+          <img src={candidate.photo} alt="" />
+        </div>
+        <div className="hr-see-candidate-info">
+          <p>Name: {candidate.name}</p>
+          <p>Email: {candidate.email}</p>
+        </div>
+        <br />
         <p>Number Of Rounds: {candidate.rounds}</p>
 
         <h3>Interview Rounds</h3> <br />

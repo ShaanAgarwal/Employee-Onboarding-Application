@@ -17,6 +17,18 @@
     padding: 20px;
 }
 
+.hr-candidate-main .main-box-inside .hr-see-candidate-info {
+    position: absolute;
+    left: 150px;
+    top: 100px;
+}
+
+.hr-candidate-main .main-box-inside .photo img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
 .hr-candidate-main .main-box-inside .interview-rounds .interview-round .round-detail-header {
     display: flex;
     gap: 10px;

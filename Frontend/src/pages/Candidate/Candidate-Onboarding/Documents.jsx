@@ -56,8 +56,9 @@ const Documents = () => {
           Authorization: token,
         },
       });
-      console.log('Documents Uploaded:', formData);
-      console.log(response);
+      if(response.status === 200) {
+        location.reload();
+      };
     } catch (error) {
       console.error('Error uploading documents:', error);
     }

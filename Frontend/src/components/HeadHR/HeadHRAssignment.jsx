@@ -73,13 +73,13 @@ const HeadHRAssignment = () => {
     return (
         <div className='main-hr-assignment-page'>
             <div className='assignment-header'>
-            <h3>Assignment</h3>
+                <h3>Assignment</h3>
             </div>
             <ul>
                 {candidates.map((candidate) => (
                     <div className="candidate-box" key={candidate._id}>
                         <div className="candidate-picture">
-                            <img src={candidate.photo} alt="" />
+                            <img src={candidate.photo} alt="Candidate Photo" />
                         </div>
                         <div className="candidate-info">
                             <p>Name: {candidate.name}</p>
@@ -88,17 +88,17 @@ const HeadHRAssignment = () => {
                         </div>
                         <div>
                             <div className="input-container">
-                                <select value={selectedHR} onChange={(e) => setSelectedHR(e.target.value)}>
+                                <select className="selectHR" value={selectedHR} onChange={(e) => setSelectedHR(e.target.value)}>
                                     <option value="">Select HR</option>
                                     {hrs.map((hr) => (
                                         <option key={hr._id} value={hr._id}>{hr.name}</option>
                                     ))}
                                 </select>
-                                <button onClick={() => handleAssignHR(candidate._id)}>Assign HR</button>
+                                <button className="button-1" onClick={() => handleAssignHR(candidate._id)}>Assign HR</button>
                             </div>
                             <div className="input-container">
-                                <input type="number" value={rounds} onChange={(e) => setRounds(e.target.value)} />
-                                <button onClick={() => handleUpdateRounds(candidate._id)}>Update Rounds</button>
+                                <input className="rounds" type="number" value={rounds} onChange={(e) => setRounds(e.target.value)} />
+                                <button className="button-2" onClick={() => handleUpdateRounds(candidate._id)}>Update Rounds</button>
                             </div>
                         </div>
                     </div>

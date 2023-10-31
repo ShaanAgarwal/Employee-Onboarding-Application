@@ -99,7 +99,7 @@ const acceptCandidate = async (req, res) => {
     await sendEmail(
       candidateEmail,
       "Interview Round Passed",
-      `Congratualations, you have passed this round.`
+      `Dear ${candidate.name},\n\nCongratulations. You have passed round ${candidate.currentRound}.\n\nBest regards,\nThe Hiring Team`
     );
     if (candidate.currentRound == candidate.rounds) {
       candidate.interviewClear = true;

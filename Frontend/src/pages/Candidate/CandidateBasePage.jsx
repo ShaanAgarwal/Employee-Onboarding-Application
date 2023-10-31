@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CandidateViewRoundDetailsPage from './CandidateViewRoundDetailsPage';
+import "./Styles/CandidateBasePage.css";
+import companyLogo from "./images/Empowerin-Logo.png";
+import Abstraction from "./images/Abstraction.png";
 
 function CandidateBasePage() {
     const [password, setPassword] = useState('');
@@ -50,18 +53,26 @@ function CandidateBasePage() {
     return (
         <div>
             {requiresPasswordChange ? (
-                <div>
-                    <h3>Change Password on First Login</h3>
-                    <form onSubmit={handlePasswordChange}>
-                        <input
-                            type="password"
-                            placeholder="New Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <button type="submit">Change Password</button>
-                    </form>
-                    <p>{message}</p>
+                <div className='password-page-main'>
+                    <div className="company-logo">
+                        <img src={companyLogo} alt="Empower Logo" />
+                    </div>
+                    <div className='main-form-layout'>
+                        <h2 className='password-name-header'>Change <br />Password</h2> <br />
+                        <form onSubmit={handlePasswordChange}>
+                            <input
+                                type="password"
+                                placeholder="New Password"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <button type="submit">Change Password</button>
+                        </form>
+                        <p>{message}</p>
+                    </div>
+                    <div className="abstraction-logo">
+                        <img src={Abstraction} alt="Abstraction Logo" />
+                    </div>
                 </div>
             ) : (
                 <div>

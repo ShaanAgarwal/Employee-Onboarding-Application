@@ -10,5 +10,6 @@ router.post('/assign-hr/:userId', authMiddleware, adminController.assignHr);
 router.post('/update-rounds/:userId', authMiddleware, adminController.updateRounds);
 router.get('/getAllHRs', authMiddleware, adminController.getAllHRs);
 router.get('/get-ongoing-candidates', authMiddleware, adminController.getOngoingCandidates);
+router.get("/get-rejected-candidates", adminController.getRejectedCandidates);
 
 module.exports = router;

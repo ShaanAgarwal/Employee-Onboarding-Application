@@ -131,7 +131,7 @@ const HRViewCandidate = () => {
             </div>
           ))}
         </div>
-        {candidate.interviewClear == true && (<Link to={`/dashboard/HRViewCandidates/${candidate._id}/PersonalDetails`}>Onboarding</Link>)}
+        {candidate.interviewClear == true && (<Link className="hr-onboarding-button" to={`/dashboard/HRViewCandidates/${candidate._id}/PersonalDetails`}>Onboarding</Link>)}
       </div>
     </div>
   );

@@ -113,3 +113,19 @@
 .round-specific-box .status.Ongoing {
     background-color: #2dd4bf;
 }
+
+.round-specific-box .mark-attempted button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    margin-top: 25px;
+}
+
+.round-specific-box .mark-attempted button:hover {
+    background-color: #45a049;
+}

@@ -29,9 +29,9 @@
 }
 
 .view-all-hr-page .hr-content .hr-div {
-    background-color: white;
     padding: 30px;
-    height: fit-content;
+    height: 90%;
+    overflow-y: scroll;
 }
 
 .view-all-hr-page .hr-content .hr-div .hr-list {

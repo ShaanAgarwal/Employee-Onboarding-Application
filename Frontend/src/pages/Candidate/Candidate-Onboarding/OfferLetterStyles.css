@@ -1,0 +1,19 @@
+.offer-letter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.offer-letter-content {
+    text-align: center;
+}
+
+.offer-text {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #3498db;
+    /* Set your desired text color */
+    margin: 0;
+}

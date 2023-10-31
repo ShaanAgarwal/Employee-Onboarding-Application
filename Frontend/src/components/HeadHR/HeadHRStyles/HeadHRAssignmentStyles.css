@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap');
+
 .main-hr-assignment-page {
     position: absolute;
     background-color: #f1f1f1;
@@ -40,9 +43,19 @@
 
 .candidate-info {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
     margin-bottom: 10px;
+    margin-top: 15px;
+    margin-right: 4px;
+    font-size: 1.2rem;
+    font-family: 'Outfit',sans-serif;
+    
 }
-
+.candidate-info {
+    
+}
 .input-container {
     display: flex;
     align-items: center;
@@ -57,7 +70,140 @@
     border: 1px solid #a303a0;
     border-radius: 5px;
 }
+.input-container .button-1{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 27px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+  border-radius: 6px;
+  border: none;
 
+  color: black;
+  background: linear-gradient(180deg, #4B91F7 0%, #367AF6 100%);
+   background-origin: border-box;
+  box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.input-container button-1:focus {
+  box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+  outline: 0;
+}
+.input-container .button-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 6px;
+    border: none;
+  
+    color: black;
+    background: linear-gradient(180deg, #fdc974 0%, #FCC36A 100%);
+     background-origin: border-box;
+    box-shadow: 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .input-container button-2:focus {
+    box-shadow: inset 0px 0.8px 0px -0.25px rgba(255, 255, 255, 0.2), 0px 0.5px 1.5px rgba(54, 122, 246, 0.25), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+    outline: 0;
+  }
+
+  .input-container .selectHR{
+    margin-bottom: 0.2rem;
+    margin-left: 0.2rem;
+    background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    font-size: 14px;
+    height: 29px;
+    font-size: 13px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+
+  }
+
+  
+  
+  .input-container .selectHR:active {
+    border-bottom-color: #a2a6ac;
+  }
+  
+  .input-container .selectHR:active:hover {
+    border-bottom-color: #a2a6ac;
+  }
+  
+  .input-container .selectHR:hover {
+    border-color: #a2a6ac #979aa1 #82858a;
+  }
+  
+
+  .input-container .rounds{
+    margin-bottom: 0.2rem;
+    margin-left: 0.2rem;
+    background-image: linear-gradient(#f7f8fa ,#e7e9ec);
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    box-shadow: rgba(255,255,255,.6) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #0f1111;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    font-size: 14px;
+    height: 29px;
+    font-size: 13px;
+    outline: 0;
+    overflow: hidden;
+    padding: 0 15px;
+    text-align: center;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+
+  }
+
+  
+  
+  .input-container .rounds:active {
+    border-bottom-color: #a2a6ac;
+  }
+  
+  .input-container .rounds:active:hover {
+    border-bottom-color: #a2a6ac;
+  }
+  
+  .input-container .rounds:hover {
+    border-color: #a2a6ac #979aa1 #82858a;
+  }
+  
 .buttons-container button {
     cursor: pointer;
     background-color: #a303a0;

@@ -1,0 +1,49 @@
+.main-page-hr-view-rejected {
+    height: 100vh;
+    position: absolute;
+    width: 59%;
+    right: 26%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.rejected-candidate-box {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.rejected-candidate-box:hover {
+    transform: scale(1.02);
+}
+
+.rejected-candidate-image img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.rejected-candidate-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.rejected-candidate-details p {
+    margin: 5px 0;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}

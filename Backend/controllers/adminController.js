@@ -1,5 +1,6 @@
 const User = require('../models/userSchema');
 const { sendEmail } = require('../utils/emailUtils');
+const rejectedCandidates = require("../models/rejectedCandidateSchema.js");
 
 const getAdminDetails = async (req, res) => {
     try {
@@ -11,6 +12,16 @@ const getAdminDetails = async (req, res) => {
         res.json(user);
     } catch (error) {
         res.status(500).json({ message: "An error occurred while fetching user details." });
+    };
+};
+
+const getRejectedCandidates = async (req,res) => {
+    try {
+        const rejected = await rejectedCandidates.find();
+        res.status(200).json({rejected, success: true});
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({message: "An error has occurred.", success: false, error});
     };
 };
 
@@ -109,4 +120,4 @@ const getOngoingCandidates = async (req, res) => {
 };
 
 
-module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds, getAllHRs, getOngoingCandidates }
+module.exports = { getAdminDetails, getCandidates, getHRs, assignHr, updateRounds, getAllHRs, getOngoingCandidates, getRejectedCandidates }

@@ -67,7 +67,13 @@ const updateRoundDetails = async (req, res) => {
 
     if (!round) {
       return res.status(404).json({ message: "Round not found" });
-    }
+    };
+
+    await sendEmail(
+      round.email,
+      "Interview Round Update",
+      `Dear ${round.name},\n\nYour details for round ${round.currentRound} have been updated.\n\nBest regards,\nThe Hiring Team`
+    );
 
     res.json(round);
   } catch (error) {

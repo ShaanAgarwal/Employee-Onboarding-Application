@@ -146,7 +146,7 @@ const rejectCandidate = async (req, res) => {
     await sendEmail(
       candidateEmail,
       "Interview Round Rejected",
-      `Unfortunately, your interview round has been rejected.`
+      `Dear ${candidate.name},\n\nWe regret to inform you that you have not passed round ${candidate.currentRound}.\n\nBest regards,\nThe Hiring Team`
     );
     await User.findOneAndRemove({ "interviewRounds._id": roundId });
 

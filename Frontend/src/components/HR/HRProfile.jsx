@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Styles/HRProfileStyles.css";
-import hrProfileImage from "./hr-profile-image.png";
 
 function HRProfile() {
     const [userDetails, setUserDetails] = useState(null);
@@ -31,15 +30,17 @@ function HRProfile() {
     return (
         <div className="hr-profile-container">
             {error && <p>{error}</p>}
-            <div className="hr-profile-image">
-                <img src={hrProfileImage} alt="" />
-            </div>
             {userDetails && (
-                <div className="hr-details">
-                    <p className="hr-headline">HR</p>
-                    <p className="personal-details">{userDetails.name}</p>
-                    <p className="personal-details">{userDetails.email}</p>
-                </div>
+                <React.Fragment>
+                    <div className="hr-profile-image">
+                        <img src={userDetails.photo} alt="" />
+                    </div>
+                    <div className="hr-details">
+                        <p className="hr-headline">HR</p>
+                        <p className="personal-details">{userDetails.name}</p>
+                        <p className="personal-details">{userDetails.email}</p>
+                    </div>
+                </React.Fragment>
             )}
         </div>
     );

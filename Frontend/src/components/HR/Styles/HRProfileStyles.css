@@ -14,6 +14,12 @@
     justify-content: center;
 }
 
+.hr-profile-container .hr-profile-image img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
 .hr-details {
     color: white;
     display: flex;

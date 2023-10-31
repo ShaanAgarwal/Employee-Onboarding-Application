@@ -7,22 +7,35 @@ const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState('hr');
+    const [photo, setPhoto] = useState(null);
 
     const navigate = useNavigate();
+    const handleFileChange = (e) => {
+        const fieldName = e.target.name;
+        const file = e.target.files[0];
+        if (fieldName === 'photo') {
+            setPhoto(file);
+        }
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(name, email, password, role);
+        console.log(name, email, password, role, photo);
 
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('role', role);
+        formData.append('photo', photo);
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/register', {
-                name,
-                email,
-                password,
-                role
-            });
+            const response = await axios.post('http://localhost:8080/api/auth/register', formData);
             navigate("/");
             console.log(response.data);
+            console.log(formData.get('photo'))
+            console.log(formData.get('name'))
+            console.log(formData)
         } catch (error) {
             console.error(error);
         }
@@ -55,6 +68,8 @@ const RegisterPage = () => {
                     <option value="candidate">Candidate</option>
                     <option value="admin">Admin</option>
                 </select>
+                <input type="file" name="photo" onChange={handleFileChange} />
+
                 <button type="submit">Register</button>
             </form>
         </div>

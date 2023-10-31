@@ -72,7 +72,7 @@ const CandidateRoundDetails = () => {
                     </div>
                     {round.updated && !round.attempted && (
                       <div className='mark-attempted'>
-                      <button onClick={() => handleMarkAttempted(round._id)}>Mark Attempted</button>
+                        <button onClick={() => handleMarkAttempted(round._id)}>Mark Attempted</button>
                       </div>
                     )}
                     <div className={`status ${round.status === 'Approved' ? 'Approved' : 'Ongoing'}`}>
@@ -84,7 +84,7 @@ const CandidateRoundDetails = () => {
               return null;
             })}
           </div>
-          {userDetails.interviewClear && (<button onClick={onboardingHandler}>Onboarding</button>)}
+          {userDetails.interviewClear && (<div className='candidate-button-container'><button className='candidate-onboarding-button' onClick={onboardingHandler}>Onboarding</button></div>)}
         </div>
       )}
     </div>

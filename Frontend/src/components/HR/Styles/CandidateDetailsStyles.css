@@ -118,3 +118,22 @@
 .hr-candidate-main .main-box-inside .interview-rounds .interview-round button.reject-button:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+
+.hr-onboarding-button {
+    background-color: #27ae60; /* Set your desired background color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+  }
+  
+  .hr-onboarding-button:hover {
+    background-color: #219653; /* Change the background color on hover */
+  }
+  

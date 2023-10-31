@@ -129,3 +129,25 @@
 .round-specific-box .mark-attempted button:hover {
     background-color: #45a049;
 }
+
+.candidate-button-container {
+    position: absolute;
+    top: 25%;
+    right: 6%;
+}
+
+.candidate-onboarding-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.candidate-onboarding-button:hover {
+    background-color: rgb(0, 132, 255);
+}

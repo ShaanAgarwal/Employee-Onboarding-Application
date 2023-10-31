@@ -42,7 +42,7 @@ const updatePersonalDetails = async (req, res) => {
         };
         const userId = user._id;
         const { firstName, lastName, phone, homeAddress, city, state, zipcode, jobRole, dob, gender, bloodGroup, maritalStatus, aadharCardNumber, postalAddress } = req.body;
-        const updatedDetails = { firstName, lastName, phone, homeAddress, city, state, zipcode, jobRole, dob, gender, bloodGroup, maritalStatus, aadharCardNumber, postalAddress, filled: true };
+        const updatedDetails = { firstName, lastName, email,  phone, homeAddress, city, state, zipcode, jobRole, dob, gender, bloodGroup, maritalStatus, aadharCardNumber, postalAddress, filled: true };
         const updatedOnboarding = await Onboarding.findOneAndUpdate(
             { candidate: userId },
             { $set: { personalDetailsForm: updatedDetails } },

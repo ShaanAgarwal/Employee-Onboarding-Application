@@ -71,7 +71,9 @@ const CandidateRoundDetails = () => {
                       <a href={round.details} className='round-detail evaluation'>Evaluation Link</a>
                     </div>
                     {round.updated && !round.attempted && (
+                      <div className='mark-attempted'>
                       <button onClick={() => handleMarkAttempted(round._id)}>Mark Attempted</button>
+                      </div>
                     )}
                     <div className={`status ${round.status === 'Approved' ? 'Approved' : 'Ongoing'}`}>
                       {round.status}

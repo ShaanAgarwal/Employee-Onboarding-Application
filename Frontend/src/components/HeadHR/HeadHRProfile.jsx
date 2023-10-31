@@ -44,7 +44,7 @@ const HeadHRProfile = () => {
                 <div className='head-hr-profile'>
                     <div className='head-hr-profile-picture'>
                         <h1>{adminDetails.name}</h1>
-                        <img className="circular-image" src={profileImage} alt="Profile" />
+                        <img className="circular-image" src={adminDetails.photo} alt="Profile" />
                     </div>
                     <div className='head-hr-background'>
                         <img src={squareImage} alt="Background" />

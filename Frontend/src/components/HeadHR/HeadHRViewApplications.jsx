@@ -72,10 +72,14 @@ const HeadHRViewApplications = () => {
                   <img src={candidate.photoPath} alt="Candidate Photo" />
                 </div>
                 <div className='candidate-info'>
-                  <p className='candidate-name'>{candidate.name}</p>
-                  <p className='candidate-email'>{candidate.email}</p>
-                  <p className='candidate-position'>Job Role: {candidate.job_role}</p>
-                  <p><a href={candidate.resumePath} download>Download Resume</a></p>
+                  <div className="candidate-details">
+                    <p className='candidate-name'>{candidate.name}</p>
+                    <p className='candidate-email'>{candidate.email}</p>
+                  </div>
+                  <div className="candidate-submitted-details">
+                    <p className='candidate-position'>Job Role: {candidate.job_role}</p>
+                    <p><a href={candidate.resumePath} download>Download Resume</a></p>
+                  </div>
                 </div>
                 <div className='buttons-container'>
                   <button className='approve' onClick={() => handleAccept(candidate._id)}>Approve</button>

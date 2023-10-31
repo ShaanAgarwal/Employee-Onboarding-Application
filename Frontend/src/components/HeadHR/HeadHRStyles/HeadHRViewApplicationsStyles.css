@@ -95,11 +95,13 @@
 .head-hr-view-applications-main-page .outer-padding .buttons-container button {
     margin-left: 10px;
     cursor: pointer;
-    padding: 10px 30px;
+    padding: 12px 30px;
     border: none;
     border-radius: 50px;
     font-size: 16px;
-    transition: background-color 0.3s ease;
+    transition: box-shadow 0.3s ease;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }
 
 .head-hr-view-applications-main-page .outer-padding .buttons-container button.approve {
@@ -110,4 +112,10 @@
 .head-hr-view-applications-main-page .outer-padding .buttons-container button.reject {
     background-color: red;
     color: white;
+    margin-top: 5px;
 }
+
+.head-hr-view-applications-main-page .outer-padding .buttons-container button:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+

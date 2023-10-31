@@ -98,7 +98,7 @@ const uploadFile = async (
     await sendEmail(
       email,
       "Application Submission",
-      `Dear ${name}, Your application has been submitted successfully. We will get back to you shortly.`
+      `Dear ${name},\n\nYour application has been submitted to Empowerin, India. We will get back to you shortly.\n\nBest regards,\nThe Hiring Team`
     );
     console.log(`Uploaded resume: ${resumeData.name} - ${resumeData.id}`);
     console.log(`Resume URL: ${resumeData.webContentLink}`);

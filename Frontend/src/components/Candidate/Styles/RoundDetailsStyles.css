@@ -12,15 +12,15 @@
     background-color: #f1f1f1;
 }
 
-.user-profile .user-profile-image {
+.user-profile .user-candidate-image {
     position: absolute;
     top: 0;
     right: 0;
     padding: 30px;
-    padding-right: 100px;
+    padding-right: 80px;
 }
 
-.user-profile-image img {
+.user-candidate-image img {
     width: 100px;
     height: 100px;
     object-fit: cover;

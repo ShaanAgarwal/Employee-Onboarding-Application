@@ -52,7 +52,7 @@ const CandidateRoundDetails = () => {
       {error && <p>{error}</p>}
       {userDetails && (
         <div className='user-profile'>
-          <div className="user-profile-image">
+          <div className="user-candidate-image">
             <img src={userDetails.photo} alt="" />
           </div>
           <div className="user-details">

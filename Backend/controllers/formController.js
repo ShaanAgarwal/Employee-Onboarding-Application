@@ -142,7 +142,7 @@ const acceptCandidate = async (req, res) => {
       "Congratulations! Your Application is Accepted",
       `Dear ${candidate.name},\n\nWe are pleased to inform you that your application has been accepted. Congratulations!\n\nYour login credentials are:\nEmail: ${candidate.email}\nPassword: ${randomPassword}\n\nBest regards,\nThe Hiring Team`
     );
-    await Candidate.findOneAndDelete(candidateId);
+    await Candidate.findByIdAndDelete(candidateId);
     res.json({ message: "Candidate accepted" });
     console.log("Accepted");
   } catch (error) {
@@ -169,9 +169,6 @@ const rejectCandidate = async (req, res) => {
     if (!candidate) {
       return res.status(404).json({ error: "Candidate not found" });
     }
-    candidate.status = "rejected";
-    await candidate.save();
-    //code to save the details in the registerCandidate schema
     const rejectedCandidate = new RejectedCandidate({
       name: candidate.name,
       email: candidate.email,
@@ -186,7 +183,7 @@ const rejectCandidate = async (req, res) => {
       "Application Status Update",
       `Dear ${candidate.name},\n\nWe regret to inform you that your application has been rejected.\n\nBest regards,\nThe Hiring Team`
     );
-    await Candidate.findOneAndDelete(candidateId);
+    await Candidate.findByIdAndDelete(candidateId);
     res.json({ message: "Candidate rejected" });
   } catch (error) {
     console.error(error);

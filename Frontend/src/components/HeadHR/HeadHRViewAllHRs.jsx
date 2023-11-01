@@ -41,7 +41,7 @@ const HeadHRViewAllHRs = () => {
               {hrs.map((hr) => (
                 <div className='hr-box' key={hr._id}>
                   <div className='hr-photo'>
-                    <img src={image_url} alt='hr-photo' />
+                    <img src={hr.photo} alt='hr-photo' />
                   </div>
                   <div className='hr-details'>
                     <div className='hr-name'>{hr.name}</div>

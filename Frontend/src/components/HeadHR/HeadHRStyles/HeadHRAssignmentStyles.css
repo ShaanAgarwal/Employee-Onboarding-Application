@@ -10,6 +10,7 @@
   padding: 20px;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
 }
 
 .main-hr-assignment-page .assignment-header {

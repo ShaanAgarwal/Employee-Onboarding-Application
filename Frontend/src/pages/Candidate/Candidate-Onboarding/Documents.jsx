@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "../Styles/Documents.css"
+import logo from "../images/Empowerin-Logo.png";
+import left from "../images/upload-leftcorner.png";
+import icon from "../images/upload-icon.png";
 
 const Documents = () => {
 
@@ -56,7 +60,7 @@ const Documents = () => {
           Authorization: token,
         },
       });
-      if(response.status === 200) {
+      if (response.status === 200) {
         location.reload();
       };
     } catch (error) {
@@ -66,31 +70,70 @@ const Documents = () => {
 
   return (
     <div>
-      <h2>Upload Documents</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Aadhar Card:</label>
-        <input type="file" name="aadharCard" required onChange={handleFileChange} />
+      <div className="design-compo">
+        <div className="left-container">
+          <div className="box"></div>
+          <img className="logo" src={logo} />
+          <img className="corner-picture" src={left} />
+        </div>
+        <div className="horizontal-container">
+          <div className="box-2"><span></span></div>
+        </div>
+      </div>
+      <div className="main-container">
+        <div className="header">
+          <img className="upload-icon" src={icon} />
+          <h2>Upload Documents</h2>
+        </div>
+        <div className="form-data">
+          <div className="form-header">
+            <h2>No.</h2>
+            <h2>Document</h2>
+            <h2>Action Required</h2>
+          </div>
+          <form className="form" onSubmit={handleSubmit}>
+            <div>
+              <label>Aadhar Card:</label>
+              <input type="file" name="aadharCard" required onChange={handleFileChange} />
+            </div>
 
-        <label>PAN Card:</label>
-        <input type="file" name="panCard" required onChange={handleFileChange} />
+            <div>
+              <label>PAN Card:</label>
+              <input type="file" name="panCard" required onChange={handleFileChange} />
+            </div>
 
-        <label>Residential Proof:</label>
-        <input type="file" name="residentialProof" required onChange={handleFileChange} />
+            <div>
+              <label>Residential Proof:</label>
+              <input type="file" name="residentialProof" required onChange={handleFileChange} />
+            </div>
+            <div>
+              <label>Passport:</label>
+              <input type="file" name="passport" required onChange={handleFileChange} />
+            </div>
+            <div>
+              <label>SSC Marksheet:</label>
+              <input type="file" name="sscMarksheet" required onChange={handleFileChange} />
+            </div>
+            <div>
+              <label>HSC Marksheet:</label>
+              <input type="file" name="hscMarksheet" required onChange={handleFileChange} />
+            </div>
+            <div>
+              <label>Graduation Marksheet:</label>
+              <input type="file" name="graduationMarksheet" required onChange={handleFileChange} />
+            </div>
 
-        <label>Passport:</label>
-        <input type="file" name="passport" required onChange={handleFileChange} />
 
-        <label>SSC Marksheet:</label>
-        <input type="file" name="sscMarksheet" required onChange={handleFileChange} />
 
-        <label>HSC Marksheet:</label>
-        <input type="file" name="hscMarksheet" required onChange={handleFileChange} />
 
-        <label>Graduation Marksheet:</label>
-        <input type="file" name="graduationMarksheet" required onChange={handleFileChange} />
 
-        <button type="submit">Upload Documents</button>
-      </form>
+            <button type="submit">Upload Documents</button>
+          </form>
+
+        </div>
+
+      </div>
+
     </div>
   );
 };

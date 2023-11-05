@@ -30,7 +30,7 @@ const RegisterPage = () => {
         formData.append('role', role);
         formData.append('photo', photo);
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/register', formData);
+            const response = await axios.post('https://backend-test-ff1c.vercel.app/api/auth/register', formData);
             navigate("/");
             console.log(response.data);
             console.log(formData.get('photo'))

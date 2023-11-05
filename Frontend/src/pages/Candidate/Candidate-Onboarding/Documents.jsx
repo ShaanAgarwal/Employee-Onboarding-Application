@@ -69,7 +69,7 @@ const Documents = () => {
   };
 
   return (
-    <div>
+    <div className='document-container'>
       <div className="design-compo">
         <div className="left-container">
           <div className="box"></div>

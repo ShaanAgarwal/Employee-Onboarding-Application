@@ -6,9 +6,13 @@ import HRViewCandidate from '../../components/HR/CandidateDetails';
 const HRViewCandidatePage = () => {
   return (
     <>
-      <HRComponents />
-      <HRProfile />
-      <HRViewCandidate />
+      <div>
+        <HRComponents />
+        <HRProfile />
+        <HRViewCandidate />
+
+      </div>
+
     </>
   );
 };

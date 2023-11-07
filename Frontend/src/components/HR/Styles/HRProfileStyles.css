@@ -8,7 +8,7 @@
     right: 0;
 }
 
-.hr-profile-image {
+.hr-profile-container .hr-profile-image {
     margin-top: 70px;
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@
     border-radius: 50%;
 }
 
-.hr-details {
+.hr-profile-container .hr-details {
     color: white;
     display: flex;
     flex-direction: column;
@@ -28,15 +28,15 @@
     margin-top: 10px;
 }
 
-.hr-details .hr-headline {
+.hr-profile-container .hr-details .hr-headline {
     font-weight: bold;
     font-size: 30px;
 }
 
-.hr-details p {
+.hr-profile-container .hr-details p {
     font-family: 'Cabin', sans-serif;
 }
 
-.hr-details .personal-details {
+.hr-profile-container .hr-details .personal-details {
     font-size: 20px;
 }

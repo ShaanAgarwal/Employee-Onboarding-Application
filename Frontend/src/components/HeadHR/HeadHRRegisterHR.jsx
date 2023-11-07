@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import backendURL from '../../baseURL';
 import '../HeadHR/HeadHRStyles/HeadHRRegisterHRStyles.css';
+import { useDispatch } from 'react-redux';
+import { showLoading, hideLoading } from '../../redux/features/alertSlice';
 
 const RegisterPage = () => {
     const [name, setName] = useState('');
@@ -12,6 +14,8 @@ const RegisterPage = () => {
     const [photo, setPhoto] = useState(null);
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const handleFileChange = (e) => {
         const fieldName = e.target.name;
         const file = e.target.files[0];
@@ -32,7 +36,9 @@ const RegisterPage = () => {
         formData.append('role', role);
         formData.append('photo', photo);
         try {
+            dispatch(showLoading());
             const response = await axios.post(`${backendURL}/api/auth/register`, formData);
+            dispatch(hideLoading());
             navigate("/");
             console.log(response.data);
             console.log(formData.get('photo'))

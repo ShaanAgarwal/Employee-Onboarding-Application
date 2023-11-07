@@ -49,6 +49,11 @@ const CandidateRoundDetails = () => {
     navigate('/dashboard/Candidate/Onboarding');
   };
 
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate('/');
+  };
+
   return (
     <div className='candidate-details-container'>
       {error && <p>{error}</p>}
@@ -60,8 +65,9 @@ const CandidateRoundDetails = () => {
           <div className="user-details">
             <p>{userDetails.name}</p>
             <p>{userDetails.email}</p>
+            <button className="logout-button" onClick={handleLogout}>Logout</button>
             <Link to={`/dashboard/CandidateChat/${candidateId}`}>Chat</Link>
-          </div> 
+          </div>
           <div className='interview-round-main-box'>
             {userDetails.interviewRounds.map((round, index) => {
               if (index < userDetails.currentRound) {

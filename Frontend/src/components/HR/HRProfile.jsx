@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Styles/HRProfileStyles.css";
+import {useNavigate} from "react-router-dom";
 
 function HRProfile() {
     const [userDetails, setUserDetails] = useState(null);
     const [error, setError] = useState(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUserDetails = async () => {
@@ -27,6 +30,11 @@ function HRProfile() {
         fetchUserDetails();
     }, []);
 
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/');
+    };
+
     return (
         <div className="hr-profile-container">
             {error && <p>{error}</p>}
@@ -39,6 +47,7 @@ function HRProfile() {
                         <p className="hr-headline">HR</p>
                         <p className="personal-details">{userDetails.name}</p>
                         <p className="personal-details">{userDetails.email}</p>
+                        <button className="logout-button" onClick={handleLogout}>Logout</button>
                     </div>
                 </React.Fragment>
             )}

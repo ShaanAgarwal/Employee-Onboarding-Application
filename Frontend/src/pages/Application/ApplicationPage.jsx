@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './ApplicationPageStyles.css';
 
 import { useDispatch } from 'react-redux';
-import {showLoading, hideLoading} from '../../redux/features/alertSlice';
+import { showLoading, hideLoading } from '../../redux/features/alertSlice';
 import backendURL from '../../baseURL';
 
 const ApplicationPage = () => {

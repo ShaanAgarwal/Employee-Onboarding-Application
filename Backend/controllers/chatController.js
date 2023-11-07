@@ -6,6 +6,7 @@ const saveChatMessage = async (req, res) => {
     try {
         const { candidateId } = req.params;
         const { text, role } = req.body;
+        console.log(req.body);
         let chat = await Chat.findOne({ candidate: candidateId });
         chat.messages.push({ text, role });
         await chat.save();

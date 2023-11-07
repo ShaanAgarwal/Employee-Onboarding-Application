@@ -1,112 +1,131 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap');
-.document-container .design-compo .left-container .box{
-    background: linear-gradient(180deg,rgba(1,98,232,0.63)0%,rgba(9,188,255,0.6)100%);
+
+.document-container .design-compo .left-container .box {
+    background: linear-gradient(180deg, rgba(1, 98, 232, 0.63)0%, rgba(9, 188, 255, 0.6)100%);
     height: 100vh;
     width: 90vh;
     position: fixed;
 }
-.document-container .design-compo .left-container .corner-picture{
+
+.document-container .design-compo .left-container .corner-picture {
     position: absolute;
     top: 480px;
 }
-.document-container .design-compo  .left-container .logo{
+
+.document-container .design-compo .left-container .logo {
     position: absolute;
     left: 40px;
     height: 160px;
 }
-.document-container .design-compo .horizontal-container .box-2{
-    background:linear-gradient(-90deg,
-        rgb(43.46, 110.39, 240.32) 0%,
-        rgb(125.8, 198.73, 255) 52.4%, 
-        rgb(9, 188, 255) 100%);
+
+.document-container .design-compo .horizontal-container .box-2 {
+    background: linear-gradient(-90deg,
+            rgb(43.46, 110.39, 240.32) 0%,
+            rgb(125.8, 198.73, 255) 52.4%,
+            rgb(9, 188, 255) 100%);
     height: 5vh;
     width: 150vh;
     margin-left: 41.5rem;
     margin-top: 1.5rem;
     position: fixed;
 }
-.document-container .main-container{
-    background:white;
+
+.document-container .main-container {
+    background: white;
     border-color: rgb(9, 188, 255);
     border-style: solid;
     border-width: 2px;
     border-radius: 0.5rem;
-    position:absolute;
+    position: absolute;
     height: 620px;
     width: 1200px;
     left: 310px;
     top: 90px;
 }
-.document-container .main-container .header{
+
+.document-container .main-container .header {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.document-container .main-container .header .upload-icon{
+
+.document-container .main-container .header .upload-icon {
     padding: 1rem;
     height: 90px;
     width: 80px;
 
 }
-.document-container .main-container .header .UD{
+
+.document-container .main-container .header .UD {
     display: inline;
     margin-top: 2rem;
     font-size: 2.2rem;
     font-family: 'Outfit';
 }
-.document-container .main-container .form-data .form{
+
+.document-container .main-container .form-data .form {
     display: flex;
     flex-direction: column;
 }
-.document-container .main-container .form-data .form label{
-   text-align: left;
+
+.document-container .main-container .form-data .form label {
+    text-align: left;
 }
-.document-container .main-container .form-data .form .input{
-  
+
+.document-container .main-container .form-data .form .input {
+
     text-align: right;
 }
-.document-container .main-container .form-data{
+
+.document-container .main-container .form-data {
     padding: 1rem 2rem 2rem 2rem;
     border-color: #adb1b8;
     border-width: 1px;
     border-style: solid;
     width: 100%;
 }
-.document-container .main-container .form-data .form-header{
-    background:#0162E8;
+
+.document-container .main-container .form-data .form-header {
+    background: #0162E8;
     color: white;
     border-radius: 0.3rem;
     width: 100%;
     display: flex;
 }
 
-.document-container .main-container .form-data .form-header h2{
-    
+.document-container .main-container .form-data .form-header h2 {
+
     font-size: 1.5rem;
-    width:33% !important;
+    width: 33% !important;
 
 
 }
-.document-container .main-container .form-data .button-upload{
-  background-image: linear-gradient(#0dccea, #0d70ea);
-  border: 0;
-  border-radius: 4px;
-  box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
-  box-sizing: border-box;
-  color: #fff;
-  cursor: pointer;
-  font-family: Montserrat,sans-serif;
-  font-size: .9em;
-  margin: 5px;
-  padding: 10px 15px;
-  text-align: center;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  
+
+.document-container .main-container .form-data .button-upload {
+    background-image: linear-gradient(#0dccea, #0d70ea);
+    border: 0;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: Montserrat, sans-serif;
+    font-size: .9em;
+    margin: 5px;
+    padding: 10px 15px;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-image: linear-gradient(#0d70ea, #0dccea);
+    }
 }
-.document-container .main-container .form-data .form div > *{
-    width: 33% ;
+
+.document-container .main-container .form-data .form div>* {
+    width: 33%;
     align-items: center;
     padding: 0.6rem;
 }

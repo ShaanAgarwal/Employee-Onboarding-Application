@@ -48,7 +48,7 @@ function HRProfile() {
                         <p className="hr-headline">HR</p>
                         <p className="personal-details">{userDetails.name}</p>
                         <p className="personal-details">{userDetails.email}</p>
-                        <button className="logout-button" onClick={handleLogout}>Logout</button>
+                        <button className="hr-logout-button" onClick={handleLogout}>Logout</button>
                     </div>
                 </React.Fragment>
             )}

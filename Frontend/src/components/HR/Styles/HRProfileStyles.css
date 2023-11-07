@@ -41,7 +41,7 @@
     font-size: 20px;
 }
 
-.hr-profile-container .hr-details .logout-button {
+.hr-profile-container .hr-details .hr-logout-button {
     background-color: #4caf50;
     color: white;
     border: none;
@@ -58,6 +58,6 @@
     margin-left: 24%;
 }
 
-.hr-profile-container .hr-details .logout-button:hover {
+.hr-profile-container .hr-details .hr-logout-button:hover {
     background-color: #45a049;
 }

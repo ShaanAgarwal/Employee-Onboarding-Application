@@ -34,19 +34,19 @@ export const VerifyDocument = () => {
                 <div className='details'>
 
                     <a href={aadharCard}>Aadhar Card</a>
-                    <hr style={{ width: "800px" }}></hr>
+                    <hr className="hr" style={{ width: "800px" }}></hr>
                     <a href={graduationMarksheet}>Graduation Marksheet</a>
-                    <hr style={{ width: "800px" }}></hr>
+                    <hr className="hr" style={{ width: "800px" }}></hr>
                     <a href={hscMarksheet}>HSC Marksheet</a>
-                    <hr style={{ width: "800px" }}></hr>
+                    <hr className="hr" style={{ width: "800px" }}></hr>
                     <a href={panCard}>Pan Card</a>
-                    <hr style={{ width: "800px" }}></hr>
+                    <hr className="hr" style={{ width: "800px" }}></hr>
                     <a href={passport}>Passport</a>
-                    <hr style={{ width: "800px" }}></hr>
+                    <hr className="hr" style={{ width: "800px" }}></hr>
                     <a href={residentialProof}>Residential Proof</a>
-                    <hr style={{ width: "800px" }}></hr>
+                    <hr className="hr" style={{ width: "800px" }}></hr>
                     <a href={sscMarksheet}>SSC Markhseet</a>
-                    <hr style={{ width: "800px" }}></hr>
+                    <hr className="hr" style={{ width: "800px" }}></hr>
                 </div>
                 <button className='verify-button' style={{ marginBottom: "1.5rem" }}> <Link className='link' to={`/dashboard/HRViewCandidates/${candidateId}/OfferLetter`}>Offer Letter</Link></button>
             </div>

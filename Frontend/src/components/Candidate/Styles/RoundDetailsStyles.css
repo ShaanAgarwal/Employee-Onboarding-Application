@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,300&family=Poppins:wght@300&display=swap');
 
-.interview-round-main-box::-webkit-scrollbar {
+.candidate-details-container .user-profile .interview-round-main-box::-webkit-scrollbar {
     width: 0.5em;
 }
 
-.interview-round-main-box::-webkit-scrollbar-thumb {
+.candidate-details-container .user-profile .interview-round-main-box::-webkit-scrollbar-thumb {
     background-color: #888;
 }
 
-.interview-round-main-box::-webkit-scrollbar-track {
+.candidate-details-container .user-profile .interview-round-main-box::-webkit-scrollbar-track {
     background-color: #f1f1f1;
 }
 
-.user-profile .user-candidate-image {
+.candidate-details-container .user-profile .user-candidate-image {
     position: absolute;
     top: 0;
     right: 0;
@@ -20,14 +20,14 @@
     padding-right: 80px;
 }
 
-.user-candidate-image img {
+.candidate-details-container .user-profile .user-candidate-image img {
     width: 100px;
     height: 100px;
     object-fit: cover;
     border-radius: 50%;
 }
 
-.user-details {
+.candidate-details-container .user-profile .user-details {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -57,7 +57,7 @@
     background-color: #45a049;
 }
 
-.interview-round-main-box {
+.candidate-details-container .user-profile .interview-round-main-box {
     min-height: 67vh;
     max-height: 67vh;
     width: 600px;
@@ -69,7 +69,7 @@
     box-sizing: border-box;
 }
 
-.round-specific-box {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box {
     display: flex;
     align-items: center;
     height: 100px;
@@ -83,7 +83,7 @@
     box-sizing: border-box;
 }
 
-.round-specific-box .random-box {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box .random-box {
     height: 70px;
     width: 70px;
     background-color: #d9d9d9;
@@ -91,30 +91,30 @@
     border-radius: 10px;
 }
 
-.round-specific-box .round-info {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box .round-info {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-.round-info .interview-round-number {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box .round-info .interview-round-number {
     font-size: 24px;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
 }
 
-.round-info .round-detail {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box .round-info .round-detail {
     font-size: 16px;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 550;
 }
 
-.round-info .evaluation {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box .round-info .evaluation {
     text-decoration: none;
     color: #636cff;
 }
 
-.round-specific-box .status {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box .status {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -127,15 +127,15 @@
     color: black;
 }
 
-.round-specific-box .status.Approved {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box .status.Approved {
     background-color: #35b47f;
 }
 
-.round-specific-box .status.Ongoing {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box .status.Ongoing {
     background-color: #2dd4bf;
 }
 
-.round-specific-box .mark-attempted button {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box .mark-attempted button {
     background-color: #4caf50;
     color: white;
     border: none;
@@ -147,17 +147,17 @@
     margin-top: 25px;
 }
 
-.round-specific-box .mark-attempted button:hover {
+.candidate-details-container .user-profile .interview-round-main-box .round-specific-box .mark-attempted button:hover {
     background-color: #45a049;
 }
 
-.candidate-button-container {
+.candidate-details-container .user-profile .candidate-button-container {
     position: absolute;
     top: 25%;
     right: 6%;
 }
 
-.candidate-onboarding-button {
+.candidate-details-container .user-profile .candidate-button-container .candidate-onboarding-button {
     background-color: green;
     color: white;
     border: none;
@@ -169,6 +169,6 @@
     margin-top: 20px;
 }
 
-.candidate-onboarding-button:hover {
+.candidate-details-container .user-profile .candidate-button-container .candidate-onboarding-button:hover {
     background-color: rgb(0, 132, 255);
 }

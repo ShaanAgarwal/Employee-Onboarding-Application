@@ -8,8 +8,8 @@ import { VerifyDocument } from '../../../components/HR/VerifyDocument';
 const VerificationDocuments = () => {
     return (
         <>
-            <HRProfile />
             <HRComponents />
+            <HRProfile />
             <VerifyDocument />
         </>
     );

@@ -19,6 +19,7 @@
   padding-left: 5rem;
   padding-right: 3rem;
   position: relative;
+  border-radius: 0.8rem;
 }
 
 .container-homepage .main-div .content-wrapper {
@@ -42,6 +43,8 @@
 
 .container-homepage .main-div .header-div .logo-img {
   height: 29vh;
+  object-fit: fill;
+  position: relative;
 }
 
 .container-homepage .main-div .header-div .login-button {
@@ -77,7 +80,8 @@
 
 .container-homepage .main-div .content-wrapper .main-content h1 {
   font-family: 'Goldman', sans-serif;
-  font-size: 3.2rem;
+  font-size: 3rem;
+  margin: 0%;
 }
 
 .container-homepage .main-div .content-wrapper .main-content h3 {
@@ -147,9 +151,9 @@
   background-color: #40f8ff;
   border-radius: 15px;
   height: 30px;
-  left: 720px;
+  left: 650px;
   position: absolute;
-  top: 244px;
+  top: 230px;
   width: 30px;
 }
 
@@ -157,7 +161,7 @@
   background-color: #279DFF;
   border-radius: 11px;
   height: 22px;
-  left: 650px;
+  left: 600px;
   position: absolute;
   top: 185px;
   width: 22px;
@@ -166,7 +170,7 @@
   background-color: #0C3569;
   border-radius: 25px;
   height: 45px;
-  left: 1225px;
+  left: 1100px;
   position: absolute;
   top: 625px;
   width: 45px;
@@ -205,14 +209,29 @@
   height: 250px;
   width: 270px;
 }
-
-.effect-3 .blur-circle-3 {
+.blur-circle-3 {
   background-color: #FD7F3C;
-  border-radius: 135px/125px;
-  filter: blur(190px);
-  height: 250px;
-  left: 12px;
-  position: fixed;
-  top: 170px;
+  border-radius: 5rem;
+  filter: blur(40px);
+  height: 30px;
+  left: 25px;
+  position: absolute;
+  top: 450px;
   width: 270px;
+}
+.container-homepage .main-div .d1{
+  width: 220px;
+  height: 200px;
+  object-fit: fill;
+  position: absolute;
+  top:520px;
+  left: 200px;
+}
+.container-homepage .main-div .d2{
+  width: 180px;
+  height: 150px;
+  object-fit: 20% 0;
+  position: absolute;
+  top:570px;
+  left: 240px;
 }

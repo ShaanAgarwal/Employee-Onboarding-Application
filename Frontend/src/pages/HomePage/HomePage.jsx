@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import "./HomePageStyles.css";
 import AutoImageSlider from '../../components/slider/slider';
+import design1 from './images/design1.png';
+import design2 from './images/design2.png';
 
 const HomePage = () => {
   return (
@@ -13,10 +15,12 @@ const HomePage = () => {
         <div className='effect-2'>
           <div className="blur-circle-2" />
         </div>
-        <div className="ellipse-1" />
-        <div className="ellipse-2" />
-        <div className="ellipse-3" />
+
         <div className='main-div'>
+          <div className="blur-circle-3" />
+          <div className="ellipse-1" />
+          <div className="ellipse-2" />
+          <div className="ellipse-3" />
           <div className='header-div'>
             <img className='logo-img' src='./src/pages/Homepage/images/Logo.png' alt='img-logo' />
             <Link className="login-button" to="/login">
@@ -28,8 +32,7 @@ const HomePage = () => {
           </div>
           <div className='content-wrapper'>
             <div className='main-content'>
-              <h1>Empower the</h1>
-              <h1>Onboarding</h1>
+              <h1>Empower the Onboarding</h1>
               <h1>process </h1>
               <h3>WITH US</h3>
               <div className='apply'>
@@ -45,6 +48,9 @@ const HomePage = () => {
               <AutoImageSlider />
             </div>
           </div>
+          <img className='d1' src={design1} />
+          <img className='d2' src={design1} />
+
         </div>
       </div>
     </>

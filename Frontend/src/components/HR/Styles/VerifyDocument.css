@@ -23,9 +23,15 @@
     justify-content: center; 
 
 }
-.details p{
-    padding: 0.7rem;
+.details a{
+    padding: 4rem;
+    margin-top: 2rem;
     font-family: 'Montserrat';
+    font-size: 1.2rem;
+    color: black;
+}
+.details hr{
+  margin: 1rem;
 }
 .main-detail-container .details-wrapper .verify-button{
 
@@ -91,6 +97,4 @@
 .main-detail-container .details-wrapper .verify-button .link{
     font-family: 'Poppins';
     color: white;
-    
-
 }

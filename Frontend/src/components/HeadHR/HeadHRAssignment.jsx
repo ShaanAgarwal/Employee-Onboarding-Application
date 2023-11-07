@@ -3,6 +3,7 @@ import axios from 'axios';
 import "./HeadHRStyles/HeadHRAssignmentStyles.css";
 import { useDispatch } from 'react-redux';
 import { hideLoading, showLoading } from '../../redux/features/alertSlice';
+import backendURL from '../../baseURL';
 
 const HeadHRAssignment = () => {
 
@@ -21,7 +22,7 @@ const HeadHRAssignment = () => {
     const fetchCandidates = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:8080/api/admin/getCandidates', {
+            const response = await axios.get(`${backendURL}/api/admin/getCandidates`, {
                 headers: {
                     Authorization: token,
                 }
@@ -35,7 +36,7 @@ const HeadHRAssignment = () => {
     const fetchHRs = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:8080/api/admin/getHRs', {
+            const response = await axios.get(`${backendURL}/api/admin/getHRs`, {
                 headers: {
                     Authorization: token,
                 }
@@ -50,7 +51,7 @@ const HeadHRAssignment = () => {
         try {
             const token = localStorage.getItem('token');
             dispatch(showLoading());
-            await axios.post(`http://localhost:8080/api/admin/assign-hr/${userId}`, { hrId: selectedHR }, {
+            await axios.post(`${backendURL}/api/admin/assign-hr/${userId}`, { hrId: selectedHR }, {
                 headers: {
                     Authorization: token,
                 }
@@ -67,7 +68,7 @@ const HeadHRAssignment = () => {
         try {
             const token = localStorage.getItem('token');
             dispatch(showLoading());
-            await axios.post(`http://localhost:8080/api/admin/update-rounds/${userId}`, { rounds }, {
+            await axios.post(`${backendURL}/api/admin/update-rounds/${userId}`, { rounds }, {
                 headers: {
                     Authorization: token,
                 }

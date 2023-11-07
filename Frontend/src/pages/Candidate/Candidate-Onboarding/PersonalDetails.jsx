@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from "axios";
 import "./PersonalDetailsStyles.css";
 import leftcontentlogo from "./Images/left-content-logo.png";
+import backendURL from '../../../baseURL';
 
 const PersonalDetails = () => {
 
@@ -34,7 +35,7 @@ const PersonalDetails = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');
-    const response = await axios.put(`http://localhost:8080/api/onboarding/personal-details-fill?email=${formData.email}`, formData, {
+    const response = await axios.put(`${backendURL}/api/onboarding/personal-details-fill?email=${formData.email}`, formData, {
       headers: {
         Authorization: token,
       }

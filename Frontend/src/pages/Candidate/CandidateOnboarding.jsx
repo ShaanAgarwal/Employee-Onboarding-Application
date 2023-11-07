@@ -3,6 +3,7 @@ import axios from 'axios';
 import PersonalDetails from "../Candidate/Candidate-Onboarding/PersonalDetails";
 import OfferLetter from "../Candidate/Candidate-Onboarding/OfferLetter";
 import Documents from './Candidate-Onboarding/Documents';
+import backendURL from '../../baseURL';
 
 const CandidateOnboarding = () => {
 
@@ -12,7 +13,7 @@ const CandidateOnboarding = () => {
         try {
             const email = localStorage.getItem('email');
             const token = localStorage.getItem('token');
-            const response = await axios.get(`http://localhost:8080/api/onboarding/check-details?email=${email}`, {
+            const response = await axios.get(`${backendURL}/api/onboarding/check-details?email=${email}`, {
                 headers: {
                     Authorization: token,
                 }

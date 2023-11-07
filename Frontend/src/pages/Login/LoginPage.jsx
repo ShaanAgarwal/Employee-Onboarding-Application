@@ -6,6 +6,7 @@ import companyLogo from "./Empowerin-Logo.png";
 import Abstraction from "./Abstraction.png";
 import Key from "./key1.png";
 import Mail from "./mail1.png";
+import backendURL from '../../baseURL';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -14,7 +15,7 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/api/auth/login', {
+      const response = await axios.post(`${backendURL}/api/auth/login`, {
         email,
         password,
       });

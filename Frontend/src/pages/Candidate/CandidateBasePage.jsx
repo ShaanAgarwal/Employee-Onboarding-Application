@@ -4,6 +4,7 @@ import CandidateViewRoundDetailsPage from './CandidateViewRoundDetailsPage';
 import "./Styles/CandidateBasePage.css";
 import companyLogo from "./images/Empowerin-Logo.png";
 import Abstraction from "./images/Abstraction.png";
+import backendURL from '../../baseURL';
 
 function CandidateBasePage() {
     const [password, setPassword] = useState('');
@@ -18,7 +19,7 @@ function CandidateBasePage() {
         try {
             const email = localStorage.getItem('email');
             const token = localStorage.getItem('token');
-            const response = await axios.get(`http://localhost:8080/api/candidate/check-password-change/${email}`, {
+            const response = await axios.get(`${backendURL}/api/candidate/check-password-change/${email}`, {
                 headers: {
                     Authorization: token,
                 }
@@ -34,7 +35,7 @@ function CandidateBasePage() {
         const email = localStorage.getItem('email');
         const token = localStorage.getItem('token');
         try {
-            const response = await axios.post('http://localhost:8080/api/candidate/first-login-change-password', {
+            const response = await axios.post(`${backendURL}/api/candidate/first-login-change-password`, {
                 email,
                 password
             }, {

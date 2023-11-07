@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import '../HR/Styles/VerifyDocument.css';
+import backendURL from '../../baseURL';
 
 export const VerifyDocument = () => {
     const { candidateId } = useParams();
@@ -9,7 +10,7 @@ export const VerifyDocument = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        axios.get(`http://localhost:8080/api/onboarding/get-personal-details/${candidateId}`, {
+        axios.get(`${backendURL}/api/onboarding/get-personal-details/${candidateId}`, {
             headers: {
                 Authorization: token,
             }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
 import '../HR/Styles/CandidateInfo.css';
+import backendURL from '../../baseURL';
 
 export const CandidateInfo = () => {
     const { candidateId } = useParams();
@@ -9,7 +10,7 @@ export const CandidateInfo = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        axios.get(`http://localhost:8080/api/onboarding/get-personal-details/${candidateId}?nocache=${new Date().getTime()}`, {
+        axios.get(`${backendURL}/api/onboarding/get-personal-details/${candidateId}?nocache=${new Date().getTime()}`, {
             headers: {
                 Authorization: token,
             }

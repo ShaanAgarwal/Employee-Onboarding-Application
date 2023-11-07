@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../HR/Styles/OfferLetterForm.css';
+import backendURL from '../../baseURL';
 
 const OfferLetterForm = () => {
     const [successMessage, setSuccessMessage] = useState('');
@@ -22,7 +23,7 @@ const OfferLetterForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/api/hr/send-offer-letter', formData);
+            const response = await axios.post(`${backendURL}/api/hr/send-offer-letter`, formData);
             console.log(response.data);
             setSuccessMessage('Form submitted successfully!');
             setIsFormSubmitted(true);

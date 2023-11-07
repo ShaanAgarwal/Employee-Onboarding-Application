@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Styles/HRProfileStyles.css";
 import {useNavigate} from "react-router-dom";
+import backendURL from "../../baseURL";
 
 function HRProfile() {
     const [userDetails, setUserDetails] = useState(null);
@@ -14,7 +15,7 @@ function HRProfile() {
             try {
                 const email = localStorage.getItem('email');
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`http://localhost:8080/api/hr/hr-details?email=${email}`, {
+                const response = await axios.get(`${backendURL}/api/hr/hr-details?email=${email}`, {
                     headers: {
                         Authorization: token,
                     }

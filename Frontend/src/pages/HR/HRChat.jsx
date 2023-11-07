@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import './HRChatStyles.css';
+import backendURL from '../../baseURL';
 
 const HRChat = () => {
   const { candidateId } = useParams();
@@ -12,7 +13,7 @@ const HRChat = () => {
 
   const fetchChatDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/chat/${candidateId}`);
+      const response = await axios.get(`${backendURL}/api/chat/${candidateId}`);
       const { chat, candidate, hr } = response.data;
       setChats(chat.messages);
       setCandidate(candidate);
@@ -28,7 +29,7 @@ const HRChat = () => {
 
   const handleSendMessage = async () => {
     try {
-      await axios.post(`http://localhost:8080/api/chat/${candidateId}`, {
+      await axios.post(`${backendURL}/api/chat/${candidateId}`, {
         text: message,
         role: 'hr',
       });

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./Styles/HRViewCandidatesStyles.css";
+import backendURL from "../../baseURL";
 
 const HRViewCandidates = () => {
     const [candidates, setCandidates] = useState([]);
@@ -9,7 +10,7 @@ const HRViewCandidates = () => {
     useEffect(() => {
         const hrEmail = localStorage.getItem('email');
         const token = localStorage.getItem('token');
-        axios.get(`http://localhost:8080/api/hr/${hrEmail}/candidates`, {
+        axios.get(`${backendURL}/api/hr/${hrEmail}/candidates`, {
             headers: {
                 Authorization: token,
             }

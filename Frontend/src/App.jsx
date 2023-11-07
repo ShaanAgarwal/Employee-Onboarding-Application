@@ -79,6 +79,7 @@ function App() {
           <Route path='/dashboard/HRViewCandidates/:candidateId/PersonalDetails' element={<PersonalDetails />} />
           <Route path='/dashboard/HRViewCandidates/:candidateId/VerificationDocuments' element={<VerificationDocuments />} />
           <Route path='/dashboard/HRViewCandidates/:candidateId/OfferLetter' element={<OfferLetter />} />
+          <Route path='/dashboard/HRChat/:candidateId' />
 
           {/* Candidates */}
           <Route path='/dashboard/Candidate/ViewRoundDetails' element={<CandidateBasePage />} />

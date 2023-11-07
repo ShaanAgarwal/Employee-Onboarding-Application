@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import '../HR/Styles/CandidateInfo.css';
 import backendURL from '../../baseURL';
 
 export const CandidateInfo = () => {
     const { candidateId } = useParams();
     const [candidateDetails, setCandidateDetails] = useState(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -28,9 +30,15 @@ export const CandidateInfo = () => {
         return <div>Loading...</div>;
     }
 
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/');
+    };
+
     const { firstName, lastName, email, phone, homeAddress, city, state, zipcode, jobRole, dob, gender, bloodGroup, maritalStatus, aadharCardNumber, postalAddress } = candidateDetails.personalDetailsForm;
     return (
         <div className='main-detail-container'>
+            <button className='new-logout' onClick={handleLogout}>Logout</button>
             <div className='details-wrapper'>
                 <h2 >Candidate Details</h2>
                 <div className='details'>

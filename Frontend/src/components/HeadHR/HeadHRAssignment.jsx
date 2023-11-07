@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./HeadHRStyles/HeadHRAssignmentStyles.css";
+import { useDispatch } from 'react-redux';
+import { hideLoading, showLoading } from '../../redux/features/alertSlice';
 
 const HeadHRAssignment = () => {
 
@@ -8,6 +10,8 @@ const HeadHRAssignment = () => {
     const [hrs, setHRs] = useState([]);
     const [selectedHR, setSelectedHR] = useState('');
     const [rounds, setRounds] = useState(1);
+
+    const dispatch = useDispatch();
 
     useEffect(() => {
         fetchCandidates();
@@ -45,13 +49,16 @@ const HeadHRAssignment = () => {
     const handleAssignHR = async (userId) => {
         try {
             const token = localStorage.getItem('token');
+            dispatch(showLoading());
             await axios.post(`http://localhost:8080/api/admin/assign-hr/${userId}`, { hrId: selectedHR }, {
                 headers: {
                     Authorization: token,
                 }
             });
+            dispatch(hideLoading());
             fetchCandidates();
         } catch (error) {
+            dispatch(hideLoading());
             console.error(error);
         }
     };
@@ -59,13 +66,16 @@ const HeadHRAssignment = () => {
     const handleUpdateRounds = async (userId) => {
         try {
             const token = localStorage.getItem('token');
+            dispatch(showLoading());
             await axios.post(`http://localhost:8080/api/admin/update-rounds/${userId}`, { rounds }, {
                 headers: {
                     Authorization: token,
                 }
             });
+            dispatch(hideLoading());
             fetchCandidates();
         } catch (error) {
+            dispatch(hideLoading());
             console.error(error);
         }
     };

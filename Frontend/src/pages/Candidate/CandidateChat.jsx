@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import './CandidateChatStyles.css';
 
 const CandidateChat = () => {
   const { candidateId } = useParams();
@@ -39,28 +40,26 @@ const CandidateChat = () => {
   };
 
   return (
-    <div>
-      
-
+    <div className="chat-container">
       <div>
         <h2>Chat Messages:</h2>
         {chats.map((chat, index) => (
-          <div key={index} style={{ marginBottom: '10px' }}>
-            {chat.role === 'hr' && hr && hr.photo && <img src={hr.photo} alt="HR" />}
-            {chat.role === 'candidate' && candidate && candidate.photo && <img src={candidate.photo} alt="Candidate" />}
-            {chat.text}
+          <div className="chat-message" key={index}>
+            {chat.role === 'hr' && hr && hr.photo && <img className="user-photo" src={hr.photo} alt="HR" />}
+            {chat.role === 'candidate' && candidate && candidate.photo && <img className="user-photo" src={candidate.photo} alt="Candidate" />}
+            <div className="message-text">{chat.text}</div>
           </div>
         ))}
       </div>
 
-      <div>
+      <div className="input-container">
         <input
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type your message..."
         />
-        <button onClick={handleSendMessage}>Send</button>
+        <button className="send-button" onClick={handleSendMessage}>Send</button>
       </div>
     </div>
   );

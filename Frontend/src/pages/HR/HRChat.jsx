@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import './HRChatStyles.css';
 
 const HRChat = () => {
   const { candidateId } = useParams();
@@ -39,21 +40,19 @@ const HRChat = () => {
   };
 
   return (
-    <div>
-      
-
+    <div className='chat-container'>
       <div>
         <h2>Chat Messages:</h2>
         {chats.map((chat, index) => (
-          <div key={index} style={{ marginBottom: '10px' }}>
+          <div className='chat-message' key={index}>
             {chat.role === 'hr' && hr && hr.photo && <img src={hr.photo} alt="HR" />}
             {chat.role === 'candidate' && candidate && candidate.photo && <img src={candidate.photo} alt="Candidate" />}
-            {chat.text}
+            <div className='message-text'>{chat.text}</div>
           </div>
         ))}
       </div>
 
-      <div>
+      <div className='input-container'>
         <input
           type="text"
           value={message}

@@ -36,6 +36,27 @@
     text-align: center;
 }
 
+.candidate-details-container .user-profile .user-details .logout-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+    width: 50%;
+    margin-left: 24%;
+}
+
+.candidate-details-container .user-profile .user-details .logout-button:hover {
+    background-color: #45a049;
+}
+
 .interview-round-main-box {
     min-height: 67vh;
     max-height: 67vh;

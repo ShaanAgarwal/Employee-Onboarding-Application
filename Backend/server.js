@@ -40,9 +40,10 @@ app.use('/api/onboarding', onboardingRoutes);
 app.use('/api/chat', chatRoutes);
 
 // Port
-const PORT = process.env.PORT || 8080;
+const PORT = 8080;
+const MODE = "development";
 
 // Listen
 app.listen(PORT, (req, res) => {
-    console.log(`Node Server Running In ${process.env.DEV_MODE} Mode on port no ${PORT}`.bgCyan.white);
+    console.log(`Node Server Running In ${MODE} Mode on port no ${PORT}`.bgCyan.white);
 });

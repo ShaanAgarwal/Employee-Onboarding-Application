@@ -1,5 +1,5 @@
 import React from 'react';
-import './OfferLetterStyles.css'; // Import the CSS file for styling
+import './OfferLetterStyles.css';
 
 const OfferLetter = () => {
   return (

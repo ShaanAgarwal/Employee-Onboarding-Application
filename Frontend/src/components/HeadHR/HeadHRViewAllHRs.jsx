@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../HeadHR/HeadHRStyles/HeadHRViewAllHRs.css";
+import backendURL from '../../baseURL';
 
 const HeadHRViewAllHRs = () => {
   const [hrs, setHrs] = useState([]);
@@ -10,7 +11,7 @@ const HeadHRViewAllHRs = () => {
     async function fetchHrs() {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:8080/api/admin/getAllHRs', {
+        const response = await axios.get(`${backendURL}/api/admin/getAllHRs`, {
           headers: {
             Authorization: token,
           }
@@ -23,8 +24,6 @@ const HeadHRViewAllHRs = () => {
 
     fetchHrs();
   }, []);
-
-  const image_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZyys1x3ixo5J1L8Wr6HWX-uG2-MXgnRfBHBFQxbdBOjd-7wScsKkCllRnQm1r2oPxEQM&usqp=CAU";
 
   if (error) {
     return <div>Error: {error}</div>;

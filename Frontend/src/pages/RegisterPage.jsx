@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import backendURL from '../baseURL';
 
 const RegisterPage = () => {
     const [name, setName] = useState('');
@@ -30,7 +31,7 @@ const RegisterPage = () => {
         formData.append('role', role);
         formData.append('photo', photo);
         try {
-            const response = await axios.post('http://localhost:8080/api/auth/register', formData);
+            const response = await axios.post(`${backendURL}/api/auth/register`, formData);
             navigate("/");
             console.log(response.data);
             console.log(formData.get('photo'))

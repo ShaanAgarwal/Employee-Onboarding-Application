@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../HR/Styles/OfferLetterForm.css';
+import backendURL from '../../baseURL';
+import { useDispatch } from 'react-redux';
+import { showLoading, hideLoading } from '../../redux/features/alertSlice';
+import { useNavigate } from 'react-router-dom';
 
 const OfferLetterForm = () => {
     const [successMessage, setSuccessMessage] = useState('');
@@ -14,6 +18,9 @@ const OfferLetterForm = () => {
         salary: ''
     });
 
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -22,10 +29,13 @@ const OfferLetterForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8080/api/hr/send-offer-letter', formData);
+            dispatch(showLoading());
+            const response = await axios.post(`${backendURL}/api/hr/send-offer-letter`, formData);
+            dispatch(hideLoading());
             console.log(response.data);
             setSuccessMessage('Form submitted successfully!');
             setIsFormSubmitted(true);
+            navigate('/dashboard/HRViewCandidates/');
         } catch (error) {
             console.error('Error submitting form:', error);
         }

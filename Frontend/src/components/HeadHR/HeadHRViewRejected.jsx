@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import "./HeadHRStyles/HeadHRRejectedStyles.css";
+import backendURL from '../../baseURL';
 
 const HeadHRViewRejected = () => {
     const [rejectedCandidates, setRejectedCandidates] = useState([]);
@@ -9,7 +10,7 @@ const HeadHRViewRejected = () => {
     useEffect(() => {
         const fetchRejectedCandidates = async () => {
             try {
-                const response = await axios.get('http://localhost:8080/api/admin/get-rejected-candidates');
+                const response = await axios.get(`${backendURL}/api/admin/get-rejected-candidates`);
                 setRejectedCandidates(response.data.rejected);
                 setLoading(false);
             } catch (error) {

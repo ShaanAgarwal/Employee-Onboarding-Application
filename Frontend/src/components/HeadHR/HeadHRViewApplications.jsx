@@ -4,6 +4,7 @@ import "./HeadHRStyles/HeadHRViewApplicationsStyles.css";
 
 import { useDispatch } from 'react-redux';
 import { showLoading, hideLoading } from '../../redux/features/alertSlice';
+import backendURL from '../../baseURL';
 
 const HeadHRViewApplications = () => {
   const [candidates, setCandidates] = useState([]);
@@ -17,7 +18,7 @@ const HeadHRViewApplications = () => {
   const fetchData = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:8080/api/form/getCandidates', {
+      const response = await axios.get(`${backendURL}/api/form/getCandidates`, {
         headers: {
           Authorization: token,
         }
@@ -32,7 +33,7 @@ const HeadHRViewApplications = () => {
     try {
       const token = localStorage.getItem('token');
       dispatch(showLoading());
-      await axios.post(`http://localhost:8080/api/form/accept/${candidateId}`, {
+      await axios.post(`${backendURL}/api/form/accept/${candidateId}`, {
         headers: {
           Authorization: token,
         }
@@ -48,7 +49,7 @@ const HeadHRViewApplications = () => {
     try {
       const token = localStorage.getItem('token');
       dispatch(showLoading());
-      await axios.post(`http://localhost:8080/api/form/reject/${candidateId}`, {
+      await axios.post(`${backendURL}/api/form/reject/${candidateId}`, {
         headers: {
           Authorization: token,
         }

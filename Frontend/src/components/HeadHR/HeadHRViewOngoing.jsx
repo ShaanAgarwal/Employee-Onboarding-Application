@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./HeadHRStyles/ViewOngoingStyles.css";
+import backendURL from '../../baseURL';
 
 const HeadHRViewOngoing = () => {
     const [candidates, setCandidates] = useState([]);
@@ -12,7 +13,7 @@ const HeadHRViewOngoing = () => {
     const fetchData = async () => {
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.get('http://localhost:8080/api/admin/get-ongoing-candidates', {
+            const response = await axios.get(`${backendURL}/api/admin/get-ongoing-candidates`, {
                 headers: {
                     Authorization: token,
                 }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import "./Styles/RoundDetailsStyles.css";
+import backendURL from '../../baseURL';
 
 const CandidateRoundDetails = () => {
   const [userDetails, setUserDetails] = useState(null);
@@ -17,7 +18,7 @@ const CandidateRoundDetails = () => {
     try {
       const email = localStorage.getItem('email');
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:8080/api/candidate/candidate-details?email=${email}`, {
+      const response = await axios.get(`${backendURL}/api/candidate/candidate-details?email=${email}`, {
         headers: {
           Authorization: token,
         }
@@ -34,7 +35,7 @@ const CandidateRoundDetails = () => {
   const handleMarkAttempted = async (roundId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:8080/api/candidate/mark-round-attempted/${roundId}`, {
+      await axios.put(`${backendURL}/api/candidate/mark-round-attempted/${roundId}`, {
         headers: {
           Authorization: token,
         }

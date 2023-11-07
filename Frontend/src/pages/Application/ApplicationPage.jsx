@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import './ApplicationPageStyles.css';
 
 import { useDispatch } from 'react-redux';
-import {showLoading, hideLoading} from '../../redux/features/alertSlice';
+import { showLoading, hideLoading } from '../../redux/features/alertSlice';
+import backendURL from '../../baseURL';
 
 const ApplicationPage = () => {
   const [name, setName] = useState('');
@@ -75,7 +76,7 @@ const ApplicationPage = () => {
 
     try {
       dispatch(showLoading());
-      const response = await axios.post('http://localhost:8080/api/form/submit', formData, {
+      const response = await axios.post(`${backendURL}/api/form/submit`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

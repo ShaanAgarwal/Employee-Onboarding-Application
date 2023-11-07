@@ -7,12 +7,11 @@ import Call from "./images/call.png";
 import Location from "./images/location.png";
 import axios from 'axios';
 import BD from "./images/cake.png";
+import backendURL from '../../baseURL';
 
 const HeadHRProfile = () => {
     const navigate = useNavigate();
     const [adminDetails, setAdminDetails] = useState(null);
-
-    const profileImage = "https://factohr-1a56a.kxcdn.com/wp-content/themes/factohr-theme/images/blog/10-Objectives-of-HRM/Main-Objectives-of-HRM.png";
 
     const handleLogout = () => {
         localStorage.clear();
@@ -23,7 +22,7 @@ const HeadHRProfile = () => {
         const fetchAdminDetails = async () => {
             try {
                 const email = localStorage.getItem('email');
-                const response = await axios.get(`http://localhost:8080/api/admin/admin-details?email=${email}`);
+                const response = await axios.get(`${backendURL}/api/admin/admin-details?email=${email}`);
 
                 if (response.status === 200) {
                     setAdminDetails(response.data);

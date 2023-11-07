@@ -5,6 +5,9 @@ import "../Styles/Documents.css"
 import logo from "../images/Empowerin-Logo.png";
 import left from "../images/upload-leftcorner.png";
 import icon from "../images/upload-icon.png";
+import backendURL from '../../../baseURL';
+import { useDispatch } from 'react-redux';
+import { showLoading, hideLoading } from '../../../redux/features/alertSlice';
 
 const Documents = () => {
 
@@ -17,6 +20,7 @@ const Documents = () => {
   const [graduationMarksheet, setGraduationMarksheet] = useState(null);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleFileChange = (e) => {
     const fieldName = e.target.name;
@@ -54,12 +58,14 @@ const Documents = () => {
     try {
       const email = localStorage.getItem('email');
       const token = localStorage.getItem('token');
-      const response = await axios.put(`http://localhost:8080/api/onboarding/upload-documents?email=${email}`, formData, {
+      dispatch(showLoading());
+      const response = await axios.put(`${backendURL}/api/onboarding/upload-documents?email=${email}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: token,
         },
       });
+      dispatch(hideLoading());
       if (response.status === 200) {
         location.reload();
       };

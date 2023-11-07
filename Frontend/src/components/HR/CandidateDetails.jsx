@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "./Styles/CandidateDetailsStyles.css";
+import backendURL from "../../baseURL";
+import { useDispatch } from "react-redux";
+import { showLoading, hideLoading } from "../../redux/features/alertSlice";
 
 const HRViewCandidate = () => {
   const { candidateId } = useParams();
@@ -9,10 +12,11 @@ const HRViewCandidate = () => {
   const [nameInput, setNameInput] = useState("");
   const [detailsInput, setDetailsInput] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    axios.get(`http://localhost:8080/api/hr/candidate/${candidateId}`, {
+    axios.get(`${backendURL}/api/hr/candidate/${candidateId}`, {
       headers: {
         Authorization: token,
       }
@@ -29,16 +33,19 @@ const HRViewCandidate = () => {
     try {
       const token = localStorage.getItem('token');
       const updatedData = { name: nameInput, details: detailsInput };
-      await axios.put(`http://localhost:8080/api/hr/round/${roundId}`, updatedData, {
+      dispatch(showLoading());
+      await axios.put(`${backendURL}/api/hr/round/${roundId}`, updatedData, {
         headers: {
           Authorization: token,
         }
       });
-      const response = await axios.get(`http://localhost:8080/api/hr/candidate/${candidateId}`, {
+      dispatch(showLoading());
+      const response = await axios.get(`${backendURL}/api/hr/candidate/${candidateId}`, {
         headers: {
           Authorization: token,
         }
       });
+      dispatch(hideLoading());
       setCandidate(response.data);
       setNameInput("");
       setDetailsInput("");
@@ -50,11 +57,13 @@ const HRViewCandidate = () => {
   const handleAcceptRound = async (roundId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:8080/api/hr/round/${roundId}/accept`, {
+      dispatch(showLoading());
+      await axios.put(`${backendURL}/api/hr/round/${roundId}/accept`, {
         headers: {
           Authorization: token,
         }
       });
+      dispatch(hideLoading());
       setCandidate(prevCandidate => ({
         ...prevCandidate,
         currentRound: prevCandidate.currentRound + 1,
@@ -67,11 +76,13 @@ const HRViewCandidate = () => {
   const handleRejectRound = async (roundId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.put(`http://localhost:8080/api/hr/round/${roundId}/reject`, {
+      dispatch(showLoading());
+      await axios.put(`${backendURL}/api/hr/round/${roundId}/reject`, {
         headers: {
           Authorization: token,
         }
       });
+      dispatch(hideLoading());
       navigate('/dashboard');
     } catch (error) {
       console.error(error);

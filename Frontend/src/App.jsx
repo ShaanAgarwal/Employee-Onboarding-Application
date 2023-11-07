@@ -39,6 +39,8 @@ import CandidateOnboarding from './pages/Candidate/CandidateOnboarding';
 
 import { useSelector } from "react-redux";
 import Spinner from "./components/Spinner";
+import HRChat from './pages/HR/HRChat';
+import CandidateChat from './pages/Candidate/CandidateChat';
 
 function App() {
 
@@ -79,10 +81,12 @@ function App() {
           <Route path='/dashboard/HRViewCandidates/:candidateId/PersonalDetails' element={<PersonalDetails />} />
           <Route path='/dashboard/HRViewCandidates/:candidateId/VerificationDocuments' element={<VerificationDocuments />} />
           <Route path='/dashboard/HRViewCandidates/:candidateId/OfferLetter' element={<OfferLetter />} />
+          <Route path='/dashboard/HRChat/:candidateId' element={<HRChat />} />
 
           {/* Candidates */}
           <Route path='/dashboard/Candidate/ViewRoundDetails' element={<CandidateBasePage />} />
           <Route path='/dashboard/Candidate/Onboarding' element={<CandidateOnboarding />} />
+          <Route path='/dashboard/CandidateChat/:candidateId' element={<CandidateChat />} />
 
         </Routes>
       )}

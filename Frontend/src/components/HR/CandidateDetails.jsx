@@ -86,6 +86,7 @@ const HRViewCandidate = () => {
     <div className="hr-candidate-main">
       <div className="main-box-inside">
         <h2>Candidate Details</h2> <br />
+        <Link to={`/dashboard/HRChat/${candidate._id}`}>Chat</Link>
         <div className="photo">
           <img src={candidate.photo} alt="" />
         </div>

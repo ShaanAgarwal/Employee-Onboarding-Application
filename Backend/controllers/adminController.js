@@ -1,6 +1,7 @@
 const User = require('../models/userSchema');
 const { sendEmail } = require('../utils/emailUtils');
 const rejectedCandidates = require("../models/rejectedCandidateSchema.js");
+const Chat = require('../models/chatSchema.js');
 
 const getAdminDetails = async (req, res) => {
     try {
@@ -61,6 +62,11 @@ const assignHr = async (req, res) => {
             'HR Assignment',
             `Dear ${user.name}, Your HR has been assigned. Your HR's name is ${assignedHrUser.name}.`
         );
+        const chat = new Chat({
+            candidate: userId,
+            hr: hrId
+        });
+        await chat.save();
         res.json({ message: 'HR assigned successfully' });
     } catch (error) {
         console.error(error);

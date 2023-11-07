@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import "./Styles/RoundDetailsStyles.css";
 
 const CandidateRoundDetails = () => {
   const [userDetails, setUserDetails] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const [candidateId, setCandidateId] = useState(null);
 
   useEffect(() => {
     fetchUserDetails();
@@ -22,6 +23,7 @@ const CandidateRoundDetails = () => {
         }
       });
       setUserDetails(response.data);
+      setCandidateId(response.data._id);
       setError(null);
     } catch (error) {
       setUserDetails(null);
@@ -58,7 +60,8 @@ const CandidateRoundDetails = () => {
           <div className="user-details">
             <p>{userDetails.name}</p>
             <p>{userDetails.email}</p>
-          </div>
+            <Link to={`/dashboard/CandidateChat/${candidateId}`}>Chat</Link>
+          </div> 
           <div className='interview-round-main-box'>
             {userDetails.interviewRounds.map((round, index) => {
               if (index < userDetails.currentRound) {

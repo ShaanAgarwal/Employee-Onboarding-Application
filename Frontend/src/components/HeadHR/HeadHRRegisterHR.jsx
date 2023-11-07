@@ -1,77 +1,84 @@
-import { React, useState } from 'react';
-import "./HeadHRStyles/HeadHRRegisterHRStyles.css";
+import React, { useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import backendURL from '../../baseURL';
+import '../HeadHR/HeadHRStyles/HeadHRRegisterHRStyles.css';
 
-const HeadHRRegisterHR = () => {
-    const [formData, setFormData] = useState({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        phoneNumber: '',
-        gender: '',
-        photo: null,
-    });
+const RegisterPage = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [role, setRole] = useState('hr');
+    const [photo, setPhoto] = useState(null);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
+    const navigate = useNavigate();
+    const handleFileChange = (e) => {
+        const fieldName = e.target.name;
+        const file = e.target.files[0];
+        if (fieldName === 'photo') {
+            setPhoto(file);
+        }
+    }
 
-    const handlePhotoChange = (e) => {
-        const photoFile = e.target.files[0];
-        setFormData({ ...formData, photo: photoFile });
-    };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
+        console.log(name, email, password, role, photo);
+
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('password', password);
+        formData.append('role', role);
+        formData.append('photo', photo);
+        try {
+            const response = await axios.post(`${backendURL}/api/auth/register`, formData);
+            navigate("/");
+            console.log(response.data);
+            console.log(formData.get('photo'))
+            console.log(formData.get('name'))
+            console.log(formData)
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
-        <div className='register-hr-main-component'>
-            <div className='register-hr-component'>
-                <h1>HR Registration</h1>
-                <div>
-                    <form onSubmit={handleSubmit}>
-                        <div>
-                            <label>First Name:</label>
-                            <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
-                        </div>
-                        <div>
-                            <label>Last Name:</label>
-                            <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
-                        </div>
-                        <div>
-                            <label>Email:</label>
-                            <input type="email" name="email" value={formData.email} onChange={handleChange} />
-                        </div>
-                        <div>
-                            <label>Password:</label>
-                            <input type="password" name="password" value={formData.password} onChange={handleChange} />
-                        </div>
-                        <div>
-                            <label>Phone Number:</label>
-                            <input type="tel" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange} />
-                        </div>
-                        <div>
-                            <label>Gender:</label>
-                            <select name="gender" value={formData.gender} onChange={handleChange}>
-                                <option value="">Select</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label>Photo:</label>
-                            <input type="file" name="photo" onChange={handlePhotoChange} accept="image/*" />
-                        </div>
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
+        <div className='register-main'>
+            <div className='register-main-wrapper'>
+                <h1>Register Page</h1>
+                <form onSubmit={handleSubmit} className='register-form'>
+                    <input
+                        type="text"
+                        placeholder="Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <select value={role} onChange={(e) => { console.log(e.target.value); setRole(e.target.value); }}>
+                        <option value="hr">HR</option>
+                        <option value="candidate">Candidate</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <input type="file" name="photo" onChange={handleFileChange} />
+
+                    <button type="submit">Register</button>
+                </form>
+
             </div>
         </div>
     );
 };
 
-export default HeadHRRegisterHR;
+export default RegisterPage;

@@ -6,9 +6,11 @@ import HeadHRProfile from '../../components/HeadHR/HeadHRProfile';
 const HeadHRRegisterHRPage = () => {
     return (
         <>
+
             <HeadHRComponents />
             <HeadHRProfile />
             <HeadHRRegisterHR />
+
         </>
     );
 };

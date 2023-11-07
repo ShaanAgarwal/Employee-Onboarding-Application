@@ -1,20 +1,52 @@
-.register-hr-main-component {
-    position: absolute;
-    left: 228px;
-    top: 0;
+.register-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    background-color: #c4c4c4;
-    width: 60%;
-    padding: 40px;
-}
-
-.register-hr-component {
-    height: 100%;
-    width: 100%;
-    background-color: white;
+    background-color: #f0f0f0; 
+    
+  }
+  
+.register-main .register-main-wrapper {
+    background-color: #fff; 
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
-}
-
-.register-hr-main-component .register-hr-component h1 {
-    color: #a303a0;
-}
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .register-main .register-main-wrapper h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .register-main .register-main-wrapper .register-form input,
+  .register-main .register-main-wrapper .register-form select,
+  .register-main .register-main-wrapper .register-form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .register-main .register-main-wrapper .register-form select {
+    font-size: 16px;
+  }
+  
+  .register-main .register-main-wrapper .register-form button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .register-main .register-main-wrapper .register-form button:hover {
+    background-color: #0056b3;
+  }
+ 

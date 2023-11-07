@@ -4,6 +4,7 @@ import "./HomePageStyles.css";
 import AutoImageSlider from '../../components/slider/slider';
 import design1 from './images/design1.png';
 import design2 from './images/design2.png';
+import logo from './images/Logo.png';
 
 const HomePage = () => {
   return (
@@ -22,7 +23,7 @@ const HomePage = () => {
           <div className="ellipse-2" />
           <div className="ellipse-3" />
           <div className='header-div'>
-            <img className='logo-img' src='./src/pages/Homepage/images/Logo.png' alt='img-logo' />
+            <img className='logo-img' src={logo} alt='img-logo' />
             <Link className="login-button" to="/login">
               Login
             </Link>

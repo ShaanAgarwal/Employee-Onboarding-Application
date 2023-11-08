@@ -27,9 +27,12 @@ export const VerifyDocument = () => {
         return <div>Loading...</div>;
     }
 
+    const handleLogout = () => {};
+
     const { aadharCard, graduationMarksheet, hscMarksheet, panCard, passport, residentialProof, sscMarksheet } = candidateDetails.uploadDocuments;
     return (
         <div className='main-detail-container'>
+            <button className='new-logout' onClick={handleLogout}>Logout</button>
             <div className='details-wrapper'>
                 <h2>Verification of Documents</h2>
                 <div className='details'>

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import '../HR/Styles/VerifyDocument.css';
 import backendURL from '../../baseURL';
 
 export const VerifyDocument = () => {
     const { candidateId } = useParams();
     const [candidateDetails, setCandidateDetails] = useState(null);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -27,7 +29,10 @@ export const VerifyDocument = () => {
         return <div>Loading...</div>;
     }
 
-    const handleLogout = () => {};
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/');
+    };
 
     const { aadharCard, graduationMarksheet, hscMarksheet, panCard, passport, residentialProof, sscMarksheet } = candidateDetails.uploadDocuments;
     return (

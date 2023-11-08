@@ -163,7 +163,8 @@ const rejectCandidate = async (req, res) => {
 };
 
 const sendOfferLetter = async (req, res) => {
-  const { name, email, position, location, salary } = req.body;
+  const { name, email, position, location, salary, induction } = req.body;
+  console.log(req.body);
 
   // Create PDF
   const pdfDoc = new PDFDocument();
@@ -184,6 +185,8 @@ const sendOfferLetter = async (req, res) => {
     .text(`Location: ${location}`)
     .moveDown()
     .text(`Salary: ${salary}`)
+    .moveDown()
+    .text(`Induction Meeting Details: ${induction}`)
     .moveDown(2)
     .text(`Best regards,`)
     .text(`Empowerin, India`)

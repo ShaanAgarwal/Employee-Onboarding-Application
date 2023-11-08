@@ -15,7 +15,8 @@ const OfferLetterForm = () => {
         email: '',
         position: '',
         location: '',
-        salary: ''
+        salary: '',
+        induction: ''
     });
 
     const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const OfferLetterForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(formData);
         try {
             dispatch(showLoading());
             const response = await axios.post(`${backendURL}/api/hr/send-offer-letter`, formData);
@@ -87,6 +89,15 @@ const OfferLetterForm = () => {
                         type="text"
                         name="salary"
                         value={formData.salary}
+                        onChange={handleChange}
+                    />
+                </div>
+                <div className="form-group">
+                    <label>Induction Meeting Details:</label>
+                    <input
+                        type="text"
+                        name="induction"
+                        value={formData.induction}
                         onChange={handleChange}
                     />
                 </div>

@@ -66,7 +66,7 @@ const CandidateRoundDetails = () => {
           <div className="user-details">
             <p>{userDetails.name}</p>
             <p>{userDetails.email}</p>
-            <button className="logout-button" onClick={handleLogout}>Logout</button>
+            <button className="candidate-logout-button" onClick={handleLogout}>Logout</button>
             <Link to={`/dashboard/CandidateChat/${candidateId}`}>Chat</Link>
           </div>
           <div className='interview-round-main-box'>

@@ -53,7 +53,7 @@ const uploadFile = async (file) => {
       },
       requestBody: {
         name: file.originalname,
-        parents: ["1kNSlFMpNDah1DflH4R-cxDTGbty5cLQr"],
+        parents: ["1h4AhKi9xFOVGRVXrL8-Oj75kMxz21Aww"],
       },
       fields: "id,name,webContentLink",
     });

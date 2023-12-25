@@ -208,7 +208,7 @@ const sendOfferLetter = async (req, res) => {
     service: 'Gmail',
     auth: {
       user: 'shaanagarwal1942003@gmail.com',
-      pass: 'jcht aexn wmll glqb'
+      pass: 'cynt rphp vtmy srtr'
     }
   });
 

@@ -207,13 +207,13 @@ const sendOfferLetter = async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'shaanagarwal1942003@gmail.com',
-      pass: 'cynt rphp vtmy srtr'
+      user: 'agarwalshaan27@gmail.com',
+      pass: 'toii hjgh bsoa drpc'
     }
   });
 
   const mailOptions = {
-    from: 'shaanagarwal1942003@gmail.com',
+    from: 'agarwalshaan27@gmail.com',
     to: email,
     subject: 'Offer Letter',
     html: `<p>Dear ${name},</p><p>We are pleased to offer you a position at our company...</p>`, // Add the HTML content of the email here

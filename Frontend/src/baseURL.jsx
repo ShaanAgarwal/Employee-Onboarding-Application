@@ -1,2 +1,2 @@
-const backendURL = "http://localhost:8080";
+const backendURL = "https://empowerin-backend.vercel.app";
 export default backendURL;

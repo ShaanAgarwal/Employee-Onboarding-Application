@@ -6,7 +6,6 @@ const saveChatMessage = async (req, res) => {
     try {
         const { candidateId } = req.params;
         const { text, role } = req.body;
-        console.log(req.body);
         let chat = await Chat.findOne({ candidate: candidateId });
         chat.messages.push({ text, role });
         await chat.save();
@@ -26,7 +25,6 @@ const getChatMessages = async (req, res) => {
         }
         const candidate = await User.findById(chat.candidate);
         const hr = await User.findById(chat.hr);
-
         res.status(200).json({chat, candidate, hr});
     } catch (error) {
         console.error(error);

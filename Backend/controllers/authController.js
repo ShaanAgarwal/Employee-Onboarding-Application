@@ -12,6 +12,7 @@ const bcrypt = require("bcrypt");
 const KEYFILEPATH = path.join(__dirname, "cred.json");
 const SCOPES = ["https://www.googleapis.com/auth/drive"];
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const auth = new google.auth.GoogleAuth({
   keyFile: KEYFILEPATH,
@@ -53,7 +54,7 @@ const uploadFile = async (file) => {
       },
       requestBody: {
         name: file.originalname,
-        parents: ["1kNSlFMpNDah1DflH4R-cxDTGbty5cLQr"],
+        parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
       },
       fields: "id,name,webContentLink",
     });

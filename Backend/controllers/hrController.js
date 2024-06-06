@@ -164,11 +164,7 @@ const rejectCandidate = async (req, res) => {
 
 const sendOfferLetter = async (req, res) => {
   const { name, email, position, location, salary, induction } = req.body;
-  console.log(req.body);
-
-  // Create PDF
   const pdfDoc = new PDFDocument();
-  // Add content to the PDF
   pdfDoc.font('Helvetica-Bold')
     .fontSize(24)
     .text('Offer Letter', { align: 'center' })
@@ -207,16 +203,16 @@ const sendOfferLetter = async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'shaanagarwal1942003@gmail.com',
-      pass: 'xnsb rlns ohky vkap'
+      user: 'agarwalshaan27@gmail.com',
+      pass: 'ghkn yagl faxk frfv'
     }
   });
 
   const mailOptions = {
-    from: 'shaanagarwal1942003@gmail.com',
+    from: 'agarwalshaan27@gmail.com',
     to: email,
     subject: 'Offer Letter',
-    html: `<p>Dear ${name},</p><p>We are pleased to offer you a position at our company...</p>`, // Add the HTML content of the email here
+    html: `<p>Dear ${name},</p><p>We are pleased to offer you a position at our company...</p>`,
     attachments: [
       {
         filename: 'offer_letter.pdf',

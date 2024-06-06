@@ -65,7 +65,7 @@ const uploadFile = async (
         },
         requestBody: {
           name: resumeFile.originalname,
-          parents: ["1kNSlFMpNDah1DflH4R-cxDTGbty5cLQr"],
+          parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
         },
         fields: "id,name,webContentLink",
       });
@@ -78,7 +78,7 @@ const uploadFile = async (
         },
         requestBody: {
           name: imageFile.originalname,
-          parents: ["1kNSlFMpNDah1DflH4R-cxDTGbty5cLQr"],
+          parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
         },
         fields: "id,name,webContentLink",
       });
@@ -100,10 +100,6 @@ const uploadFile = async (
       "Application Submission",
       `Dear ${name},\n\nYour application has been submitted to Empowerin, India. We will get back to you shortly.\n\nBest regards,\nThe Hiring Team`
     );
-    console.log(`Uploaded resume: ${resumeData.name} - ${resumeData.id}`);
-    console.log(`Resume URL: ${resumeData.webContentLink}`);
-    console.log(`Uploaded image: ${imageData.name} - ${imageData.id}`);
-    console.log(`Image URL: ${imageData.webContentLink}`);
   } catch (error) {
     console.error(`Error uploading files: ${error.message}`);
     throw error;

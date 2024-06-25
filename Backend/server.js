@@ -39,6 +39,14 @@ app.use("/api/candidate", candidateRoutes);
 app.use("/api/onboarding", onboardingRoutes);
 app.use("/api/chat", chatRoutes);
 
+app.get("/", (req, res) => {
+  try {
+    return res.json({ message: "Server Is Running Properly", success: true });
+  } catch (error) {
+    return res.json({ message: "Internal Server Error", success: false });
+  }
+});
+
 // Port
 const PORT = 8081;
 const MODE = "development";

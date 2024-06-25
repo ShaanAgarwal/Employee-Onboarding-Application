@@ -23,7 +23,8 @@ const register = async (req, res) => {
   try {
     const { name, email, password, role } = req.body;
     const { files } = req;
-    const imageFile = await uploadFile(files[0]);
+    let imageFile = await uploadFile(files[0]);
+    imageFile = "https://drive.google.com/thumbnail?id=" + imageFile;
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
       name,
@@ -43,10 +44,8 @@ const register = async (req, res) => {
 const uploadFile = async (file) => {
   try {
     console.log(`Uploading file: ${file.originalname}`);
-
     const bufferStream = new stream.PassThrough();
     bufferStream.end(file.buffer);
-
     const { data } = await google.drive({ version: "v3", auth }).files.create({
       media: {
         mimeType: file.mimetype,
@@ -56,17 +55,11 @@ const uploadFile = async (file) => {
         name: file.originalname,
         parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
       },
-      fields: "id,name,webContentLink",
+      fields: "id,webViewLink",
     });
-
-    console.log(
-      `Uploaded file: ${file.originalname} - Link: ${data.webContentLink}`
-    );
-    return data.webContentLink;
+    return data.id;
   } catch (error) {
-    console.error(
-      `Error uploading file ${file.originalname}: ${error.message}`
-    );
+    console.error(`Error uploading file ${file.originalname}: ${error.message}`);
     throw error;
   }
 };

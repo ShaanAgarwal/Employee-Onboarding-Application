@@ -23,7 +23,6 @@ const HeadHRProfile = () => {
             try {
                 const email = localStorage.getItem('email');
                 const response = await axios.get(`${backendURL}/api/admin/admin-details?email=${email}`);
-
                 if (response.status === 200) {
                     setAdminDetails(response.data);
                 } else {

@@ -12,7 +12,9 @@ docker run -p 5173:5173 empowerin-frontend
 ```
 
 (Using These Commands, Hot Reloading Is Enabled)
+```sh
 docker-compose up
+```
 
 ## To Run The Backend
 (By Default The Backend Works On Port 8081. To Change The Port Make Changes In The Docker/docker-compose, server.js file and the terminal commands as well.)
@@ -24,7 +26,9 @@ docker run -p 8081:8081 -e PORT=8081 empowerin-backend
 ```
 
 (Using These Commands, Hot Reloading Is Enabled)
+```sh
 docker-compose up
+```
 
 ## Changing Backend URL
 (Put The Backend URL in the /baseURL.jsx file in the frontend directory.)

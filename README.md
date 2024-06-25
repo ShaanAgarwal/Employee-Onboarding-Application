@@ -18,8 +18,10 @@ docker-compose up
 (By Default The Backend Works On Port 8081. To Change The Port Make Changes In The Docker/docker-compose, server.js file and the terminal commands as well.)
 
 (Using These Commands The Application Has To Be Built Again With Each and every change)
+```sh
 docker build -t empowerin-backend .
 docker run -p 8081:8081 -e PORT=8081 empowerin-backend
+```
 
 (Using These Commands, Hot Reloading Is Enabled)
 docker-compose up

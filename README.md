@@ -29,4 +29,4 @@ docker-compose up
 ```
 
 ## Changing Backend URL
-(Put The Backend URL in the /baseURL.jsx file in the frontend directory.)
+To change the backend URL used in your frontend, modify the /baseURL.jsx file located in the frontend directory.

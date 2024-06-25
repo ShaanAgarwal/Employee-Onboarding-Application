@@ -3,9 +3,13 @@
 ## To Run The Frontend
 (By Default The Frontend Works On Port 5173. To Change The Port Make Changes In The Docker/docker-compose, vite.config.js file and the terminal commands as well.)
 
-(Using These Commands The Application Has To Be Built Again With Each and every change)
+
+**Commands for Build and Run (Requires rebuilding for each change):**
+
+```sh
 docker build -t empowerin-frontend .
-docker run -p 5173:5173 empowerin-frontend
+docker run -p 5173:5173 empowerin-frontend 
+```
 
 (Using These Commands, Hot Reloading Is Enabled)
 docker-compose up

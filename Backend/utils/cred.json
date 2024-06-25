@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "empowerin-425616",
+    "private_key_id": "da91e7b660506a118fefcd0467c62a28a6f81b25",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQDuWpVtjAFuztZb\nFEEbxAkFg690yZcp4Ocd9meK0UK4D1cAL8r8Se6DRGMZZ6WZZHegmQxpsLPvJXnX\nug4hxkhDuqTA3xwIvakbynMl+uYkjtRidi3Tnn0vo2umYgWWaHIIHZetuPIeYMMh\nSmdIUFEK+V1HMmPG+B3pLOCfk5RycbLY0SsHNJ6ES+F5zblL8NqhJNQ1L5m1K5Ly\n2WLcleJM1xrj33LtIXhJreQ5iUF2GNnc9Ib+AnWaMG7e/YKx2wkr48WUHuQAjWoo\nq3oWY4xRSg5169zMpBfIeTYJMgny9+MK5V2aIWXzyhmNVn+VnczevOVdzVtIPB6q\nKGcFRRZhAgMBAAECgf9ooJq3W53FZkXx9RIffg33vbZnLZaNa4wIOwF4jiMbaKBo\nFJKl7E4mkP5vSHAIxXE9rfEk88wITgsOBz3s1X0jPerUPxuvOpHhAR1KrrgXlBrm\nnbnACvIo1zOJ9b0+KNrldRf/yg9+BjuhgWeU9qychJnNhvEFhiSbFngDlGS1Vxqd\nQaKZctUhKCzBuFQkLDCdtcWCoiKbDVvgV84+LU9qLlzTdFWq/PGF5sQ3CstnUY1Q\nPaZh/EsyPBmE73IYrYz3olf3iwlTo5PiwHU+mxdfXxJ17GBtQt7KZXM2wSMZpEdO\ng/sQ6MeYQEBm/TgR9FqUDRavB4A58yiDn/5i5AkCgYEA/QNNjzuLkhFvBjksKmbX\n0hl+VhZi+Pm5R3Gr3SjbkhRX4jbTBlKj9OTRirsLQQLB9+vwovOilJ5jKAOZqXFm\n3O//N7DBrgmQQ8UU0jnaLhMUvBLmbJs7S3CCo29tWmFTFQcg3zeNBsRXS1HT2ejc\nZkJEH27y4gc/he34OaPrHXkCgYEA8Sr5yR3D+J9PNN00TNyNUMVi+cYrsP0ViytK\nJ0AnimM7GefXYKZI3RF+ksAjbRFoo5AZVM8e1giNGdsGhuIze1nw8eTC3Niwe3nn\nUHK+tSTzGT9vvWt4ozhRJdsVCwYLmE/7puuD7CH+sESk06vKZtI5LQ0N4S28N/+Z\nzj6WzikCgYEAkfdC2pxetAFMzQlU2o2Ee1hr01yM8tiXNIl2vlug+RC1dvNsIRyy\nLEmKPgAUyQe/QbmjlU77f8Q0rlQNZXzf/ByVX9qgkjhAO2jKz1HC9ovZjXtV5lhU\nB/y70XAqZVb6qIn5Q+33dWz2c6SclP3LkU8vn/bRNuc5lZmpeA+CR/kCgYBTxbbg\nqotBWK1d0pzxOgeIkBgyZSkWIMOUBSSL/9f8VT3ZYNRKyVg0GniaJ03m/A4aCtsR\nv6SZenzxB0j8H6T8ayCsFeeuaULckVrNch5WtBARrBx3ctaD8/MUMEbd/mqWrOng\ncJzxsFlVB3Mt59W1475irM8ucgGYfhwCLXGbCQKBgF5qtjFa2rbqtwHvE9/1CKQR\ncph4c00GAJOFIR9VqHVl98HJM1Eqk7N00kUHLDdMJEySEJwsbgCv2PUqAbbK8LUL\nkJwB+yKhAwwesNgmyieo6tc8kvgAfEwn+QwJACXH4/QOrqtHDerGNfuRXY4Jw9rU\nks/zaL6Tvibcqv6NaGoV\n-----END PRIVATE KEY-----\n",
+    "client_email": "empowerin@empowerin-425616.iam.gserviceaccount.com",
+    "client_id": "107111714881629168931",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/empowerin%40empowerin-425616.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+}

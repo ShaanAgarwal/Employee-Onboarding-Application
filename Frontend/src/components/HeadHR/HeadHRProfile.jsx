@@ -1,86 +1,91 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import "../HeadHR/HeadHRStyles/HeadHRProfile.css";
 import { useNavigate } from "react-router-dom";
 import squareImage from "./images/bg.png";
 import Profile from "./images/profile.png";
 import Call from "./images/call.png";
 import Location from "./images/location.png";
-import axios from 'axios';
+import axios from "axios";
 import BD from "./images/cake.png";
-import backendURL from '../../baseURL';
+import backendURL from "../../baseURL";
 
 const HeadHRProfile = () => {
-    const navigate = useNavigate();
-    const [adminDetails, setAdminDetails] = useState(null);
+  const navigate = useNavigate();
+  const [adminDetails, setAdminDetails] = useState(null);
 
-    const handleLogout = () => {
-        localStorage.clear();
-        navigate("/");
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/");
+  };
+
+  useEffect(() => {
+    const fetchAdminDetails = async () => {
+      try {
+        const email = localStorage.getItem("email");
+        const response = await axios.get(
+          `${backendURL}/api/admin/admin-details?email=${email}`
+        );
+        if (response.status === 200) {
+          setAdminDetails(response.data);
+        } else {
+          console.error("Error fetching admin details");
+        }
+      } catch (error) {
+        console.error("Error fetching admin details:", error);
+      }
     };
 
-    useEffect(() => {
-        const fetchAdminDetails = async () => {
-            try {
-                const email = localStorage.getItem('email');
-                const response = await axios.get(`${backendURL}/api/admin/admin-details?email=${email}`);
-                if (response.status === 200) {
-                    setAdminDetails(response.data);
-                } else {
-                    console.error('Error fetching admin details');
-                }
-            } catch (error) {
-                console.error('Error fetching admin details:', error);
-            }
-        };
+    fetchAdminDetails();
+  }, []);
 
-        fetchAdminDetails();
-    }, []);
-
-    return (
-        <>
-            {adminDetails && (
-                <div className='head-hr-profile'>
-                    <div className='head-hr-profile-picture'>
-                        <h1>{adminDetails.name}</h1>
-                        {/* <img className="circular-image" src={adminDetails.photo} alt="Profile" /> */}
-                        <img className="circular-image" src="https://drive.google.com/thumbnail?id=16zgYbwWPRspzR2lYLiI1_6qshlH_rMZu" alt="Profile" />
-                    </div>
-                    <div className='head-hr-background'>
-                        <img src={squareImage} alt="Background" />
-                    </div>
-                    <button className='head-hr-logout-button' onClick={handleLogout}>LOGOUT</button>
-                    <div className='head-hr-about'>
-                        <h2>About</h2>
-                        <div className="contact-info">
-                            <div className='profile'>
-                                <img src={Profile} />
-                                <ul>Male</ul>
-                                <span></span>
-                            </div>
-                            <div className='bd'>
-                                <img src={BD} />
-                                <ul>Born: 19/04/2003</ul>
-                                <span></span>
-                            </div>
-                            <div className='location'>
-                                <img src={Location} />
-                                <ul>Address is this.</ul>
-                                <span></span>
-                            </div>
-                            <div className='call'>
-                                <img src={Call} />
-                                <ul>9137389019</ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
-            <div>
-                photo
-                <img className="circular-image" src="https://drive.google.com/thumbnail?id=16zgYbwWPRspzR2lYLiI1_6qshlH_rMZu" alt="Profile" />
+  return (
+    <>
+      {adminDetails && (
+        <div className="head-hr-profile">
+          <div className="head-hr-profile-picture">
+            <h1>{adminDetails.name}</h1>
+            {/* <img className="circular-image" src={adminDetails.photo} alt="Profile" /> */}
+            <img
+              className="circular-image"
+            //   src="https://drive.google.com/thumbnail?id=16zgYbwWPRspzR2lYLiI1_6qshlH_rMZu"
+            src={adminDetails.photo}
+              alt="Profile"
+            />
+          </div>
+          <div className="head-hr-background">
+            <img src={squareImage} alt="Background" />
+          </div>
+          <button className="head-hr-logout-button" onClick={handleLogout}>
+            LOGOUT
+          </button>
+          <div className="head-hr-about">
+            <h2>About</h2>
+            <div className="contact-info">
+              <div className="profile">
+                <img src={Profile} />
+                <ul>Male</ul>
+                <span></span>
+              </div>
+              <div className="bd">
+                <img src={BD} />
+                <ul>Born: 19/04/2003</ul>
+                <span></span>
+              </div>
+              <div className="location">
+                <img src={Location} />
+                <ul>Address is this.</ul>
+                <span></span>
+              </div>
+              <div className="call">
+                <img src={Call} />
+                <ul>9137389019</ul>
+              </div>
             </div>
-        </>
-    );
+          </div>
+        </div>
+      )}
+    </>
+  );
 };
 
 export default HeadHRProfile;

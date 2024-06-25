@@ -15,7 +15,7 @@ docker-compose up
 ```
 
 ## To Run The Backend
-(By Default The Backend Works On Port 8081. To Change The Port Make Changes In The Docker/docker-compose, server.js file and the terminal commands as well.)
+The backend runs by default on port 8081. To change the port, modify settings in the Docker/docker-compose.yml and server.js files.
 
 **Commands for Build and Run (Requires rebuilding for each change):**
 ```sh

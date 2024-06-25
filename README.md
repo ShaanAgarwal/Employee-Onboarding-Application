@@ -1,8 +1,7 @@
 # Employee-Onboarding-Application
 
 ## To Run The Frontend
-(By Default The Frontend Works On Port 5173. To Change The Port Make Changes In The Docker/docker-compose, vite.config.js file and the terminal commands as well.)
-
+The frontend runs by default on port 5173. To change the port, modify settings in the Docker/docker-compose.yml and vite.config.js files.
 
 **Commands for Build and Run (Requires rebuilding for each change):**
 ```sh

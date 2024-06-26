@@ -12,7 +12,7 @@ const bcrypt = require("bcrypt");
 const KEYFILEPATH = path.join(__dirname, "cred.json");
 const SCOPES = ["https://www.googleapis.com/auth/drive"];
 const jwt = require("jsonwebtoken");
-// const { uploadFile } = require("../utils/googleDriveUpload");
+const { uploadFile } = require("../utils/uploadFile");
 require("dotenv").config();
 
 const auth = new google.auth.GoogleAuth({
@@ -42,28 +42,28 @@ const register = async (req, res) => {
   }
 };
 
-const uploadFile = async (file) => {
-  try {
-    console.log(`Uploading file: ${file.originalname}`);
-    const bufferStream = new stream.PassThrough();
-    bufferStream.end(file.buffer);
-    const { data } = await google.drive({ version: "v3", auth }).files.create({
-      media: {
-        mimeType: file.mimetype,
-        body: bufferStream,
-      },
-      requestBody: {
-        name: file.originalname,
-        parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
-      },
-      fields: "id,webViewLink",
-    });
-    return data.id;
-  } catch (error) {
-    console.error(`Error uploading file ${file.originalname}: ${error.message}`);
-    throw error;
-  }
-};
+// const uploadFile = async (file) => {
+//   try {
+//     console.log(`Uploading file: ${file.originalname}`);
+//     const bufferStream = new stream.PassThrough();
+//     bufferStream.end(file.buffer);
+//     const { data } = await google.drive({ version: "v3", auth }).files.create({
+//       media: {
+//         mimeType: file.mimetype,
+//         body: bufferStream,
+//       },
+//       requestBody: {
+//         name: file.originalname,
+//         parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
+//       },
+//       fields: "id,webViewLink",
+//     });
+//     return data.id;
+//   } catch (error) {
+//     console.error(`Error uploading file ${file.originalname}: ${error.message}`);
+//     throw error;
+//   }
+// };
 
 const login = async (req, res) => {
   const { email, password } = req.body;

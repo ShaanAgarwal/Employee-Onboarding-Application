@@ -1,23 +1,9 @@
-const path = require("path");
-const fs = require("fs");
 const Candidate = require("../models/candidateSchema");
 const RejectedCandidate = require("../models/rejectedCandidateSchema");
 const User = require("../models/userSchema");
 const bcrypt = require("bcrypt");
 const { sendEmail } = require("../utils/emailUtils");
-const stream = require("stream");
-const multer = require("multer");
-const upload = multer();
-const { google } = require("googleapis");
 const { uploadFile } = require("../utils/uploadFile");
-
-const KEYFILEPATH = path.join(__dirname, "cred.json");
-const SCOPES = ["https://www.googleapis.com/auth/drive"];
-
-const auth = new google.auth.GoogleAuth({
-  keyFile: KEYFILEPATH,
-  scopes: SCOPES,
-});
 
 const submitForm = async (req, res) => {
   try {

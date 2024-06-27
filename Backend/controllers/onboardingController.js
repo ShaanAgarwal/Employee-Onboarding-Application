@@ -1,21 +1,6 @@
-const express = require("express");
-const router = express.Router();
 const User = require('../models/userSchema');
 const Onboarding = require('../models/onboardingSchema');
-const path = require('path');
-const fs = require('fs');
-const stream = require("stream");
-const multer = require("multer");
-const upload = multer();
-const { google } = require("googleapis");
-
-const KEYFILEPATH = path.join(__dirname, "cred.json");
-const SCOPES = ["https://www.googleapis.com/auth/drive"];
-
-const auth = new google.auth.GoogleAuth({
-    keyFile: KEYFILEPATH,
-    scopes: SCOPES,
-});
+const { uploadFile } = require('../utils/uploadFile');
 
 const getOnboardingDetails = async (req, res) => {
     try {
@@ -55,44 +40,24 @@ const updatePersonalDetails = async (req, res) => {
     };
 };
 
-const uploadFile = async (file) => {
-    try {
-        console.log(`Uploading file: ${file.originalname}`);
-
-        const bufferStream = new stream.PassThrough();
-        bufferStream.end(file.buffer);
-
-        const { data } = await google.drive({ version: "v3", auth }).files.create({
-            media: {
-                mimeType: file.mimetype,
-                body: bufferStream,
-            },
-            requestBody: {
-                name: file.originalname,
-                parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
-            },
-            fields: "id,name,webContentLink",
-        });
-
-        console.log(`Uploaded file: ${file.originalname} - Link: ${data.webContentLink}`);
-        return data.webContentLink;
-    } catch (error) {
-        console.error(`Error uploading file ${file.originalname}: ${error.message}`);
-        throw error;
-    }
-};
-
 const uploadDocuments = async (req, res) => {
     try {
         const email = req.query.email;
         const { files } = req;
-        const aadharCard = await uploadFile(files[0]);
-        const panCard = await uploadFile(files[1]);
-        const residentialProof = await uploadFile(files[2]);
-        const passport = await uploadFile(files[3]);
-        const sscMarksheet = await uploadFile(files[4]);
-        const hscMarksheet = await uploadFile(files[5]);
-        const graduationMarksheet = await uploadFile(files[6]);
+        let aadharCard = await uploadFile(files[0]);
+        aadharCard = aadharCard.webContentLink;
+        let panCard = await uploadFile(files[1]);
+        aadharCard = panCard.webContentLink;
+        let residentialProof = await uploadFile(files[2]);
+        residentialProof = residentialProof.webContentLink;
+        let passport = await uploadFile(files[3]);
+        passport = passport.webContentLink;
+        let sscMarksheet = await uploadFile(files[4]);
+        sscMarksheet = sscMarksheet.webContentLink;
+        let hscMarksheet = await uploadFile(files[5]);
+        hscMarksheet = hscMarksheet.webContentLink;
+        let graduationMarksheet = await uploadFile(files[6]);
+        graduationMarksheet = graduationMarksheet.webContentLink;
 
         const user = await User.findOne({ email });
         if (!user) {

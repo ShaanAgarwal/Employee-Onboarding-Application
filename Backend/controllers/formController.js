@@ -10,10 +10,13 @@ const submitForm = async (req, res) => {
     const { name, email, address, city, pincode, start_date, job_role } =
       req.body;
     const { files } = req;
-    let resumeFile = await uploadFile(files[0]);
-    resumeFile = resumeFile.webContentLink;
-    let imageFile = await uploadFile(files[1]);
-    imageFile = "https://drive.google.com/thumbnail?id=" + imageFile.id;
+    const [resumeFile, imageFile] = await Promise.all([
+      uploadFile(files[0]),
+      uploadFile(files[1]),
+    ]);
+    const resumeFileLink = resumeFile.webContentLink;
+    const imageFileLink =
+      "https://drive.google.com/thumbnail?id=" + imageFile.id;
     const candidate = new Candidate({
       name,
       email,
@@ -22,8 +25,8 @@ const submitForm = async (req, res) => {
       pincode,
       start_date,
       job_role,
-      resumePath: resumeFile,
-      photoPath: imageFile,
+      resumePath: resumeFileLink,
+      photoPath: imageFileLink,
     });
     await candidate.save();
     await sendEmail(

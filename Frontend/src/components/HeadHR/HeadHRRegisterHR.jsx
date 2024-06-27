@@ -39,7 +39,6 @@ const RegisterPage = () => {
             dispatch(showLoading());
             const response = await axios.post(`${backendURL}/api/auth/register`, formData);
             dispatch(hideLoading());
-            navigate("/");
             console.log(response.data);
             console.log(formData.get('photo'))
             console.log(formData.get('name'))

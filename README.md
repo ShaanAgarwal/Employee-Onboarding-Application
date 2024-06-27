@@ -1,5 +1,32 @@
 # Employee-Onboarding-Application
 
+## To Setup The Application
+
+**Frontend .env file**
+```sh
+VITE_BACKEND_URL=
+```
+
+**Backend .env file**
+```sh
+mongodb_uri=
+
+nodemailer_account=
+nodemailer_password=
+
+type=
+project_id=
+private_key_id=
+private_key=
+client_email=
+client_id=
+auth_uri=
+token_uri=
+auth_provider_x509_cert_url=
+client_x509_cert_url=
+universe_domain=
+```
+
 ## To Run The Frontend
 The frontend runs by default on port 5173. To change the port, modify settings in the Docker/docker-compose.yml and vite.config.js files.
 

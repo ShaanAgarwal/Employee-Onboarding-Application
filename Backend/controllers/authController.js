@@ -25,7 +25,7 @@ const register = async (req, res) => {
     const { name, email, password, role } = req.body;
     const { files } = req;
     let imageFile = await uploadFile(files[0]);
-    imageFile = "https://drive.google.com/thumbnail?id=" + imageFile;
+    imageFile = "https://drive.google.com/thumbnail?id=" + imageFile.id;
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({
       name,
@@ -41,29 +41,6 @@ const register = async (req, res) => {
     res.status(500).json({ error: "An error occurred" });
   }
 };
-
-// const uploadFile = async (file) => {
-//   try {
-//     console.log(`Uploading file: ${file.originalname}`);
-//     const bufferStream = new stream.PassThrough();
-//     bufferStream.end(file.buffer);
-//     const { data } = await google.drive({ version: "v3", auth }).files.create({
-//       media: {
-//         mimeType: file.mimetype,
-//         body: bufferStream,
-//       },
-//       requestBody: {
-//         name: file.originalname,
-//         parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
-//       },
-//       fields: "id,webViewLink",
-//     });
-//     return data.id;
-//   } catch (error) {
-//     console.error(`Error uploading file ${file.originalname}: ${error.message}`);
-//     throw error;
-//   }
-// };
 
 const login = async (req, res) => {
   const { email, password } = req.body;

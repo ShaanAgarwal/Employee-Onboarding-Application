@@ -40,11 +40,11 @@ const uploadFile = async (file) => {
         name: file.originalname,
         parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"], // Example parent folder ID
       },
-      fields: "id,webViewLink",
+      fields: "id,webViewLink, webContentLink",
     });
 
     console.log(`File uploaded successfully. File ID: ${data.id}`);
-    return data.id;
+    return data;
   } catch (error) {
     console.error(
       `Error uploading file ${file.originalname}: ${error.message}`

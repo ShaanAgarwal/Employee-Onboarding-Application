@@ -9,6 +9,7 @@ const stream = require("stream");
 const multer = require("multer");
 const upload = multer();
 const { google } = require("googleapis");
+const { uploadFile } = require("../utils/uploadFile");
 
 const KEYFILEPATH = path.join(__dirname, "cred.json");
 const SCOPES = ["https://www.googleapis.com/auth/drive"];
@@ -23,66 +24,10 @@ const submitForm = async (req, res) => {
     const { name, email, address, city, pincode, start_date, job_role } =
       req.body;
     const { files } = req;
-    await uploadFile(
-      files[0],
-      files[1],
-      name,
-      email,
-      address,
-      city,
-      pincode,
-      start_date,
-      job_role
-    );
-    res.status(200).send("Form Submitted");
-  } catch (error) {
-    res.status(500).send(error.message);
-  }
-};
-
-const uploadFile = async (
-  resumeFile,
-  imageFile,
-  name,
-  email,
-  address,
-  city,
-  pincode,
-  start_date,
-  job_role
-) => {
-  const resumeBufferStream = new stream.PassThrough();
-  resumeBufferStream.end(resumeFile.buffer);
-  const imageBufferStream = new stream.PassThrough();
-  imageBufferStream.end(imageFile.buffer);
-  try {
-    const { data: resumeData } = await google
-      .drive({ version: "v3", auth })
-      .files.create({
-        media: {
-          mimeType: resumeFile.mimetype,
-          body: resumeBufferStream,
-        },
-        requestBody: {
-          name: resumeFile.originalname,
-          parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
-        },
-        fields: "id,name,webContentLink",
-      });
-    const { data: imageData } = await google
-      .drive({ version: "v3", auth })
-      .files.create({
-        media: {
-          mimeType: imageFile.mimetype,
-          body: imageBufferStream,
-        },
-        requestBody: {
-          name: imageFile.originalname,
-          parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
-        },
-        fields: "id,name,webContentLink",
-      });
-
+    let resumeFile = await uploadFile(files[0]);
+    resumeFile = resumeFile.webContentLink;
+    let imageFile = await uploadFile(files[1]);
+    imageFile = "https://drive.google.com/thumbnail?id=" + imageFile.id;
     const candidate = new Candidate({
       name,
       email,
@@ -91,8 +36,8 @@ const uploadFile = async (
       pincode,
       start_date,
       job_role,
-      resumePath: resumeData.webContentLink,
-      photoPath: `https://drive.google.com/uc?id=${imageData.id}`,
+      resumePath: resumeFile,
+      photoPath: imageFile,
     });
     await candidate.save();
     await sendEmail(
@@ -100,9 +45,9 @@ const uploadFile = async (
       "Application Submission",
       `Dear ${name},\n\nYour application has been submitted to Empowerin, India. We will get back to you shortly.\n\nBest regards,\nThe Hiring Team`
     );
+    res.status(200).send("Form Submitted");
   } catch (error) {
-    console.error(`Error uploading files: ${error.message}`);
-    throw error;
+    res.status(500).send(error.message);
   }
 };
 
@@ -188,7 +133,6 @@ const rejectCandidate = async (req, res) => {
 };
 
 module.exports = {
-  uploadFile,
   submitForm,
   getCandidates,
   acceptCandidate,

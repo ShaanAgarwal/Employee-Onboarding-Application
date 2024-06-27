@@ -1,24 +1,8 @@
-const multer = require("multer");
-const express = require("express");
-const fs = require("fs");
-const router = express.Router();
-const authController = require("../controllers/authController");
-const { google } = require("googleapis");
-const path = require("path");
-const stream = require("stream");
-const upload = multer();
 const User = require("../models/userSchema");
 const bcrypt = require("bcrypt");
-const KEYFILEPATH = path.join(__dirname, "cred.json");
-const SCOPES = ["https://www.googleapis.com/auth/drive"];
 const jwt = require("jsonwebtoken");
 const { uploadFile } = require("../utils/uploadFile");
 require("dotenv").config();
-
-const auth = new google.auth.GoogleAuth({
-  keyFile: KEYFILEPATH,
-  scopes: SCOPES,
-});
 
 const register = async (req, res) => {
   try {

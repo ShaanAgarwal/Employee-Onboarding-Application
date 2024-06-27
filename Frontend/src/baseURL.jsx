@@ -1,3 +1,2 @@
-const backendURL = "https://empowerin-backend.vercel.app";
-// const backendURL = "http://localhost:8081";
+const backendURL = import.meta.env.VITE_BACKEND_URL;
 export default backendURL;

@@ -1,4 +1,3 @@
-// Package Imports
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -11,20 +10,14 @@ const hrRoutes = require("./routes/hrRoutes");
 const candidateRoutes = require("./routes/candidateRoutes");
 const onboardingRoutes = require("./routes/onboardingRoutes");
 const chatRoutes = require("./routes/chatRoutes");
-
-// Importing Mongoose
 const { connectDB } = require("./config/db");
 
-// DOTENV Config
 dotenv.config();
 
-// MongoDB Connection
 connectDB();
 
-// Rest Objects
 const app = express();
 
-// Middlewares
 app.use(express.json());
 app.use(cors());
 app.use(morgan("dev"));
@@ -47,11 +40,9 @@ app.get("/", (req, res) => {
   }
 });
 
-// Port
 const PORT = 8081;
 const MODE = "development";
 
-// Listen
 app.listen(PORT, (req, res) => {
   console.log(
     `Node Server Running In ${MODE} Mode on port no ${PORT}`.bgCyan.white

@@ -1,8 +1,7 @@
-require('dotenv').config(); // Load environment variables from .env file
+require('dotenv').config();
 const { google } = require("googleapis");
 const stream = require("stream");
 
-// Load credentials from environment variables
 const credentials = {
   type: process.env.type,
   project_id: process.env.project_id,
@@ -38,7 +37,7 @@ const uploadFile = async (file) => {
       },
       requestBody: {
         name: file.originalname,
-        parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"], // Example parent folder ID
+        parents: ["1xWxhB5jRGKtQyCRkgV4SbcQpp1u8LArH"],
       },
       fields: "id,webViewLink, webContentLink",
     });

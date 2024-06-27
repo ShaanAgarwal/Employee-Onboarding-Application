@@ -138,7 +138,6 @@ const rejectCandidate = async (req, res) => {
     if (!round) {
       return res.status(404).json({ message: "Round not found" });
     }
-    //code for saving the rejected candidates
     const rejectedCandidate = new RejectedCandidate({
       name: candidate.name,
       email: candidate.email,
@@ -191,7 +190,6 @@ const sendOfferLetter = async (req, res) => {
     .moveDown()
     .text(`9137389019`);
 
-  // Get the PDF buffer
   const pdfBuffer = await new Promise((resolve) => {
     const chunks = [];
     pdfDoc.on('data', (chunk) => chunks.push(chunk));
@@ -199,7 +197,6 @@ const sendOfferLetter = async (req, res) => {
     pdfDoc.end();
   });
 
-  // Send email with PDF attachment
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {

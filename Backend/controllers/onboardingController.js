@@ -47,7 +47,7 @@ const uploadDocuments = async (req, res) => {
         let aadharCard = await uploadFile(files[0]);
         aadharCard = aadharCard.webContentLink;
         let panCard = await uploadFile(files[1]);
-        aadharCard = panCard.webContentLink;
+        panCard = panCard.webContentLink;
         let residentialProof = await uploadFile(files[2]);
         residentialProof = residentialProof.webContentLink;
         let passport = await uploadFile(files[3]);

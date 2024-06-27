@@ -4,6 +4,7 @@ const Onboarding = require("../models/onboardingSchema");
 const RejectedCandidate = require("../models/rejectedCandidateSchema");
 const PDFDocument = require('pdfkit');
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
 const getHRDetails = async (req, res) => {
   try {
@@ -200,13 +201,13 @@ const sendOfferLetter = async (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'agarwalshaan27@gmail.com',
-      pass: 'ghkn yagl faxk frfv'
+      user: process.env.nodemailer_account,
+      pass: process.env.nodemailer_password
     }
   });
 
   const mailOptions = {
-    from: 'agarwalshaan27@gmail.com',
+    from: process.env.nodemailer_account,
     to: email,
     subject: 'Offer Letter',
     html: `<p>Dear ${name},</p><p>We are pleased to offer you a position at our company...</p>`,

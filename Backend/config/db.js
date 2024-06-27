@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-const colors = require("colors");
+require('dotenv').config();
 
 const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb+srv://agarwalshaan27:O8B85NTkbwb1nbNi@cluster0.uvo4j8e.mongodb.net/empowerin?retryWrites=true&w=majority");
-        console.log(`Connected To MongoDB Database ${mongoose.connection.host}`.bgMagenta.white);
+        await mongoose.connect(process.env.mongodb_uri);
+        console.log(`Connected To MongoDB Database ${mongoose.connection.host}`);
     } catch (error) {
-        console.log(`MongoDB Error: ${error}`.bgRed.white);
+        console.log(`MongoDB Error: ${error}`);
     }
 };
 

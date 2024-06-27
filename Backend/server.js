@@ -45,6 +45,6 @@ const MODE = "development";
 
 app.listen(PORT, (req, res) => {
   console.log(
-    `Node Server Running In ${MODE} Mode on port no ${PORT}`.bgCyan.white
+    `Node Server Running In ${MODE} Mode on port no ${PORT}`
   );
 });

@@ -10,23 +10,18 @@ const getAdminDetails = async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: "User not found." });
     }
-    res.json(user);
+    return res.json(user);
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "An error occurred while fetching user details." });
+    return res.status(500).json({ message: "An error occurred while fetching user details." });
   }
 };
 
 const getRejectedCandidates = async (req, res) => {
   try {
     const rejected = await rejectedCandidates.find();
-    res.status(200).json({ rejected, success: true });
+    return res.status(200).json({ rejected, success: true });
   } catch (error) {
-    console.log(error);
-    res
-      .status(500)
-      .json({ message: "An error has occurred.", success: false, error });
+    return res.status(500).json({ message: "An error has occurred.", success: false, error });
   }
 };
 
@@ -35,20 +30,18 @@ const getCandidates = async (req, res) => {
     const candidates = await User.find({ role: "candidate" })
       .populate("assignedHR", "name")
       .select("name assignedHR rounds photo");
-    res.json(candidates);
+    return res.status(200).json(candidates);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "An error occurred" });
+    return res.status(500).json({ error: "An error occurred" });
   }
 };
 
 const getHRs = async (req, res) => {
   try {
     const hrs = await User.find({ role: "hr" }).select("name");
-    res.json(hrs);
+    return res.json(hrs);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "An error occurred" });
+    return res.status(500).json({ error: "An error occurred" });
   }
 };
 
@@ -66,15 +59,14 @@ const assignHr = async (req, res) => {
       "HR Assignment",
       `Dear ${user.name}, Your HR has been assigned. Your HR's name is ${assignedHrUser.name}.`
     );
-    const chat = new Chat({
+    const chat = new Chat({ 
       candidate: userId,
       hr: hrId,
     });
     await chat.save();
-    res.json({ message: "HR assigned successfully" });
+    return res.json({ message: "HR assigned successfully" });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "An error occurred" });
+    return res.status(500).json({ error: "An error occurred" });
   }
 };
 
@@ -93,20 +85,18 @@ const updateRounds = async (req, res) => {
       "Interview Rounds Update",
       `Dear ${user.name}, The number of interview rounds in the selection process has been decided. It is ${rounds}.`
     );
-    res.json({ message: "Interview rounds updated successfully" });
+    return res.json({ message: "Interview rounds updated successfully" });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "An error occurred" });
+    return res.status(500).json({ error: "An error occurred" });
   }
 };
 
 const getAllHRs = async (req, res) => {
   try {
     const hrs = await User.find({ role: "hr" });
-    res.json(hrs);
+    return res.json(hrs);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "An error occurred" });
+    return res.status(500).json({ error: "An error occurred" });
   }
 };
 
@@ -124,19 +114,10 @@ const getOngoingCandidates = async (req, res) => {
         _id: 0,
       }
     );
-    res
-      .status(200)
-      .json({
-        candidates,
-        message: "Successful in retrieving ongoing candidates.",
-        success: true,
-      });
+    return res.status(200).json({ candidates, message: "Successful in retrieving ongoing candidates.", success: true, });
   } catch (error) {
-    console.log(error);
-    res
-      .status(500)
-      .json({ error, message: "Internal Server Error", success: false });
-  }
+    return res.status(500).json({ error, message: "Internal Server Error", success: false });
+  };
 };
 
 module.exports = {
